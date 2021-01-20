@@ -1,0 +1,24 @@
+Fqzer funcao linha
+Fazer funcao retangulo
+Fazer funcao circulo
+	sempre verificar se figura fica dentro da janela !!
+
+Fazer leitura do mapa
+	Validar cada configuracao
+	Popular struct
+	Ver tamanho do mapa
+	Alocar matriz para o mapa
+	Preencher matriz do mapa
+	Validar o mapa
+Criar o mapa 2d
+Check flag para salvar tela (render mapa 3d)
+Loop
+	Le inputs teclado
+	Update mapa 2d
+	Render mapa 2d
+	Render mapa 3d
+		Aplicar texturas
+		
+Perguntas:
+	check fora da janela ?
+
