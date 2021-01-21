@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/21 22:57:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/21 23:21:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -27,30 +27,21 @@
 
 
 // ========= STRUCTS ======================
-struct s_ponto {
+typedef struct s_ponto {
 	int x;
 	int y;
-};
+} t_pto;
 
-typedef struct s_ponto t_pto;
-
-struct s_var_line {
+typedef struct s_var_line {
 	int dx;
 	int sx;
 	int dy;
 	int sy;
 	int err;
 	int e2;
-	};
+} t_var_line;
 
-typedef struct s_var_line t_var_line;
-
-struct t_mw_ptr {
-	void *mlx_ptr;
-	void *win_ptr;
-};
-
-struct s_input_rect {
+typedef struct s_input_rect {
 	t_pto pto_sup_esq;
 	int largura;
 	int altura;
@@ -58,8 +49,7 @@ struct s_input_rect {
 	int borda;
 	int cor_borda;
 
-};
-typedef struct s_input_rect t_input_rect;
+} t_input_rect;
 
 typedef struct s_vars {
 	void *mlx;
