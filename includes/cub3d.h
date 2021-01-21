@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/20 22:21:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/21 22:57:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -19,6 +19,10 @@
 #define GREEN 0x00FF00
 #define BLUE 0x0000FF
 #define BLACK 0x000000
+#define UP 65362
+#define DN 65364
+#define LEFT 65361
+#define RIGHT 65363
 // ========================================
 
 
@@ -57,6 +61,12 @@ struct s_input_rect {
 };
 typedef struct s_input_rect t_input_rect;
 
+typedef struct s_vars {
+	void *mlx;
+	void *win;
+	t_input_rect r1;
+}	t_vars;
+
 // ========================================
 
 
@@ -64,6 +74,6 @@ typedef struct s_input_rect t_input_rect;
 int funcao_a(int a);
 int funcao_b(int b);
 
-void	g_plot_line(struct t_mw_ptr mw_ptr, t_pto p0, t_pto p1, int cor);
-void	g_plot_rect(struct t_mw_ptr mw_ptr, t_input_rect ip);
+void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, int cor);
+void	g_plot_rect(t_vars *vars, t_input_rect ip);
 // ========================================
