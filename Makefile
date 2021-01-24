@@ -15,12 +15,12 @@ OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))
 
 CC = clang
 HEADERS = -I./includes -I./libft
-C_FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+C_FLAGS = -Wall -Werror -Wextra -g
+C_SANIT = -fsanitize=address
 L_FLAGS = -lbsd -lmlx -lXext -lX11
 
-.PRECIOUS: cub3d
 $(NAME):	$(OBJS)
-	$(CC) $(OBJS) $(C_FLAGS) $(L_FLAGS) $(HEADERS) -o cub3d
+	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(L_FLAGS) $(HEADERS) -o cub3d
 	./$(NAME)
 
 $(ODIR)%.o: $(SDIR)%.c

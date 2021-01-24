@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/21 23:21:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/22 22:40:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -51,10 +51,17 @@ typedef struct s_input_rect {
 
 } t_input_rect;
 
+typedef struct s_img{
+	void *img;
+	int width;
+	int height;
+} t_img;
+
 typedef struct s_vars {
 	void *mlx;
 	void *win;
 	t_input_rect r1;
+	t_img *img;
 }	t_vars;
 
 // ========================================

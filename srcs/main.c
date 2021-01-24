@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/21 23:26:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/24 19:20:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -84,6 +84,16 @@ int main()
 	vars.r1.borda = 10;
 	vars.r1.cor_borda = WHITE;
 	g_plot_rect(&vars, vars.r1);
+
+	// Print image
+	int a,b;
+	vars.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&a, &b);
+	//vars.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.img->width, &vars.img->height);
+	if (vars.img)
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 100, 300);
+	else
+		printf("erro na leitura do arquivo");
+	printf("h: %d   w: %d\n",b,a);
 
 	printf("a: %d   b;  %d\n",funcao_a(5),funcao_b(5));
 	printf("a: %d   b;  %d\n",funcao_a(5),funcao_b(5));
