@@ -6,12 +6,12 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:26 by user42            #+#    #+#             */
-/*   Updated: 2021/01/21 23:04:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/25 00:11:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
 
-void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, int cor)
+void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor)
 {
 	t_var_line v;
 

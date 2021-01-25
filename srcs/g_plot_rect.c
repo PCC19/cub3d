@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:15:16 by user42            #+#    #+#             */
-/*   Updated: 2021/01/21 22:58:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/25 00:12:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	g_plot_rect_aux(t_vars *vars, t_input_rect ip, int color)
+void	g_plot_rect_aux(t_vars *vars, t_input_rect ip, unsigned int color)
 {
 	int		i;
 	t_pto	ini;

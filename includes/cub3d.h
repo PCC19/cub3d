@@ -6,19 +6,19 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/22 22:40:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/25 01:14:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
 #include <stdio.h>
-
+// FF transparente    00 Opaco
 // ========= DEFINES ======================
 #define ABS(a) (((a) < 0) ? -(a) : (a))
-#define WHITE 0xFFFFFF
-#define RED 0xFF0000
-#define GREEN 0x00FF00
-#define BLUE 0x0000FF
-#define BLACK 0x000000
+#define WHITE 0x00FFFFFF
+#define RED 0x80F00000
+#define GREEN 0xFF00FF80
+#define BLUE 0x000000FF
+#define BLACK 0x00000000
 #define UP 65362
 #define DN 65364
 #define LEFT 65361
@@ -45,23 +45,24 @@ typedef struct s_input_rect {
 	t_pto pto_sup_esq;
 	int largura;
 	int altura;
-	int cor;
+	unsigned int cor;
 	int borda;
-	int cor_borda;
+	unsigned int cor_borda;
 
 } t_input_rect;
 
-typedef struct s_img{
+typedef struct s_sprite{
 	void *img;
 	int width;
 	int height;
-} t_img;
+} t_sprite;
 
 typedef struct s_vars {
 	void *mlx;
 	void *win;
 	t_input_rect r1;
-	t_img *img;
+	t_input_rect r2;
+	t_sprite *sprite;
 }	t_vars;
 
 // ========================================
@@ -71,6 +72,6 @@ typedef struct s_vars {
 int funcao_a(int a);
 int funcao_b(int b);
 
-void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, int cor);
+void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_rect(t_vars *vars, t_input_rect ip);
 // ========================================
