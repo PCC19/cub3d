@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 00:50:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 17:57:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -35,13 +35,15 @@
 // ========= ERRORS ======================
 enum e_error_num
 {
+	ZERO,
 	INVALID_FILENAME,
 	WRONG_ARGS
 };
 static char error[][50] = 
 {
-	"Nome de arquivo invalido",
-	"Argumentos devem ser [nome do arquivo] [--save]"
+	"Zero\n",
+	"Nome de arquivo invalido\n",
+	"Argumentos devem ser [nome do arquivo] [--save]\n"
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 21:48:23 by pcunha            #+#    #+#             */
-/*   Updated: 2020/02/07 17:49:46 by pcunha           ###   ########.fr       */
+/*   Updated: 2021/01/30 17:55:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ char		*ft_strtrim(char const *s1, char const *set)
 		out = (char *)s1;
 		return (out);
 	}
-	out = (char *)malloc(end - start + 1);
-	if (out == NULL)
-		return (NULL);
+	//out = (char *)malloc(end - start + 1);
+	//if (out == NULL)
+	//	return (NULL);
 	out = ft_substr(s1, start, end - start + 1);
 	return (out);
 }
