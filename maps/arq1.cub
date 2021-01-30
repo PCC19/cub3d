@@ -1,0 +1,12 @@
+R 500,500
+
+NO ../textures/bluestone.xpm
+SO ../textures/colorstone.xpm
+EA ../textures/greystone.xpm
+WE ../textures/redbrick.xpm
+
+S ../textures/marvin.xpm
+
+C 225,30,0
+F 220, 100, 0
+

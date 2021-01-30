@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 16:07:16 by pcunha            #+#    #+#             */
-/*   Updated: 2020/05/27 15:31:41 by pcunha           ###   ########.fr       */
+/*   Updated: 2021/01/27 20:47:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define ERRO   -1
 # define LEU    1
 # define EOFF   0
+# define OPEN_MAX 10
+# define BUFFER_SIZE 100
 
 int		get_next_line(int fd, char **line);
 int		ft_len(char *s);

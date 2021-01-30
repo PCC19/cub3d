@@ -6,14 +6,17 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/25 01:44:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 00:48:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
 #include "cub3d.h"
+#include "get_next_line.h"
+#include "libft.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 int key_hook (int keycode, t_vars *vars)
 {
@@ -51,13 +54,19 @@ int key_hook (int keycode, t_vars *vars)
 	return 0;
 }
 
-int main()
+int main(int argc, char **argv)
+//int main()
 {
-	//void *mlx_ptr;
-	//void *win_ptr;
-	//struct t_mw_ptr mw_ptr;
-	//t_input_rect ip;
 	t_vars vars;
+
+	printf("argc: %d argv: %s\n",argc,argv[1]);
+	printf("erro: %s\n",error[WRONG_ARGS]);
+
+	if (argc == 0)
+		exit(-2);
+	printf("argumento: %s\n",argv[1]);
+	p_parse_argumentos(argc, argv);
+	p_parse_arquivo(&vars, argv[1]);
 
 
 	// Inicializa pontos para teste da linha
@@ -65,10 +74,11 @@ int main()
 	t_pto p1;
 	// fim dos pontos
 
+	// Inicializa lib e window
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx,500,500,"Hello World !");
+	// Draw pixel
 	mlx_pixel_put(vars.mlx, vars.win,250,250,0xFFFFFF);
-	
 	// Draw a line
 	p0.x = 100;
 	p0.y = 100;
@@ -84,25 +94,25 @@ int main()
 	vars.r1.borda = 10;
 	vars.r1.cor_borda = WHITE;
 	g_plot_rect(&vars, vars.r1);
-
 	// Print image
-	vars.sprite->img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.sprite->width, &vars.sprite->height);
-	//vars.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.img->width, &vars.img->height);
-	if (vars.sprite->img)
-		mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite->img, 100, 300);
+	vars.sprite.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.sprite.width, &vars.sprite.height);
+	//a->img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.sprite->a.width, &vars.sprite->a.height);
+	//a->img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/pillar.xpm",&vars.sprite->a.width, &vars.sprite->a.height);
+	if (vars.sprite.img)
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite.img, 100, 300);
 	else
 		printf("erro na leitura do arquivo");
-	printf("h: %d   w: %d\n",vars.sprite->height,vars.sprite->width);
-	// Draw inside img
+//	printf("h: %d   w: %d\n",vars.sprite->a.height,vars.sprite->a.width);
+	// Draw inside a->img
 	int a,b,c;
 	a = 0; b = 0; c = 0;
 	char *p;
-	p = mlx_get_data_addr(vars.sprite->img, &a, &b, &c);
+	p = mlx_get_data_addr(vars.sprite.img, &a, &b, &c);
 	printf("ptr: %p  bits per pixel: %d, size_line: %d endian: %d\n",p,a,b,c);
 	for (int i  = 0;i<64*8; i++)
 		//*(p + 4*i) = 0x0F;
 		*((unsigned int*)p+i) = (unsigned int) GREEN;
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite->img, 200, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite.img, 200, 0);
 	// get_screen_size
 	mlx_get_screen_size(vars.mlx, &a, &b);
 	printf("a: %d   b;  %d\n",a,b);
@@ -133,7 +143,7 @@ int main()
 	bb = mlx_new_image(vars.mlx, LADO, LADO);
 	bp = mlx_get_data_addr(bb, &a, &b, &c);
 		for (i=0; i<LADO*LADO; i++)
-			*((unsigned int*)bp+i) = (unsigned int) (250*i/(LADO*LADO) << 0  | 120 << 16);
+			*((unsigned int*)bp+i) = (unsigned int) (250*i/(LADO*LADO) << 24  | 120 << 16);
 		
 	int x = 0;
 	int y = 0;
@@ -142,13 +152,17 @@ int main()
 //		mlx_put_image_to_window(vars.mlx, vars.win, aa, x + (100*i), y);;
 	}
 	x = 0;
-	for (i = 0; i < 1; i++)
+	for (i = 0; i < 0; i++)
 	{
 		mlx_put_image_to_window(vars.mlx, vars.win, bb, x + (100*i), y);;
 	}
 	printf("teste: %d\n", 1 << 3);
 
 
+	if (vars.sprite.img)
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite.img, 200, 400);
+	else
+		printf("erro na leitura do arquivo");
 
 	printf("a: %d   b;  %d\n",funcao_a(5),funcao_b(5));
 	printf("a: %d   b;  %d\n",funcao_a(5),funcao_b(5));

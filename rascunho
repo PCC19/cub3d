@@ -4,12 +4,25 @@ Fazer funcao circulo
 	sempre verificar se figura fica dentro da janela !!
 
 Fazer leitura do mapa
+	Pegar arquivo do parametro argc/argv ok
+		validar arquivo
+		validar save
+	Fazer parse do arquivo
+		Le linha
+		Se for invalida: erro
+		Se for valida: parse
+			R
+			4 Text
+			Sprite
+			C/F
+	Ler mapa
+Normalizar mapa
+
 	Validar cada configuracao
 	Popular struct
-	Ver tamanho do mapa
-	Alocar matriz para o mapa
-	Preencher matriz do mapa
 	Validar o mapa
+
+Fazer o update do state
 Criar o mapa 2d
 Check flag para salvar tela (render mapa 3d)
 Loop
@@ -19,7 +32,7 @@ Loop
 	Render mapa 3d
 		Aplicar texturas
 		
-Perguntas:
+Pergunta :
 	check fora da janela ?
 	colocou get_next_line na libft ?
 
