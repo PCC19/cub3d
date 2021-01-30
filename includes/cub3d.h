@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 17:57:38 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 18:26:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -80,12 +80,33 @@ typedef struct s_sprite{
 	int height;
 } t_sprite;
 
+typedef struct s_cor{
+	int r;
+	int g;
+	int b;
+} t_cor;
+
+typedef struct s_cfg{
+	t_pto res;
+	t_cor ceiling;
+	t_cor floor;
+	char *no_tex;
+	char *so_tex;
+	char *ea_tex;
+	char *we_tex;
+	char *sprite_tex;
+	int all_set;
+} t_cfg;
+
+
 typedef struct s_vars {
 	void *mlx;
 	void *win;
 	t_input_rect r1;
 	t_input_rect r2;
 	t_sprite sprite;
+	t_cfg cfg;
+
 }	t_vars;
 
 // ========================================

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 00:48:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 18:08:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -59,13 +59,9 @@ int main(int argc, char **argv)
 {
 	t_vars vars;
 
-	printf("argc: %d argv: %s\n",argc,argv[1]);
-	printf("erro: %s\n",error[WRONG_ARGS]);
-
-	if (argc == 0)
-		exit(-2);
-	printf("argumento: %s\n",argv[1]);
 	p_parse_argumentos(argc, argv);
+	printf("argc: %d argv: %s\n",argc,argv[1]);
+	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
 
 
