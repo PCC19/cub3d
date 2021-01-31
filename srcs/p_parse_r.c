@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_escolhe_parse.c                                  :+:      :+:    :+:   */
+/*   p_parse_r.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/01/31 20:01:48 by user42           ###   ########.fr       */
+/*   Created: 2021/01/31 22:28:35 by user42            #+#    #+#             */
+/*   Updated: 2021/01/31 22:34:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void p_escolhe_parse(t_vars *vars, char *str)
+void p_parse_r(t_vars *vars, char *str)
 {
-	printf("p_escolhe_parse %d", vars->cfg.res.x);
-	printf("str[0] %c\n", str[0]);
-	if (str[0] == 'R')
-		printf("R\n");
-		//p_parse_r(vars,str);
+	char **palavras;
+	char *s;
+	int i;
+
+	str++;
+	s = ft_strtrim(str, " ");
+	palavras = ft_split(s,",");
+	i = 0;
+	while(palavras[i][] != 0)
+	{
+		printf("palavra %d: %s\n",i,palavra[i][]);
+		i++;
+	}
+}
+
+
+	
+
+
+
 }
 

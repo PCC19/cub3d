@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 22:07:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/31 19:54:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -127,5 +127,6 @@ void	p_init_cfg(t_vars *vars);
 void	p_print_cfg(t_vars *vars);
 void	p_parse_config(t_vars *vars, int fd);
 void	sai(int codigo);
+void	p_escolhe_parse(t_vars *vars, char *str);
 
 // ========================================

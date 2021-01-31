@@ -16,6 +16,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_parse_argumentos.c\
 		$(SDIR)p_init_config.c\
 		$(SDIR)p_parse_config.c\
+		$(SDIR)p_escolhe_parse.c\
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
 
