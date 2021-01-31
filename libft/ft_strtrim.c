@@ -1,56 +1,34 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 21:48:23 by pcunha            #+#    #+#             */
-/*   Updated: 2021/01/30 17:55:26 by user42           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static int	ft_isin(char c, char *str)
+static int	ft_isset(char c, char const *set)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] == c)
+	while (set[i])
+		if (c == set[i++])
 			return (1);
-		i++;
-	}
 	return (0);
 }
 
 char		*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	start;
-	size_t	end;
-	char	*out;
+	size_t	len;
+	char	*ptr;
+	size_t	i;
+	size_t	j;
 
-	if (s1 == NULL || set == NULL)
+	if (!s1)
 		return (NULL);
-	start = 0;
-	while (s1[start] && ft_isin(s1[start], (char *)set))
-		start++;
-	end = ft_strlen(s1) - 1;
-	while (end > start && ft_isin(s1[end], (char *)set))
-		end--;
-	if (end - start == 0)
-	{
-		out = (char *)malloc(end + 1);
-		if (out == NULL)
-			return (NULL);
-		out = (char *)s1;
-		return (out);
-	}
-	//out = (char *)malloc(end - start + 1);
-	//if (out == NULL)
-	//	return (NULL);
-	out = ft_substr(s1, start, end - start + 1);
-	return (out);
+	len = ft_strlen(s1);
+	i = 0;
+	while (ft_isset(s1[i], set))
+		i++;
+	if (i == len)
+		return (ft_strdup(""));
+	j = ft_strlen(s1) - 1;
+	while (ft_isset(s1[j], set))
+		j--;
+	ptr = ft_substr(s1, i, j - i + 1);
+	return (ptr);
 }

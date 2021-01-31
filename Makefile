@@ -14,6 +14,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)get_next_line_utils.c\
 		$(SDIR)p_parse_arquivo.c\
 		$(SDIR)p_parse_argumentos.c\
+		$(SDIR)p_init_config.c\
+		$(SDIR)p_parse_config.c\
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
 
@@ -25,14 +27,14 @@ L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft
 
 $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq1.cub --save 
+	./$(NAME) ./maps/arq2.cub
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)
 		$(CC) $(C_FLAGS) $(HEADERS) -c $< -o $@
 
 libft:
-	make -C $(LIBFT)
+	make re -C ./libft
 
 all: cub3d
 

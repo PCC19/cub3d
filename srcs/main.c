@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 18:08:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/31 19:30:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -17,6 +17,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/errno.h>
+
 
 int key_hook (int keycode, t_vars *vars)
 {
@@ -54,12 +56,16 @@ int key_hook (int keycode, t_vars *vars)
 	return 0;
 }
 
+void sai(int codigo)
+{
+	ft_putstr_fd(error[codigo], 1);
+	exit(codigo);
+}
+
 int main(int argc, char **argv)
-//int main()
 {
 	t_vars vars;
 
-	p_parse_argumentos(argc, argv);
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);

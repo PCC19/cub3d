@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:34:33 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 18:02:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 22:06:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	p_parse_argumentos(int argc, char *argv[])
 	}
 	if (codigo != 0)
 	{
-		ft_putstr_fd(error[codigo], 1);
-		exit(codigo);
+		sai(codigo);
+	//	ft_putstr_fd(error[codigo], 1);
+	//	exit(codigo);
 	}
 }

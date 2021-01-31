@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 18:26:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/30 22:07:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <sys/errno.h>
 
 
 // FF transparente    00 Opaco
@@ -37,13 +38,15 @@ enum e_error_num
 {
 	ZERO,
 	INVALID_FILENAME,
-	WRONG_ARGS
+	WRONG_ARGS,
+	INVALID_CMD
 };
 static char error[][50] = 
 {
 	"Zero\n",
 	"Nome de arquivo invalido\n",
-	"Argumentos devem ser [nome do arquivo] [--save]\n"
+	"Argumentos devem ser [nome do arquivo] [--save]\n",
+	"Comando invalido no arquivo .cub\n"
 };
 
 
@@ -119,5 +122,10 @@ int funcao_b(int b);
 void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_rect(t_vars *vars, t_input_rect ip);
 int		p_parse_arquivo(t_vars *vars, char *arquivo);
-void		p_parse_argumentos(int argc, char *argv[]);
+void	p_parse_argumentos(int argc, char *argv[]);
+void	p_init_cfg(t_vars *vars);
+void	p_print_cfg(t_vars *vars);
+void	p_parse_config(t_vars *vars, int fd);
+void	sai(int codigo);
+
 // ========================================
