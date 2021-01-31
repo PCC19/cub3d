@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/31 19:54:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 00:18:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -39,14 +39,18 @@ enum e_error_num
 	ZERO,
 	INVALID_FILENAME,
 	WRONG_ARGS,
-	INVALID_CMD
+	INVALID_CMD,
+	INVALID_RES,
+	INVALID_CEILING
 };
 static char error[][50] = 
 {
 	"Zero\n",
 	"Nome de arquivo invalido\n",
 	"Argumentos devem ser [nome do arquivo] [--save]\n",
-	"Comando invalido no arquivo .cub\n"
+	"Comando invalido no arquivo .cub\n",
+	"Invalid resolution\n",
+	"Invalid ceiling\n"
 };
 
 
@@ -128,5 +132,9 @@ void	p_print_cfg(t_vars *vars);
 void	p_parse_config(t_vars *vars, int fd);
 void	sai(int codigo);
 void	p_escolhe_parse(t_vars *vars, char *str);
+void	p_parse_r(t_vars *vars, char *str);
+void	u_free_array_bi(char **s);
+void	p_parse_c(t_vars *vars, char *str);
+int		u_check_palavras(char **palavras, int *ii);
 
 // ========================================

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_escolhe_parse.c                                  :+:      :+:    :+:   */
+/*   u_free_array_bi.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:02:21 by user42           ###   ########.fr       */
+/*   Created: 2021/01/31 23:21:14 by user42            #+#    #+#             */
+/*   Updated: 2021/01/31 23:36:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void p_escolhe_parse(t_vars *vars, char *str)
+void	u_free_array_bi(char **s)
 {
-	printf("p_escolhe_parse %d", vars->cfg.res.x);
-	printf("str[0] %c\n", str[0]);
-	if (str[0] == 'R')
+	int i;
+	
+	i = 0;
+	while(s[i] != 0)
 	{
-		printf("R\n");
-		p_parse_r(vars,str);
+		free(s[i]);
+		i++;
 	}
-	if (str[0] == 'C')
-	{
-		printf("C\n");
-		p_parse_c(vars,str);
-	}
-
+	free(s);
 }
-

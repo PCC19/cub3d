@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/31 19:30:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/31 22:56:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -66,6 +66,8 @@ int main(int argc, char **argv)
 {
 	t_vars vars;
 
+	printf("500: %d\n", ft_isnum("500"));
+	printf("5a00: %d\n", ft_isnum("5a00"));
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);

@@ -1,5 +1,5 @@
 
- R 500,500
+ R   400, 500
 
   NO ../textures/bluestone.xpm
 SO ../textures/colorstone.xpm
@@ -7,8 +7,8 @@ SO ../textures/colorstone.xpm
 WE ../textures/redbrick.xpm
 
 S ../textures/marvin.xpm
-X
 
 C 225,30,0
+X
 F 220, 100, 0
 

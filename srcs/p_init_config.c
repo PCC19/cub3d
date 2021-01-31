@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:47:04 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 21:41:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 00:07:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void p_init_cfg(t_vars *vars)
 void p_print_cfg(t_vars *vars) // APAGAR ESTA FUNCAO !!!
 {
 	printf("======================\n");
-	printf("res.x: %d  res.y %d\n",vars->cfg.res.x, vars->cfg.res.y);
-	printf("ceiling r: %d g; %d b: %d\n",vars->cfg.ceiling.r, vars->cfg.ceiling.g, vars->cfg.ceiling.b);	
-	printf("floor r: %d g; %d b: %d\n",vars->cfg.floor.r, vars->cfg.floor.g, vars->cfg.floor.b);	
+	printf("res.x: %d\t\tres.y %d\n",vars->cfg.res.x, vars->cfg.res.y);
+	printf("ceiling r: %d\t\t g; %d\t\t b: %d\n",vars->cfg.ceiling.r, vars->cfg.ceiling.g, vars->cfg.ceiling.b);	
+	printf("floor r: %d\t\t g; %d\t\t b: %d\n",vars->cfg.floor.r, vars->cfg.floor.g, vars->cfg.floor.b);	
 	printf("no_tex: %s\n",vars->cfg.no_tex);
 	printf("so_tex: %s\n",vars->cfg.so_tex);
 	printf("ea_tex: %s\n",vars->cfg.ea_tex);

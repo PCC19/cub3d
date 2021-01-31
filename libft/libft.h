@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:27:14 by pcunha            #+#    #+#             */
-/*   Updated: 2021/01/31 19:34:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/01/31 22:54:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void			ft_shift_left(int *arr, int n);
 void			ft_shift_right(int *arr, int n);
 int				ft_abs(int x);
 int				ft_get_bit(int x, int n);
+int				ft_isnum(const char *s);
 
 #endif

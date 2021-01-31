@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_escolhe_parse.c                                  :+:      :+:    :+:   */
+/*   u_check_palavras.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:02:21 by user42           ###   ########.fr       */
+/*   Created: 2021/02/01 00:17:00 by user42            #+#    #+#             */
+/*   Updated: 2021/02/01 00:17:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void p_escolhe_parse(t_vars *vars, char *str)
+int u_check_palavras(char **palavras, int *ii)
 {
-	printf("p_escolhe_parse %d", vars->cfg.res.x);
-	printf("str[0] %c\n", str[0]);
-	if (str[0] == 'R')
-	{
-		printf("R\n");
-		p_parse_r(vars,str);
-	}
-	if (str[0] == 'C')
-	{
-		printf("C\n");
-		p_parse_c(vars,str);
-	}
+	int i;
+	int flag;
 
+	flag = 0;
+	i = 0;
+	while(palavras[i] != 0)
+	{
+		if (!ft_isnum(palavras[i]))
+			flag = 1;
+		i++;
+	}
+	*ii = i;
+	return (flag);
 }
-

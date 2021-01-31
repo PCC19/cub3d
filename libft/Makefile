@@ -6,7 +6,7 @@
 #    By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/28 13:39:04 by pcunha            #+#    #+#              #
-#    Updated: 2021/01/31 19:35:02 by user42           ###   ########.fr        #
+#    Updated: 2021/01/31 23:00:30 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS=ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isdigit.c ft_isalnum.c \
 	 ft_putnbr_fd.c ft_putstr_fd.c ft_strlcpy.c ft_calloc.c ft_strdup.c \
 	 ft_substr.c ft_putchar.c ft_putnbr_base.c ft_itoa_base.c ft_print_bit.c\
 	 ft_append_str.c ft_is_in.c ft_max.c ft_min.c ft_shift_left.c\
-	 ft_shift_right.c ft_abs.c ft_get_bit.c
+	 ft_shift_right.c ft_abs.c ft_get_bit.c ft_isnum.c
 
 SRCSB = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
@@ -45,7 +45,7 @@ OBJECTS=ft_atoi.o ft_bzero.o ft_isalnum.o \
 		ft_strtrim.o ft_tolower.o ft_toupper.o ft_strlcpy.o ft_calloc.o \
 		ft_strdup.o ft_substr.o ft_putchar.o ft_putnbr_base.o ft_itoa_base.o\
 		ft_print_bit.o ft_append_str.o ft_is_in.o ft_max.o ft_min.o\
-		ft_shift_left.o ft_shift_right.o ft_abs.o ft_get_bit.o
+		ft_shift_left.o ft_shift_right.o ft_abs.o ft_get_bit.o ft_isnum.o
 
 
 OBJBB = ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o\
