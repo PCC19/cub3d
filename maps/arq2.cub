@@ -1,6 +1,7 @@
 
  R   400, 500
 
+C 225,      30, 1
   NO ../textures/bluestone.xpm
 SO ../textures/colorstone.xpm
      EA ../textures/greystone.xpm

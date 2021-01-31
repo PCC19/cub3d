@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 22:28:35 by user42            #+#    #+#             */
-/*   Updated: 2021/01/31 23:53:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 00:21:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void p_parse_r(t_vars *vars, char *str)
 	i = 0;
 	while(palavras[i] != 0)
 		i++;
-	if (i != 2 || !ft_isnum(palavras[0]) || !ft_isnum(palavras[1]))
+	if (u_check_palavras(palavras, &i) == 1 || i != 2 || vars->cfg.res.x != -1)
 	{
 		u_free_array_bi(palavras);
 		sai(INVALID_RES);

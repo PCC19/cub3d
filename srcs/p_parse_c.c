@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 23:55:53 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:17:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 00:23:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ void p_parse_c(t_vars *vars, char *str)
 	char **palavras;
 	char *s;
 	int i;
+	int aux;
 
+	aux = vars->cfg.ceiling.r;
 	str++;
 	s = ft_strtrim(str, " ");
 	palavras = ft_split(s,',');
 	free(s);
 	i = 0;
-	if (u_check_palavras(palavras, &i) == 1 || i != 3)
+	if (u_check_palavras(palavras, &i) == 1 || i != 3 || aux != -1)
 	{
 		u_free_array_bi(palavras);
 		sai(INVALID_CEILING);
