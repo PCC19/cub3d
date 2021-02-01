@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 01:27:29 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:43:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:50:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void p_parse_S(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (str[0] == 'S' && str[1] != 'O' && vars->cfg.sprite_tex == NULL)
+	if (vars->cfg.sprite_tex == NULL)
 	{
 		p = ft_strtrim(&str[1], " ");
 		printf("p: %s\n",p);
@@ -24,13 +24,15 @@ void p_parse_S(t_vars *vars, char *str)
 		vars->cfg.all_set++;
 		free (p);
 	}
+	else
+		sai(DUP_TEX);
 }
 
 void p_parse_SO(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (str[0] == 'S' && str[1] == 'O' && vars->cfg.so_tex == NULL)
+	if (vars->cfg.so_tex == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
@@ -38,13 +40,15 @@ void p_parse_SO(t_vars *vars, char *str)
 		vars->cfg.all_set++;
 		free (p);
 	}
+	else
+		sai(DUP_TEX);
 }
 
 void p_parse_NO(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (str[0] == 'N' && str[1] == 'O' && vars->cfg.no_tex == NULL)
+	if (vars->cfg.no_tex == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
@@ -52,13 +56,15 @@ void p_parse_NO(t_vars *vars, char *str)
 		vars->cfg.all_set++;
 		free (p);
 	}
+	else
+		sai(DUP_TEX);
 }
 
 void p_parse_WE(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (str[0] == 'W' && str[1] == 'E' && vars->cfg.we_tex == NULL)
+	if (vars->cfg.we_tex == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
@@ -66,13 +72,15 @@ void p_parse_WE(t_vars *vars, char *str)
 		vars->cfg.all_set++;
 		free (p);
 	}
+	else
+		sai(DUP_TEX);
 }
 
 void p_parse_EA(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (str[0] == 'E' && str[1] == 'A' && vars->cfg.ea_tex == NULL)
+	if (vars->cfg.ea_tex == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
@@ -80,6 +88,8 @@ void p_parse_EA(t_vars *vars, char *str)
 		vars->cfg.all_set++;
 		free (p);
 	}
+	else
+		sai(DUP_TEX);
 }
 /*
 

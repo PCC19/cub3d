@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:46:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:54:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void p_escolhe_parse(t_vars *vars, char *str)
 	{
 		printf("S\n");
 		p_parse_S(vars,str);
+		p_print_cfg(vars);
 	}
 	if (str[0] == 'S' && str[1] == 'O')
 	{
@@ -56,7 +57,6 @@ void p_escolhe_parse(t_vars *vars, char *str)
 		printf("EA\n");
 		p_parse_EA(vars,str);
 	}
-	p_print_cfg(vars);
 
 }
 

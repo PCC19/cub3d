@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:46:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:51:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -42,7 +42,8 @@ enum e_error_num
 	INVALID_CMD,
 	INVALID_RES,
 	INVALID_CEILING,
-	INVALID_FLOOR
+	INVALID_FLOOR,
+	DUP_TEX
 };
 static char error[][50] = 
 {
@@ -52,7 +53,8 @@ static char error[][50] =
 	"Comando invalido no arquivo .cub\n",
 	"Invalid resolution\n",
 	"Invalid ceiling\n",
-	"Invalid floor\n"
+	"Invalid floor\n",
+	"Duplicated texture cfg\n"
 };
 
 

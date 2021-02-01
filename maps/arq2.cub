@@ -9,6 +9,7 @@ SO ../textures/colorstone.xpm
 WE ../textures/redbrick.xpm
 
 S ../textures/marvin.xpm
+  NO ../textures/bluestone.xpm
 
 X
 F 220, 100, 0
