@@ -21,6 +21,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_parse_r.c\
 		$(SDIR)p_parse_c.c\
 		$(SDIR)u_check_palavras.c\
+		$(SDIR)p_parse_f.c\
+		$(SDIR)p_parse_tex.c\
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
 

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/01/31 22:56:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 00:36:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -58,6 +58,7 @@ int key_hook (int keycode, t_vars *vars)
 
 void sai(int codigo)
 {
+	ft_putstr_fd("Error\n", 1);
 	ft_putstr_fd(error[codigo], 1);
 	exit(codigo);
 }

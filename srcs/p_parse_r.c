@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 22:28:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:21:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:35:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void p_parse_r(t_vars *vars, char *str)
 	}
 	vars->cfg.res.x = ft_atoi(palavras[0]);
 	vars->cfg.res.y = ft_atoi(palavras[1]);
+	vars->cfg.all_set++;
 	u_free_array_bi(palavras);
 }
 

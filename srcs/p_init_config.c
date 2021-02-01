@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:47:04 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:07:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:35:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void p_print_cfg(t_vars *vars) // APAGAR ESTA FUNCAO !!!
 	printf("ea_tex: %s\n",vars->cfg.ea_tex);
 	printf("we_tex: %s\n",vars->cfg.we_tex);
 	printf("sprite_tex: %s\n",vars->cfg.sprite_tex);
+	printf("all_set: %d\n",vars->cfg.all_set);
 	printf("======================\n");
 }
 

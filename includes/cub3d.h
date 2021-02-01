@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 00:18:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 01:46:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -41,7 +41,8 @@ enum e_error_num
 	WRONG_ARGS,
 	INVALID_CMD,
 	INVALID_RES,
-	INVALID_CEILING
+	INVALID_CEILING,
+	INVALID_FLOOR
 };
 static char error[][50] = 
 {
@@ -50,7 +51,8 @@ static char error[][50] =
 	"Argumentos devem ser [nome do arquivo] [--save]\n",
 	"Comando invalido no arquivo .cub\n",
 	"Invalid resolution\n",
-	"Invalid ceiling\n"
+	"Invalid ceiling\n",
+	"Invalid floor\n"
 };
 
 
@@ -136,5 +138,12 @@ void	p_parse_r(t_vars *vars, char *str);
 void	u_free_array_bi(char **s);
 void	p_parse_c(t_vars *vars, char *str);
 int		u_check_palavras(char **palavras, int *ii);
+void	p_parse_f(t_vars *vars, char *str);
+void	p_parse_S(t_vars *vars, char *str);
+void	p_parse_SO(t_vars *vars, char *str);
+void	p_parse_NO(t_vars *vars, char *str);
+void	p_parse_WE(t_vars *vars, char *str);
+void	p_parse_EA(t_vars *vars, char *str);
+
 
 // ========================================
