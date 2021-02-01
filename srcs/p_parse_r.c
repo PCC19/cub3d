@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 22:28:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:35:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 20:09:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void p_parse_r(t_vars *vars, char *str)
 
 	str++;
 	s = ft_strtrim(str, " ");
-	palavras = ft_split(s,',');
+	palavras = ft_split(s,' ');
 	free(s);
 	i = 0;
 	while(palavras[i] != 0)

@@ -34,7 +34,7 @@ L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft
 
 $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq1.cub
+	./$(NAME) ./maps/arq2.cub
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)
