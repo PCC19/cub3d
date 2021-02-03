@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 00:55:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 03:05:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 03:09:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ char	*salva_linha(char *linha)
 	return temp;
 }
 
-void print_map(t_vars *vars)
+void print_map(char **map_temp)
 {
 	int i;
 
 	i = 0;
 	printf("=============\n");
-	while(vars->map[i])
+	while(map_temp[i])
 	{
-		printf("|%s\n",vars->map[i]);
+		printf("|%s\n",map_temp[i]);
 		i++;
 	}
 	printf("=============\n");
@@ -52,6 +52,7 @@ void print_map(t_vars *vars)
 void p_parse_map(t_vars *vars, int fd)
 {
 	char *linha;
+	char **map_temp;
 	int n_linhas;
 	int tamanho;
 	int i;
@@ -62,22 +63,22 @@ void p_parse_map(t_vars *vars, int fd)
 	printf("line_cfg: %d\n",vars->line_cfg);
 	printf("tamanho: %d\n", n_linhas);
 	printf("linha %s\n",linha);
-	vars->map = (char **)malloc(sizeof(char*) * (n_linhas + 1));
+	map_temp = (char **)malloc(sizeof(char*) * (n_linhas + 1));
 	i = 0;
-	vars->map[i] = salva_linha(linha);
+	map_temp[i] = salva_linha(linha);
 	i++;
 	while (get_next_line(fd, &linha))
 	{
 		tamanho = ft_strlen(linha);
 		if (tamanho > 0)
 		{
-			vars->map[i] = salva_linha(linha);
-			printf("|%s\n",vars->map[i]);
+			map_temp[i] = salva_linha(linha);
+			printf("|%s\n",map_temp[i]);
 			i++;
 		}
 	}
 	free(linha);
-	vars->map[i] = 0;
-	print_map(vars);
+	map_temp[i] = 0;
+	print_map(map_temp);
 }
 
