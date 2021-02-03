@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 22:36:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 02:29:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 int p_parse_arquivo(t_vars *vars, char *arquivo)
 {
 	int fd;
-	//printf("lixo %d\n",vars->sprite.width);
 	
 	 p_init_cfg(vars);
 		p_print_cfg(vars); // APAGAR !!
+	// conta_linhas
+	p_conta_linhas(vars, arquivo);
+		printf("Numero de linhas no arquivo: %d\n",vars->line_count);
 	// Abre arquivo
-	//if((fd = open("lixo", O_RDONLY)) < 0)
 	if((fd = open(arquivo, O_RDONLY)) < 0)
 	{
 		perror("Erro: ");
@@ -31,7 +32,10 @@ int p_parse_arquivo(t_vars *vars, char *arquivo)
 	{
 		//parse configs
 		p_parse_config(vars, fd);
-		//parse maps
+		// parse maps
+		p_parse_map(vars, fd);
+		// normalize map
+		// validate map
 	}
 	close(fd);
 

@@ -23,6 +23,9 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)u_check_palavras.c\
 		$(SDIR)p_parse_f.c\
 		$(SDIR)p_parse_tex.c\
+		$(SDIR)p_conta_linhas.c\
+		$(SDIR)p_parse_map.c\
+
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
 
@@ -34,7 +37,7 @@ L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft
 
 $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq2.cub
+	./$(NAME) ./maps/arq1.cub
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)

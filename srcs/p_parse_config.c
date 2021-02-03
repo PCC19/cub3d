@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 21:44:25 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:37:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 02:24:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void p_parse_config(t_vars *vars, int fd)
 		//get_next_line(fd, &linha);
 		//printf("linha: %s\n",linha);
 	flag = 0;
-	while (get_next_line(fd, &linha) && vars->cfg.all_set < 9)
+	while (vars->cfg.all_set < 8 && get_next_line(fd, &linha))
 	{
+		vars->line_cfg ++;
 		str = ft_strtrim(linha," ");
 		len = ft_strlen(str);
 		free(linha);

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:51:30 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 01:34:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -117,6 +117,8 @@ typedef struct s_vars {
 	t_input_rect r2;
 	t_sprite sprite;
 	t_cfg cfg;
+	int line_count;
+	int line_cfg;
 
 }	t_vars;
 
@@ -146,6 +148,7 @@ void	p_parse_SO(t_vars *vars, char *str);
 void	p_parse_NO(t_vars *vars, char *str);
 void	p_parse_WE(t_vars *vars, char *str);
 void	p_parse_EA(t_vars *vars, char *str);
-
+void	p_conta_linhas(t_vars *vars, char *arquivo);
+void	p_parse_map(t_vars *vars, int fd);
 
 // ========================================
