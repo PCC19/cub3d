@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 00:55:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 02:50:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 03:01:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,39 @@ int calcula_linhas_mapa(t_vars *vars, int fd, char **linha)
 	tamanho = vars->line_count - vars->line_cfg;
 	return (tamanho);
 }
+
+char	*salva_linha(char *linha)
+{
+	char *temp;
+	int tamanho;
+
+	tamanho = ft_strlen(linha);
+	temp = (char *)malloc(sizeof(char) * (tamanho + 1));
+	temp = ft_strdup(linha);
+	free(linha);
+	return temp;
+}
+
+void print_map(char **armazem)
+{
+	int i;
+
+	i = 0;
+	printf("=============\n");
+	while(armazem[i])
+	{
+		printf("|%s\n",armazem[i]);
+		i++;
+	}
+	printf("=============\n");
+}
 	
 void p_parse_map(t_vars *vars, int fd)
 {
 	char *linha;
 	int n_linhas;
 	int tamanho;
-	char **armazem = NULL;
+	char **armazem;
 	int i;
 
 	n_linhas = calcula_linhas_mapa(vars, fd, &linha);
@@ -39,32 +65,25 @@ void p_parse_map(t_vars *vars, int fd)
 	printf("linha %s\n",linha);
 	armazem = (char **)malloc(sizeof(char*) * (n_linhas + 1));
 	i = 0;
-	tamanho = ft_strlen(linha);
-	armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
-	armazem[i] = ft_strdup(linha);
+	//tamanho = ft_strlen(linha);
+	//armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
+	//armazem[i] = ft_strdup(linha);
+	armazem[i] = salva_linha(linha);
 	i++;
 	while (get_next_line(fd, &linha))
 	{
 		tamanho = ft_strlen(linha);
 		if (tamanho > 0)
 		{
-			armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
-			armazem[i] = ft_strdup(linha);
+			//armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
+			//armazem[i] = ft_strdup(linha);
+			armazem[i] = salva_linha(linha);
 			printf("|%s\n",armazem[i]);
-			free(linha);
 			i++;
 		}
 	}
 	free(linha);
 	armazem[i] = 0;
-	
-	printf("=============\n");
-	i = 0;
-	while(armazem[i])
-	{
-		printf("|%s\n",armazem[i]);
-		i++;
-	}
-
+	print_map(armazem);
 }
 
