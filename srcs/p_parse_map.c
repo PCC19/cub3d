@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 00:55:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 03:01:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 03:05:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ char	*salva_linha(char *linha)
 	return temp;
 }
 
-void print_map(char **armazem)
+void print_map(t_vars *vars)
 {
 	int i;
 
 	i = 0;
 	printf("=============\n");
-	while(armazem[i])
+	while(vars->map[i])
 	{
-		printf("|%s\n",armazem[i]);
+		printf("|%s\n",vars->map[i]);
 		i++;
 	}
 	printf("=============\n");
@@ -54,7 +54,6 @@ void p_parse_map(t_vars *vars, int fd)
 	char *linha;
 	int n_linhas;
 	int tamanho;
-	char **armazem;
 	int i;
 
 	n_linhas = calcula_linhas_mapa(vars, fd, &linha);
@@ -63,27 +62,22 @@ void p_parse_map(t_vars *vars, int fd)
 	printf("line_cfg: %d\n",vars->line_cfg);
 	printf("tamanho: %d\n", n_linhas);
 	printf("linha %s\n",linha);
-	armazem = (char **)malloc(sizeof(char*) * (n_linhas + 1));
+	vars->map = (char **)malloc(sizeof(char*) * (n_linhas + 1));
 	i = 0;
-	//tamanho = ft_strlen(linha);
-	//armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
-	//armazem[i] = ft_strdup(linha);
-	armazem[i] = salva_linha(linha);
+	vars->map[i] = salva_linha(linha);
 	i++;
 	while (get_next_line(fd, &linha))
 	{
 		tamanho = ft_strlen(linha);
 		if (tamanho > 0)
 		{
-			//armazem[i] = (char *)malloc(sizeof(char) * (tamanho + 1));
-			//armazem[i] = ft_strdup(linha);
-			armazem[i] = salva_linha(linha);
-			printf("|%s\n",armazem[i]);
+			vars->map[i] = salva_linha(linha);
+			printf("|%s\n",vars->map[i]);
 			i++;
 		}
 	}
 	free(linha);
-	armazem[i] = 0;
-	print_map(armazem);
+	vars->map[i] = 0;
+	print_map(vars);
 }
 

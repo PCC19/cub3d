@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 01:34:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 03:03:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -119,6 +119,7 @@ typedef struct s_vars {
 	t_cfg cfg;
 	int line_count;
 	int line_cfg;
+	char **map;
 
 }	t_vars;
 
