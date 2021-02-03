@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 15:25:43 by pcunha            #+#    #+#             */
-/*   Updated: 2020/01/31 15:46:04 by pcunha           ###   ########.fr       */
+/*   Updated: 2021/02/03 21:29:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*d;
 
+	if (s1 == NULL)
+		return NULL;
 	len = ft_strlen(s1);
 	d = (char *)malloc(len + 1);
 	if (d == NULL)

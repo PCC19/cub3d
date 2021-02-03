@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:16:03 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 21:18:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 21:34:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void p_normaliza_map(t_vars *vars)
 	int n_linhas;
 	int i;
 	size_t max_col;
-	char *lixo;
+	//char *lixo;
 
 	max_col = 0;
 	n_linhas = 0;
@@ -33,14 +33,17 @@ void p_normaliza_map(t_vars *vars)
 	// Aloca memoria no tamanho certo com valores zero
 	vars->map = (char**)malloc(sizeof(char *) * (n_linhas + 1));
 	i = 0;
+		printf("n_linhas; %d\n",n_linhas);
 	while(i < n_linhas + 1)
 	{
 		vars->map[i] = ft_calloc(max_col + 1, sizeof(char));
 //		vars->map[i] = (char *)malloc(sizeof(char) * (max_col + 1));
 		printf("map_temp: %s\n",vars->map_temp[i]);
-		printf("map_    : %s\n",vars->map[i]);
-		//vars->map[i] = ft_strdup(vars->map_temp[i]);
-		lixo = ft_strdup(vars->map_temp[i]);
+		//printf("map_    : %s\n",vars->map[i]);
+		vars->map[i] = ft_strdup(vars->map_temp[i]);
+		//lixo = ft_strdup(vars->map_temp[i]);
+		//printf("lixo: %s\n",lixo);
+		printf("map_    : %s\n",vars->map_temp[i]);
 		free(vars->map_temp[i]);
 		i++;
 	}

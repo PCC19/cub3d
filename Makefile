@@ -58,3 +58,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+roda:
+	./cub3d ./maps/arq1.cub
