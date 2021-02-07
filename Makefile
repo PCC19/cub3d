@@ -29,6 +29,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_normaliza_map.c\
 		$(SDIR)p_valida_map.c\
 		$(SDIR)check_map_1.c\
+		$(SDIR)check_map_2.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
@@ -41,7 +42,7 @@ L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft
 
 $(NAME):	$(OBJS) ./maps/arq1.cub
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq1.cub
+	./$(NAME) ./maps/arq3.cub
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)

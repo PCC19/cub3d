@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 17:39:41 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 18:49:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/07 19:42:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_first_last_line(t_vars *vars)
 	}
 }
 
-void	check_valid_chars(t_vars *vars)
+void	check_valid_chars_players(t_vars *vars)
 {
 	int i;
 	int j;
@@ -81,42 +81,4 @@ void	check_valid_chars(t_vars *vars)
 	printf("\n   n_players: %d   \n", n_players);
 	if (n_players != 1)
 		sai(INVALID_PLAYER);
-}
-
-int		cij(t_vars *vars, int i, int j)
-{
-	int flag;
-
-	flag = 0;
-	if (i >= 0 && i < vars->map_linhas && j >= 0 && j < vars->map_cols)
-		flag = 1;
-	return (flag);
-}
-
-void	check_around_spaces(t_vars *vars)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < vars->map_linhas)
-	{
-		j = 0;
-		while (j < vars->map_cols)
-		{
-			if (vars->map[i][j] == ' ')
-			{
-				if (cij(vars, i - 1, j) && !ft_is_in(vars->map[i - 1][j], " 1"))
-					sai(WALL_ERROR);
-				if (cij(vars, i + 1, j) && !ft_is_in(vars->map[i + 1][j], " 1"))
-					sai(WALL_ERROR);
-				if (cij(vars, i, j - 1) && !ft_is_in(vars->map[i][j - 1], " 1"))
-					sai(WALL_ERROR);
-				if (cij(vars, i, j + 1) && !ft_is_in(vars->map[i][j + 1], " 1"))
-					sai(WALL_ERROR);
-				j++;
-			}
-		}
-		i++;
-	}
 }

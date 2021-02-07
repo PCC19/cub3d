@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 18:46:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/07 19:42:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -48,6 +48,7 @@ enum e_error_num
 	INVALID_MAP_CHAR,
 	INVALID_PLAYER,
 	INVALID_MAP_SIZE,
+	SPACE_ERROR
 };
 static char error[][50] = 
 {
@@ -62,7 +63,8 @@ static char error[][50] =
 	"Map not enclosed by walls\n",
 	"Invalid char in map[' ',0,1,2,N,S,E,W]\n",
 	"Invalid number of players\n",
-	"Invalid map size (at least 3x3)\n"
+	"Invalid map size (at least 3x3)\n",
+	"Map has breaches\n"
 
 };
 
@@ -168,8 +170,9 @@ void	u_print_map(char **map_temp);
 void	p_valida_map(t_vars *vars);
 void	check_first_last_col(t_vars *vars);
 void	check_first_last_line(t_vars *vars);
-void	check_valid_chars(t_vars *vars);
-int		cij(t_vars *vars, int i, int j);
-void	check_around_spaces(t_vars *vars);
+void	check_valid_chars_players(t_vars *vars);
+int		c(t_vars *vars, int i, int j);
+void	check_around_spaces_orto(t_vars *vars);
+void	check_around_spaces_diag(t_vars *vars);
 
 // ========================================
