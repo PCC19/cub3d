@@ -30,6 +30,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_valida_map.c\
 		$(SDIR)check_map_1.c\
 		$(SDIR)check_map_2.c\
+		$(SDIR)render_map.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

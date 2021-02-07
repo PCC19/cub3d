@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 00:07:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 00:40:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -77,16 +77,26 @@ int main(int argc, char **argv)
 	mlx_get_screen_size(vars.mlx, &vars.window_width, &vars.window_height);
 	vars.window_width *= 0.6;
 	vars.window_height *= 0.6;
-	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
-		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
 	
-	vars.tile_size = 32;
 	
 	// LEITURA DO ARQUIVO E PARSE DOS INPUTS
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
 	
+	vars.tile_size = vars.window_width / vars.map_num_cols;
+		printf("tile size: %d\n",vars.tile_size);
+	vars.window_height = vars.map_num_rows * vars.tile_size;
+		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	// SETUP (vai virar funcao)
+	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
+		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	
+	// RENDER MAP
+	render_map(&vars);
+
+
+/*
 	// Inicializa pontos para teste da linha
 	t_pto p0;
 	t_pto p1;
@@ -125,7 +135,7 @@ int main(int argc, char **argv)
 	p = mlx_get_data_addr(vars.sprite.img, &a, &b, &c);
 	printf("ptr: %p  bits per pixel: %d, size_line: %d endian: %d\n",p,a,b,c);
 	for (int i  = 0;i<64*8; i++)
-		//*(p + 4*i) = 0x0F;
+		*(p + 4*i) = 0x0F;
 		*((unsigned int*)p+i) = (unsigned int) GREEN;
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite.img, 200, 0);
 	// get_screen_size
@@ -185,5 +195,6 @@ int main(int argc, char **argv)
 	mlx_key_hook(vars.win, key_hook, &vars);
 
 	mlx_loop(vars.mlx);
+*/
 }
 
