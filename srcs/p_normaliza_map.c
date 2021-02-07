@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:16:03 by user42            #+#    #+#             */
-/*   Updated: 2021/02/04 03:09:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/06 17:52:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void p_normaliza_map(t_vars *vars)
 		vars->map[i] = ft_calloc(vars->map_cols + 1, sizeof(char));
 		preenche_com_espacos(vars, vars->map[i]);
 		copia_linha_array(vars->map[i], vars->map_temp[i]);
-		printf("d: |%s|\n",vars->map[i]);
+		printf("%d: |%s|\n",i, vars->map[i]);
 		free(vars->map_temp[i]);
 		i++;
 	}

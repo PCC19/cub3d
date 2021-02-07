@@ -27,6 +27,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_parse_map.c\
 		$(SDIR)u_print_map.c\
 		$(SDIR)p_normaliza_map.c\
+		$(SDIR)p_valida_map.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

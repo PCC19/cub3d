@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 21:07:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/06 17:44:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -43,7 +43,8 @@ enum e_error_num
 	INVALID_RES,
 	INVALID_CEILING,
 	INVALID_FLOOR,
-	DUP_TEX
+	DUP_TEX,
+	WALL_ERROR
 };
 static char error[][50] = 
 {
@@ -54,7 +55,8 @@ static char error[][50] =
 	"Invalid resolution\n",
 	"Invalid ceiling\n",
 	"Invalid floor\n",
-	"Duplicated texture cfg\n"
+	"Duplicated texture cfg\n",
+	"Map not enclosed by walls\n"
 };
 
 
@@ -156,5 +158,6 @@ void	p_conta_linhas(t_vars *vars, char *arquivo);
 void	p_parse_map(t_vars *vars, int fd);
 void	p_normaliza_map(t_vars *var);
 void	u_print_map(char **map_temp);
+void	p_valida_map(t_vars *vars);
 
 // ========================================
