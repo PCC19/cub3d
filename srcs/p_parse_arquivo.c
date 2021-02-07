@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 19:44:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 00:05:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int p_parse_arquivo(t_vars *vars, char *arquivo)
 {
 	int fd;
 	
-	 p_init_cfg(vars);
-		p_print_cfg(vars); // APAGAR !!
 	p_conta_linhas(vars, arquivo);
 		printf("Numero de linhas no arquivo: %d\n",vars->line_count);
 	if((fd = open(arquivo, O_RDONLY)) < 0)

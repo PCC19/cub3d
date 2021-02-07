@@ -17,7 +17,7 @@ int		c(t_vars *vars, int i, int j)
 	int flag;
 
 	flag = 0;
-	if (i >= 0 && i < vars->map_linhas && j >= 0 && j < vars->map_cols)
+	if (i >= 0 && i < vars->map_num_rows && j >= 0 && j < vars->map_num_cols)
 		flag = 1;
 	return (flag);
 }
@@ -28,10 +28,10 @@ void	check_around_spaces_orto(t_vars *v)
 	int j;
 
 	i = 0;
-	while (i < v->map_linhas)
+	while (i < v->map_num_rows)
 	{
 		j = 0;
-		while (j < v->map_cols)
+		while (j < v->map_num_cols)
 		{
 			if (v->map[i][j] == ' ')
 			{
@@ -57,10 +57,10 @@ void	check_around_spaces_diag(t_vars *v)
 	int j;
 
 	i = 0;
-	while (i < v->map_linhas)
+	while (i < v->map_num_rows)
 	{
 		j = 0;
-		while (j < v->map_cols)
+		while (j < v->map_num_cols)
 		{
 			if (v->map[i][j] == ' ')
 			{

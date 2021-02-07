@@ -28,8 +28,8 @@ void conta_linhas_cols(t_vars *vars)
 		n_linhas ++;
 		i++;
 	}
-	vars->map_linhas = n_linhas;
-	vars->map_cols = max_col;
+	vars->map_num_rows = n_linhas;
+	vars->map_num_cols = max_col;
 
 }
 
@@ -52,9 +52,9 @@ void preenche_com_espacos(t_vars *vars)
 	
 	i = 0;
 	j = 0;
-	while (i < vars->map_linhas - 1)
+	while (i < vars->map_num_rows - 1)
 	{
-		while (j  < vars->map_cols -1 )
+		while (j  < vars->map_num_cols -1 )
 		{
 			vars->map[i][j] = ' ';
 			j++;
@@ -69,13 +69,13 @@ void p_normaliza_map(t_vars *vars)
 	int j;
 
 	conta_linhas_cols(vars);
-	vars->map = (char**)malloc(sizeof(char *) * (vars->map_linhas + 1));
+	vars->map = (char**)malloc(sizeof(char *) * (vars->map_num_rows + 1));
 	preenche_com_espacos(vars);
 
 	i = 0;
-	while(i < vars->map_linhas + 1)
+	while(i < vars->map_num_rows + 1)
 	{
-		vars->map[i] = ft_calloc(vars->map_cols + 1, sizeof(char));
+		vars->map[i] = ft_calloc(vars->map_num_cols + 1, sizeof(char));
 		printf("a: |%s|\n",vars->map[i]);
 //		vars->map[i] = (char *)malloc(sizeof(char) * (max_col + 1));
 		//vars->map[i] = ft_strdup(vars->map_temp[i]);

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 18:47:04 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 01:11:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 00:06:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void p_init_cfg(t_vars *vars)
 	vars->cfg.all_set = 0;
 	vars->line_count = 0;
 	vars->line_cfg = 0;
+	vars->window_width = 500;
+	vars->window_height = 500;
 }
 
 void p_print_cfg(t_vars *vars) // APAGAR ESTA FUNCAO !!!

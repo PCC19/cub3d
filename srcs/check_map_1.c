@@ -19,7 +19,7 @@ void	check_first_last_col(t_vars *vars)
 	char	*linha;
 
 	i = 0;
-	while (i < vars->map_linhas)
+	while (i < vars->map_num_rows)
 	{
 		linha = ft_strtrim(vars->map[i], " ");
 		j = 0;
@@ -47,9 +47,9 @@ void	check_first_last_line(t_vars *vars)
 		i++;
 	}
 	i = 0;
-	while (vars->map[vars->map_linhas - 1][i])
+	while (vars->map[vars->map_num_rows - 1][i])
 	{
-		if (!ft_is_in(vars->map[vars->map_linhas - 1][i], " 1"))
+		if (!ft_is_in(vars->map[vars->map_num_rows - 1][i], " 1"))
 			sai(WALL_ERROR);
 		i++;
 	}
@@ -63,10 +63,10 @@ void	check_valid_chars_players(t_vars *vars)
 
 	n_players = 0;
 	i = 0;
-	while (i < vars->map_linhas)
+	while (i < vars->map_num_rows)
 	{
 		j = 0;
-		while (j < vars->map_cols)
+		while (j < vars->map_num_cols)
 		{
 			if (!ft_is_in(vars->map[i][j], " 012NSEW"))
 			{

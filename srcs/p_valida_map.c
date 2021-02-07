@@ -14,7 +14,7 @@
 
 void	p_valida_map(t_vars *vars)
 {
-	if (vars->map_linhas < 3 || vars->map_cols < 3)
+	if (vars->map_num_rows < 3 || vars->map_num_cols < 3)
 		sai(INVALID_MAP_SIZE);
 	check_first_last_col(vars);
 	check_first_last_line(vars);

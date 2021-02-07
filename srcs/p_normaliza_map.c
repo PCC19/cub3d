@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:16:03 by user42            #+#    #+#             */
-/*   Updated: 2021/02/06 17:52:34 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/07 23:29:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void conta_linhas_cols(t_vars *vars)
 		n_linhas ++;
 		i++;
 	}
-	vars->map_linhas = n_linhas;
-	vars->map_cols = max_col;
+	vars->map_num_rows = n_linhas;
+	vars->map_num_cols = max_col;
 
 }
 
@@ -55,7 +55,7 @@ void preenche_com_espacos(t_vars *vars, char *str)
 	int i;
 	
 	i = 0;
-	while (i < vars->map_cols)
+	while (i < vars->map_num_cols)
 	{
 		str[i] = ' ';
 		i++;
@@ -67,12 +67,12 @@ void p_normaliza_map(t_vars *vars)
 	int i;
 
 	conta_linhas_cols(vars);
-	vars->map = (char**)malloc(sizeof(char *) * (vars->map_linhas + 1));
+	vars->map = (char**)malloc(sizeof(char *) * (vars->map_num_rows + 1));
 
 	i = 0;
-	while(i < vars->map_linhas)
+	while(i < vars->map_num_rows)
 	{
-		vars->map[i] = ft_calloc(vars->map_cols + 1, sizeof(char));
+		vars->map[i] = ft_calloc(vars->map_num_cols + 1, sizeof(char));
 		preenche_com_espacos(vars, vars->map[i]);
 		copia_linha_array(vars->map[i], vars->map_temp[i]);
 		printf("%d: |%s|\n",i, vars->map[i]);

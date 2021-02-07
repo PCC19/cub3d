@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 01:52:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/07 23:54:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void p_escolhe_parse(t_vars *vars, char *str)
 {
 	printf("p_escolhe_parse %d", vars->cfg.res.x);
-	printf("str[0] %c\n", str[0]);
+	//printf("str[0] %c\n", str[0]);
 	if (str[0] == 'R')
 	{
 		printf("R\n");
@@ -56,7 +56,7 @@ void p_escolhe_parse(t_vars *vars, char *str)
 		printf("EA\n");
 		p_parse_EA(vars,str);
 	}
-	p_print_cfg(vars);
+	//p_print_cfg(vars);
 
 }
 

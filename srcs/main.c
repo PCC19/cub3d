@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 19:46:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 00:07:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -66,20 +66,32 @@ void sai(int codigo)
 int main(int argc, char **argv)
 {
 	t_vars vars;
+	
 
+	// INICIALIZACAO DE TUDO
+	p_init_cfg(&vars);
+		p_print_cfg(&vars); // APAGAR !!
+	// Inicializa lib e window
+	vars.mlx = mlx_init();
+		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	mlx_get_screen_size(vars.mlx, &vars.window_width, &vars.window_height);
+	vars.window_width *= 0.6;
+	vars.window_height *= 0.6;
+	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
+		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	
+	vars.tile_size = 32;
+	
+	// LEITURA DO ARQUIVO E PARSE DOS INPUTS
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
-
-
+	
 	// Inicializa pontos para teste da linha
 	t_pto p0;
 	t_pto p1;
 	// fim dos pontos
 
-	// Inicializa lib e window
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx,500,500,"Hello World !");
 	// Draw pixel
 	mlx_pixel_put(vars.mlx, vars.win,250,250,0xFFFFFF);
 	// Draw a line
