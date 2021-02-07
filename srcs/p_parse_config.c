@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 21:44:25 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 02:24:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/07 19:45:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void p_parse_config(t_vars *vars, int fd)
 
 	printf("p_parse_config %d\n", vars->cfg.res.x);
 		printf("fd: %d\n",fd);
-		//get_next_line(fd, &linha);
-		//printf("linha: %s\n",linha);
 	flag = 0;
 	while (vars->cfg.all_set < 8 && get_next_line(fd, &linha))
 	{
@@ -33,7 +31,6 @@ void p_parse_config(t_vars *vars, int fd)
 		printf("str:|%s|",str); printf("  len: %zu\n",ft_strlen(str));
 		if (len > 0 && !ft_is_in(str[0],"RCFSEWN"))
 			flag = 1;
-		//free(str);
 		if (flag)
 		{
 			free(str);
