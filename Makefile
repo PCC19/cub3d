@@ -28,6 +28,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)u_print_map.c\
 		$(SDIR)p_normaliza_map.c\
 		$(SDIR)p_valida_map.c\
+		$(SDIR)check_map_1.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
@@ -38,7 +39,7 @@ C_FLAGS = -Wall -Werror -Wextra -g
 C_SANIT = -fsanitize=address
 L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft 
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) ./maps/arq1.cub
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
 	./$(NAME) ./maps/arq1.cub
 
