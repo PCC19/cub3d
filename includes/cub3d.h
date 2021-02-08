@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 00:39:38 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 14:33:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -178,6 +178,7 @@ int		c(t_vars *vars, int i, int j);
 void	check_around_spaces_orto(t_vars *vars);
 void	check_around_spaces_diag(t_vars *vars);
 void	render_map(t_vars *vars);
+void	u_free_map(t_vars *vars);
 
 
 // ========================================

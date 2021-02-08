@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 00:40:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:00:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
 	
-	vars.tile_size = vars.window_width / vars.map_num_cols;
+	vars.tile_size = vars.window_width / (vars.map_num_cols - 1);
 		printf("tile size: %d\n",vars.tile_size);
 	vars.window_height = vars.map_num_rows * vars.tile_size;
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
@@ -94,6 +94,14 @@ int main(int argc, char **argv)
 	
 	// RENDER MAP
 	render_map(&vars);
+
+	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_loop(vars.mlx);
+	u_free_map(&vars);
+	free(vars.cfg.so_tex);
+	free(vars.cfg.no_tex);
+	free(vars.cfg.we_tex);
+	free(vars.cfg.ea_tex);
 
 
 /*
@@ -193,7 +201,6 @@ int main(int argc, char **argv)
 	printf("a: %d   b;  %d\n",funcao_a(5),funcao_b(5));
 
 	mlx_key_hook(vars.win, key_hook, &vars);
-
 	mlx_loop(vars.mlx);
 */
 }
