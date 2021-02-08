@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 01:31:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:17:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	render_map(t_vars *vars)
 			r.borda = 1;
 			r.cor_borda = RED;
 			g_plot_rect(vars, r);
+			//mlx_put_image_to_window(vars.mlx, vars.win, vars.sprite.img, 200, 0);
 			j++;
 		}
 		i++;

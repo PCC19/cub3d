@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 14:33:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 00:29:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -122,21 +122,22 @@ typedef struct s_cfg{
 
 
 typedef struct s_vars {
-	void *mlx;
-	void *win;
-	t_input_rect r1;
-	t_input_rect r2;
-	t_sprite sprite;
-	t_cfg cfg;
-	int line_count;
-	int line_cfg;
-	char **map;
-	char **map_temp;
-	int map_num_rows;
-	int map_num_cols;
-	int tile_size;
-	int window_width;
-	int window_height;
+	void			*mlx;
+	void			*win;
+	t_input_rect	r1;
+	t_input_rect	r2;
+	t_sprite		sprite;
+	t_cfg			cfg;
+	int				line_count;
+	int				line_cfg;
+	char			**map;
+	char			**map_temp;
+	int				map_num_rows;
+	int				map_num_cols;
+	int				tile_size;
+	int				window_width;
+	int				window_height;
+	void			*tela; 
 
 }	t_vars;
 
@@ -179,6 +180,6 @@ void	check_around_spaces_orto(t_vars *vars);
 void	check_around_spaces_diag(t_vars *vars);
 void	render_map(t_vars *vars);
 void	u_free_map(t_vars *vars);
-
+void	check_resolution(t_vars *vars);
 
 // ========================================

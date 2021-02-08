@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 15:00:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 00:32:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -74,16 +74,14 @@ int main(int argc, char **argv)
 	// Inicializa lib e window
 	vars.mlx = mlx_init();
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
-	mlx_get_screen_size(vars.mlx, &vars.window_width, &vars.window_height);
-	vars.window_width *= 0.6;
-	vars.window_height *= 0.6;
 	
 	
 	// LEITURA DO ARQUIVO E PARSE DOS INPUTS
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
-	
+	check_resolution(&vars);
+		
 	vars.tile_size = vars.window_width / (vars.map_num_cols - 1);
 		printf("tile size: %d\n",vars.tile_size);
 	vars.window_height = vars.map_num_rows * vars.tile_size;
@@ -91,6 +89,10 @@ int main(int argc, char **argv)
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	// Cria uma figura (tela) para poder desenhar
+	vars.tela = mlx_new_image(vars.mlx, vars.window_width, vars.window_height);
+
+
 	
 	// RENDER MAP
 	render_map(&vars);

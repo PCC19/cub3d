@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 20:16:03 by user42            #+#    #+#             */
-/*   Updated: 2021/02/08 14:56:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/08 15:04:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ void conta_linhas_cols(t_vars *vars)
 	{
 		ajuste = ignora_espacos_fim(vars->map_temp[i]);
 		printf("ajuste: %d  %d\n",i,ajuste);
-		//if (ft_strlen(vars->map_temp[i]) > max_col)
 		if (ignora_espacos_fim(vars->map_temp[i]) > max_col)
-			//max_col = ft_strlen(vars->map_temp[i]);
 			max_col = ignora_espacos_fim(vars->map_temp[i]);
 		n_linhas ++;
 		i++;
@@ -66,7 +64,6 @@ void	copia_linha_array(char *destino, char *origem, int num_char)
 	else
 	{
 		while (origem[i] && i < num_char)
-		//while (i < num_char - 1)
 		{
 			destino[i] = origem[i];
 			i++;
