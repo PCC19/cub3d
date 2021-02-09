@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 17:07:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:32:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -191,5 +191,7 @@ void	u_free_map(t_vars *vars);
 void	check_resolution(t_vars *vars);
 void	g_image_init(t_vars *v);
 void	g_pixel_put_img(t_tela t, int x, int y, int color);
+void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
+
 
 // ========================================

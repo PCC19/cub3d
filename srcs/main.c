@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 17:28:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:38:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -94,6 +94,12 @@ int main(int argc, char **argv)
 	// pixel img
 	g_pixel_put_img(vars.t, 499, 175, GREEN);
 	// line img
+	t_pto p0,p1;
+	p0.x = 10;
+	p0.y = 10;
+	p1.x = 30;
+	p1.y = 30;
+	g_plot_line_img(vars, p0, p1, BLUE);
 	// rect_img
 		mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
 
