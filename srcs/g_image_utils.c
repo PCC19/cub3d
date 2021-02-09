@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:38:06 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 17:32:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:52:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor)
 	v.err = v.dx + v.dy;
 	while (1)
 	{
-		mlx_pixel_put_img(vars->t, p0.x, p0.y, cor);
+		g_pixel_put_img(vars->t, p0.x, p0.y, cor);
 		if (p0.x == p1.x && p0.y == p1.y)
 			break ;
 		v.e2 = 2 * v.err;
@@ -49,4 +49,40 @@ void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor)
 			p0.y += v.sy;
 		}
 	}
+}
+
+void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color)
+{
+	int		i;
+	t_pto	ini;
+	t_pto	fin;
+
+	ini.x = ip.pto_sup_esq.x;
+	ini.y = ip.pto_sup_esq.y;
+	fin.x = ini.x + ip.largura;
+	fin.y = ini.y;
+	i = 0;
+	while (i < ip.altura)
+	{
+		g_plot_line_img(vars, ini, fin, color);
+		ini.y++;
+		fin.y++;
+		i++;
+	}
+}
+
+void	g_plot_rect_img(t_vars *vars, t_input_rect ip)
+{
+	t_input_rect a;
+
+	a = ip;
+	if (ip.borda > 0)
+	{
+		g_plot_rect_aux_img(vars, ip, ip.cor_borda);
+		a.pto_sup_esq.x += ip.borda;
+		a.pto_sup_esq.y += ip.borda;
+		a.altura = a.altura - (2 * ip.borda);
+		a.largura = a.largura - (2 * ip.borda);
+	}
+	g_plot_rect_aux_img(vars, a, ip.cor);
 }

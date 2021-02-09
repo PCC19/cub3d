@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 17:32:30 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:20:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -26,6 +26,7 @@
 # define GREEN 0xFF00FF80
 # define BLUE 0x000000FF
 # define BLACK 0x00000000
+# define GREY 0x008c8c8c
 # define UP 65362
 # define DN 65364
 # define LEFT 65361
@@ -192,6 +193,7 @@ void	check_resolution(t_vars *vars);
 void	g_image_init(t_vars *v);
 void	g_pixel_put_img(t_tela t, int x, int y, int color);
 void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-
+void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color);
+void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
 
 // ========================================
