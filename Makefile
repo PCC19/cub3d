@@ -33,6 +33,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)render_map.c\
 		$(SDIR)u_free_map.c\
 		$(SDIR)check_resolution.c\
+		$(SDIR)g_image_utils.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

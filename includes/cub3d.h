@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 00:29:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:07:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -120,6 +120,14 @@ typedef struct s_cfg{
 	int all_set;
 } t_cfg;
 
+typedef struct s_tela {
+	void	*id;
+	void	*p;
+	int		b;
+	int		s_line;
+	int		end;
+}	t_tela;
+	
 
 typedef struct s_vars {
 	void			*mlx;
@@ -137,7 +145,7 @@ typedef struct s_vars {
 	int				tile_size;
 	int				window_width;
 	int				window_height;
-	void			*tela; 
+	t_tela			t; 
 
 }	t_vars;
 
@@ -181,5 +189,7 @@ void	check_around_spaces_diag(t_vars *vars);
 void	render_map(t_vars *vars);
 void	u_free_map(t_vars *vars);
 void	check_resolution(t_vars *vars);
+void	g_image_init(t_vars *v);
+void	g_pixel_put_img(t_tela t, int x, int y, int color);
 
 // ========================================

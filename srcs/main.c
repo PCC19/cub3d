@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 00:32:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/09 17:28:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -89,13 +89,18 @@ int main(int argc, char **argv)
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
-	// Cria uma figura (tela) para poder desenhar
-	vars.tela = mlx_new_image(vars.mlx, vars.window_width, vars.window_height);
+	// init img
+	g_image_init (&vars);
+	// pixel img
+	g_pixel_put_img(vars.t, 499, 175, GREEN);
+	// line img
+	// rect_img
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
 
 
 	
 	// RENDER MAP
-	render_map(&vars);
+	//render_map(&vars);
 
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_loop(vars.mlx);
