@@ -1,4 +1,4 @@
-R 500 500
+R 1000 800
 
 NO ../textures/bluestone.xpm
 SO ../textures/colorstone.xpm
