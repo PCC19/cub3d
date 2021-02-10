@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 00:20:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 01:03:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/errno.h>
+#include <math.h>
 
 
 // FF transparente    00 Opaco
@@ -129,6 +130,16 @@ typedef struct s_tela {
 	int		end;
 }	t_tela;
 	
+typedef struct s_player {
+	int		x;
+	int		y;
+	int		radius;
+	int		turn_dir;
+	int		walk_dir;
+	float	angle;
+	int		move_speed;
+	int		rotation_speed;
+}			t_player;
 
 typedef struct s_vars {
 	void			*mlx;
@@ -147,6 +158,7 @@ typedef struct s_vars {
 	int				window_width;
 	int				window_height;
 	t_tela			t; 
+	t_player		player;
 
 }	t_vars;
 
@@ -195,5 +207,6 @@ void	g_pixel_put_img(t_tela t, int x, int y, int color);
 void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color);
 void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
+void	p_init_player(t_vars *vars);
 
 // ========================================

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 00:28:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 00:39:39 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	plot_bloco(t_vars *vars, int i, int j, int color)
 	r.largura = vars->tile_size;
 	r.cor = color;
 	r.borda = 1;
-	r.cor_borda = RED;
+	r.cor_borda = GREY;
 	g_plot_rect_img(vars, r);
 }
 
