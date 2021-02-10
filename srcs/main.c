@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 16:21:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 17:03:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -30,32 +30,34 @@ int key_hook (int keycode, t_vars *vars)
 	printf("Hello Baby !!\n");
 //	printf("p %p\n",mw->mlx_ptr);
 	printf("keycode: %d\n",keycode);
-	t_input_rect r;
-
-	r = vars->r1;
-	r.borda = 0;
-	r.cor  = BLACK;
-	g_plot_rect(vars, r);
 
 	if (keycode == RIGHT)
 	{
-		vars->player.x += vars->player.move_speed;
+		vars->player.turn_dir = 1;
+		vars->player.angle += vars->player.rotation_speed;
+		printf("rot_speed: %f\n",vars->player.rotation_speed);
+		printf("angle: %f\n",vars->player.angle);
 		//vars->r1.pto_sup_esq.x ++;
 		//g_plot_rect(vars, vars->r1);
 	}
 	if (keycode == LEFT)
 	{
-		vars->player.x -= vars->player.move_speed;
+		vars->player.turn_dir = -1;
+		vars->player.angle -= vars->player.rotation_speed;
+		printf("rot_speed: %f\n",vars->player.rotation_speed);
+		printf("angle: %f\n",vars->player.angle);
 		//vars->r1.pto_sup_esq.x --;
 		//g_plot_rect(vars, vars->r1);
 	}
 	if (keycode == UP)
 	{
+		vars->player.walk_dir = 1;
 		vars->r1.pto_sup_esq.y --;
 		g_plot_rect(vars, vars->r1);
 	}
 	if (keycode == DN)
 	{
+		vars->player.walk_dir = -1;
 		vars->r1.pto_sup_esq.y ++;
 		g_plot_rect(vars, vars->r1);
 	}

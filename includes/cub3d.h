@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 15:41:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 17:03:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -138,7 +138,7 @@ typedef struct s_player {
 	int		walk_dir;
 	float	angle;
 	int		move_speed;
-	int		rotation_speed;
+	float	rotation_speed;
 }			t_player;
 
 typedef struct s_vars {
