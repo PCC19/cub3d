@@ -37,6 +37,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_init_player.c\
 		$(SDIR)draw.c\
 		$(SDIR)render_player.c\
+		$(SDIR)u_norm_angle.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

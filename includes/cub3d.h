@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 17:03:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 17:27:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -210,5 +210,7 @@ void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
 void	p_init_player(t_vars *vars);
 void	draw(t_vars *vars);
 void	render_player(t_vars *vars);
+float	u_norm_angle(float a);
+
 
 // ========================================
