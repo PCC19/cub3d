@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 00:54:14 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 01:20:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:45:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,37 @@ void	p_init_player_angle(t_vars *vars)
 	}
 }
 
+void	p_init_player_pos(t_vars *vars)
+{
+	int i;
+	int j;
+	int xx;
+	int yy;
+
+	i = 0;
+	while (i < vars->map_num_rows)
+	{
+		j = 0;
+		while (j < vars->map_num_cols)
+		{
+			if (ft_is_in(vars->map[i][j], "NSEW"))
+			{
+				xx = j;
+				yy = i;
+			}
+			j++;
+		}
+		i++;
+	}
+	printf("xx: %d  yy: %d\n",xx,yy);
+
+	vars->player.x = (xx + 1) * vars->tile_size - (vars->tile_size / 2);
+	vars->player.y = (yy + 1) * vars->tile_size - (vars->tile_size / 2);
+}
+
 void	p_init_player(t_vars *vars)
 {
-	vars->player.x = 0;
-	vars->player.y = 0;
+	p_init_player_pos(vars);
 	vars->player.radius = 2;
 	vars->player.turn_dir = 0;
 	vars->player.walk_dir = 0;
@@ -48,4 +75,3 @@ void	p_init_player(t_vars *vars)
 	vars->player.move_speed = 2;
 	vars->player.rotation_speed = 2 * M_PI / 180;
 }
-

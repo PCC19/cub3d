@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 00:39:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:45:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	render_map(t_vars *vars)
 		{
 			if (vars->map[i][j] == '1')
 				plot_bloco(vars, i, j, BLACK);
-			if (vars->map[i][j] == '0')
-				plot_bloco(vars, i, j, WHITE);
 			if (vars->map[i][j] == ' ')
 				plot_bloco(vars, i, j, GREY);
+			if (ft_is_in(vars->map[i][j],"02NSEW"))
+				plot_bloco(vars, i, j, WHITE);
 			j++;
 		}
 		i++;

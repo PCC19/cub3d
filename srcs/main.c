@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 00:24:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 16:21:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -19,6 +19,11 @@
 #include <fcntl.h>
 #include <sys/errno.h>
 
+int loop (t_vars *vars)
+{
+	draw(vars);
+	return (0);
+}
 
 int key_hook (int keycode, t_vars *vars)
 {
@@ -34,13 +39,15 @@ int key_hook (int keycode, t_vars *vars)
 
 	if (keycode == RIGHT)
 	{
-		vars->r1.pto_sup_esq.x ++;
-		g_plot_rect(vars, vars->r1);
+		vars->player.x += vars->player.move_speed;
+		//vars->r1.pto_sup_esq.x ++;
+		//g_plot_rect(vars, vars->r1);
 	}
 	if (keycode == LEFT)
 	{
-		vars->r1.pto_sup_esq.x --;
-		g_plot_rect(vars, vars->r1);
+		vars->player.x -= vars->player.move_speed;
+		//vars->r1.pto_sup_esq.x --;
+		//g_plot_rect(vars, vars->r1);
 	}
 	if (keycode == UP)
 	{
@@ -86,6 +93,10 @@ int main(int argc, char **argv)
 		printf("tile size: %d\n",vars.tile_size);
 	vars.window_height = vars.map_num_rows * vars.tile_size;
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+	// codigo para inicializar player
+	p_init_player(&vars);
+		printf("Angulo: %f\n",vars.player.angle);
+		printf("x: %d   y: %d\n",vars.player.x, vars.player.y);
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
@@ -115,11 +126,12 @@ int main(int argc, char **argv)
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
 */
 
-	
-	// RENDER MAP
-	render_map(&vars);
+	// DRAW()	
+	draw(&vars);
+
 
 	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_loop_hook(vars.mlx, loop, &vars);
 	mlx_loop(vars.mlx);
 	u_free_map(&vars);
 	free(vars.cfg.so_tex);

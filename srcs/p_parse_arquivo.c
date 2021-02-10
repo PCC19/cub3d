@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 01:04:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 15:29:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int p_parse_arquivo(t_vars *vars, char *arquivo)
 		p_parse_map(vars, fd);
 		p_normaliza_map(vars);
 		p_valida_map(vars);
-		// codigo para inicializar player
-		p_init_player(vars);
-			printf("Angulo: %f\n",vars->player.angle);
 		// codigo para carregar texturas
 		// codigo para inicializar sprites
 
