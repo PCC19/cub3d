@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 22:18:30 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 22:24:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -23,72 +23,6 @@ int loop (t_vars *vars)
 {
 	draw(vars);
 	return (0);
-}
-
-int key_hook (int keycode, t_vars *vars)
-{
-	int nX;
-	int nY;
-	int ts;
-
-	ts = vars->tile_size;
-	printf("Hello Baby !!\n");
-//	printf("p %p\n",mw->mlx_ptr);
-	printf("keycode: %d\n",keycode);
-
-	if (keycode == RIGHT)
-	{
-		vars->player.turn_dir = 1;
-		vars->player.angle += vars->player.rotation_speed;
-		vars->player.angle = u_norm_angle(vars->player.angle);
-		printf("rot_speed: %f\n",vars->player.rotation_speed);
-		printf("angle: %f\n",vars->player.angle);
-	}
-	if (keycode == LEFT)
-	{
-		vars->player.turn_dir = -1;
-		vars->player.angle -= vars->player.rotation_speed;
-		vars->player.angle = u_norm_angle(vars->player.angle);
-		printf("rot_speed: %f\n",vars->player.rotation_speed);
-		printf("angle: %f\n",vars->player.angle);
-	}
-	if (keycode == UP)
-	{
-		vars->player.walk_dir = 1;
-		nX = vars->player.x + vars->player.move_speed * cos(vars->player.angle);
-		nY = vars->player.y + vars->player.move_speed * sin(vars->player.angle);
-		printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
-		printf("nX: %d   nY: %d\n", nX, nY);
-		printf("nX/tile_size: %d  nY/tile_size: %d\n",nX / ts, nY / ts);
-		nX = vars->player.x + vars->player.move_speed * cos(vars->player.angle);
-		nY = vars->player.y + vars->player.move_speed * sin(vars->player.angle);
-		if (!ft_is_in(vars->map[nY / ts][nX / ts],"12"))
-		{
-			vars->player.x = nX;
-			vars->player.y = nY;
-		}
-		//vars->player.x += vars->player.move_speed * cos(vars->player.angle);
-		//vars->player.y += vars->player.move_speed * sin(vars->player.angle);
-	}
-	if (keycode == DN)
-	{
-		vars->player.walk_dir = -1;
-		nX = vars->player.x - vars->player.move_speed * cos(vars->player.angle);
-		nY = vars->player.y - vars->player.move_speed * sin(vars->player.angle);
-		printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
-		printf("nX: %d   nY: %d\n", nX, nY);
-		printf("nX/tile_size: %d  nY/tile_size: %d\n",nX / ts, nY / ts);
-
-		if (!ft_is_in(vars->map[nY / ts][nX / ts],"12"))
-		{
-			vars->player.x = nX;
-			vars->player.y = nY;
-		}
-	//	vars->player.x -= vars->player.move_speed * cos(vars->player.angle);
-	//	vars->player.y -= vars->player.move_speed * sin(vars->player.angle);
-	}
-
-	return 0;
 }
 
 void sai(int codigo)

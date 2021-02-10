@@ -38,6 +38,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)draw.c\
 		$(SDIR)render_player.c\
 		$(SDIR)u_norm_angle.c\
+		$(SDIR)k_hooks.c\
+		$(SDIR)u_wall_hit.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
