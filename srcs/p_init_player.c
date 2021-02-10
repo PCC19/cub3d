@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 00:54:14 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 17:07:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 22:20:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	p_init_player(t_vars *vars)
 	vars->player.turn_dir = 0;
 	vars->player.walk_dir = 0;
 	p_init_player_angle(vars);
-	vars->player.move_speed = 2;
-	vars->player.rotation_speed = 2 * M_PI / 40;
+	vars->player.move_speed = 10;
+	vars->player.rotation_speed = 2 * M_PI / 60;
 }
