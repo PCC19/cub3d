@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 00:54:14 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 01:17:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 01:20:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	p_init_player_angle(t_vars *vars)
 			if (vars->map[i][j] == 'E')
 				vars->player.angle = 0;
 			if (vars->map[i][j] == 'N')
-				vars->player.angle = M_PI / 2;
+				vars->player.angle = 3 * M_PI / 2;
 			if (vars->map[i][j] == 'W')
 				vars->player.angle = M_PI;
 			if (vars->map[i][j] == 'S')
-				vars->player.angle = 3 * M_PI / 2;
+				vars->player.angle = M_PI / 2;
 			j++;
 		}
 		i++;
