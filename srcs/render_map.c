@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 15:45:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 00:05:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	render_map(t_vars *vars)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->t.id, 0, 0);
+//	mlx_put_image_to_window(vars->mlx, vars->win, vars->t.id, 0, 0);
 }

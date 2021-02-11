@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 22:24:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/10 23:10:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -59,6 +59,8 @@ int main(int argc, char **argv)
 	p_init_player(&vars);
 		printf("Angulo: %f\n",vars.player.angle);
 		printf("x: %d   y: %d\n",vars.player.x, vars.player.y);
+	// init
+	p_init_vars(&vars);
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);

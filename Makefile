@@ -40,6 +40,11 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)u_norm_angle.c\
 		$(SDIR)k_hooks.c\
 		$(SDIR)u_wall_hit.c\
+		$(SDIR)p_init_vars.c\
+		$(SDIR)render_ray.c\
+		$(SDIR)update.c\
+		$(SDIR)cast_ray.c\
+		$(SDIR)cast_all_rays.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

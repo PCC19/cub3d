@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_casting.c                                      :+:      :+:    :+:   */
+/*   p_init_vars.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/10 22:49:54 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 22:52:04 by user42           ###   ########.fr       */
+/*   Created: 2021/02/10 23:07:51 by user42            #+#    #+#             */
+/*   Updated: 2021/02/10 23:18:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ray_casting(t_vars *vars)
+void	p_init_vars(t_vars *vars)
 {
-// subtract 30o (FOV / 2) from player.angle
-
-// start at column 0
-
-// while (column < max_col)
-/*Cast a ray
-Move it until intersects with wall
-
-*/
-
+	vars->fov = 60 * M_PI / 180;
+	vars->strip_width = 1;
+	vars->num_rays = vars->window_width / vars->strip_width;
 }
-

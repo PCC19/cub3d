@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 22:55:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/11 18:10:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -22,6 +22,7 @@
 // FF transparente    00 Opaco
 // ========= DEFINES ======================
 # define ABS(a) (((a) < 0) ? -(a) : (a))
+# define MAX_RAYS 2000
 # define WHITE 0x00FFFFFF
 # define RED 0x80F00000
 # define GREEN 0xFF00FF80
@@ -141,6 +142,18 @@ typedef struct s_player {
 	float	rotation_speed;
 }			t_player;
 
+typedef struct s_ray
+{
+	float	angle;
+	float	dist;
+	int		wall_hit_x;
+	int		wall_hit_y;
+	int		is_dn;
+	int		is_up;
+	int		is_ri;
+	int		is_le;
+}			t_ray;
+
 typedef struct s_vars {
 	void			*mlx;
 	void			*win;
@@ -159,6 +172,10 @@ typedef struct s_vars {
 	int				window_height;
 	t_tela			t; 
 	t_player		player;
+	t_ray			rays[MAX_RAYS];
+	float			fov;
+	int				strip_width;
+	int				num_rays;
 
 }	t_vars;
 
@@ -213,7 +230,10 @@ void	render_player(t_vars *vars);
 float	u_norm_angle(float a);
 int		key_hook (int keycode, t_vars *vars);
 int		u_wall_hit(t_vars *vars, int x, int y);
-
-
+void	p_init_vars(t_vars *vars);
+void	render_ray(t_vars *vars, float angle);
+void	update(t_vars *vars);
+void	cast_ray(t_vars *vars, int i, float angle);
+void	cast_all_rays(t_vars *vars);
 
 // ========================================
