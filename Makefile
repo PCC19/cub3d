@@ -45,6 +45,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)update.c\
 		$(SDIR)cast_ray.c\
 		$(SDIR)cast_all_rays.c\
+		$(SDIR)u_is_inside.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

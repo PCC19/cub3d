@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 23:10:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/12 00:53:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -21,6 +21,9 @@
 
 int loop (t_vars *vars)
 {
+	//vars->player.x++;
+	//vars->player.x--;
+
 	draw(vars);
 	return (0);
 }
@@ -95,7 +98,7 @@ int main(int argc, char **argv)
 
 
 	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_loop_hook(vars.mlx, loop, &vars);
+	//mlx_loop_hook(vars.mlx, loop, &vars);
 	mlx_loop(vars.mlx);
 	u_free_map(&vars);
 	free(vars.cfg.so_tex);

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_ray.c                                       :+:      :+:    :+:   */
+/*   u_is_inside.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/10 23:39:09 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:35:47 by user42           ###   ########.fr       */
+/*   Created: 2021/02/12 00:17:24 by user42            #+#    #+#             */
+/*   Updated: 2021/02/12 00:19:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	render_ray(t_vars *vars, float angle, int color)
+int	u_is_inside(t_vars *vars, int x, int y)
 {
-	t_pto	p0;
-	t_pto	p1;
-	int		len_ray;
+	int flag;
 
-	len_ray = 60;
-	p0.x = vars->player.x;
-	p0.y = vars->player.y;
-	p1.x = p0.x + len_ray * cos(angle);
-	p1.y = p0.y + len_ray * sin(angle);
-	g_plot_line_img(vars, p0, p1, color);
+	flag = 0;
+	if (x >= 0 && x <= vars->window_width && y >= 0 && y <= vars->window_height)
+		flag = 1;
+	return (flag);
 }

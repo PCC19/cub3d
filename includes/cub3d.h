@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/11 18:10:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/12 00:35:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -231,9 +231,11 @@ float	u_norm_angle(float a);
 int		key_hook (int keycode, t_vars *vars);
 int		u_wall_hit(t_vars *vars, int x, int y);
 void	p_init_vars(t_vars *vars);
-void	render_ray(t_vars *vars, float angle);
+void	render_ray(t_vars *vars, float angle, int color);
 void	update(t_vars *vars);
 void	cast_ray(t_vars *vars, int i, float angle);
 void	cast_all_rays(t_vars *vars);
+int		u_is_inside(t_vars *vars, int x, int y);
+
 
 // ========================================

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:23:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 23:49:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/12 00:53:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int		key_hook(int keycode, t_vars *vars)
 		up(vars);
 	if (keycode == DN)
 		down(vars);
-	update(vars);
+	//update(vars);
+	draw(vars);
 	return (0);
 }

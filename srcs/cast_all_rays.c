@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:28:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/11 18:25:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/12 01:12:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	cast_all_rays(t_vars *vars)
 	while (i < 1)
 	{
 		// ray cast
-		render_ray(vars, ray_angle);
-		// guarda no array
+			printf("ca1: %f\n", ray_angle*180/M_PI);
+		render_ray(vars, ray_angle, BLUE);
 		// cast_ray
+			printf("ca2: %f\n", ray_angle*180/M_PI);
 		cast_ray(vars, i, ray_angle);
 		ray_angle += vars->fov / vars->num_rays;
 		column_id++;
