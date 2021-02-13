@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 16:49:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 21:55:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -137,15 +137,15 @@ typedef struct s_player {
 	int		radius;
 	int		turn_dir;
 	int		walk_dir;
-	float	angle;
+	double	angle;
 	int		move_speed;
-	float	rotation_speed;
+	double	rotation_speed;
 }			t_player;
 
 typedef struct s_ray
 {
-	float	angle;
-	float	dist;
+	double	angle;
+	double	dist;
 	int		wallhit_x;
 	int		wallhit_y;
 	int		is_dn;
@@ -187,7 +187,7 @@ typedef struct s_vars {
 	t_tela			t; 
 	t_player		player;
 	t_ray			rays[MAX_RAYS];
-	float			fov;
+	double			fov;
 	int				strip_width;
 	int				num_rays;
 	t_aux_dist		ah;
@@ -243,20 +243,22 @@ void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
 void	p_init_player(t_vars *vars);
 void	draw(t_vars *vars);
 void	render_player(t_vars *vars);
-float	u_norm_angle(float a);
+double	u_norm_angle(double a);
 int		key_hook (int keycode, t_vars *vars);
 int		u_wall_hit(t_vars *vars, int x, int y);
 void	p_init_vars(t_vars *vars);
 void	render_ray(t_vars *vars, int x, int y, int color);
 void	update(t_vars *vars);
-void	cast_ray(t_vars *vars, int i, float angle);
+void	cast_ray(t_vars *vars, int i, double angle);
 void	cast_all_rays(t_vars *vars);
 int		u_is_inside(t_vars *vars, int x, int y);
-void	set_ray_booleans(t_vars *v, int i, float angle);
+void	set_ray_booleans(t_vars *v, int i, double angle);
 void	horizontal_dist(t_vars *v, int i);
-void	init_horizontal_dist(t_vars *v, int i, float angle);
+void	init_horizontal_dist(t_vars *v, int i, double angle);
 void	vertical_dist(t_vars *v, int i);
-void	init_vertical_dist(t_vars *v, int i, float angle);
-float	dist(float x1, float y1, float x2, float y2);
+void	init_vertical_dist(t_vars *v, int i, double angle);
+double	dist(double x1, double y1, double x2, double y2);
+void	pp(t_vars *v, int x, int y, int color);
+
 
 // ========================================

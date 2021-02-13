@@ -12,9 +12,9 @@
 
 #include "cub3d.h"
 
-float	u_norm_angle(float a)
+double	u_norm_angle(double a)
 {
-	float angle;
+	double angle;
 
 	angle = fmod(a, (2 * M_PI));
 	if (a < 0)

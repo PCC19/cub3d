@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 /*
-void	render_ray1(t_vars *vars, float angle, int color)
+void	render_ray1(t_vars *vars, double angle, int color)
 {
 	t_pto	p0;
 	t_pto	p1;

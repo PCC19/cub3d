@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:23:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:53:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 20:46:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	right(t_vars *vars)
 	vars->player.angle = u_norm_angle(vars->player.angle);
 	printf("rot_speed: %f\n", vars->player.rotation_speed);
 	printf("angle: %f\n", vars->player.angle);
+	printf("angle: %f\n", vars->player.angle * 180 / M_PI);
 }
 
 void	left(t_vars *vars)
@@ -28,6 +29,7 @@ void	left(t_vars *vars)
 	vars->player.angle = u_norm_angle(vars->player.angle);
 	printf("rot_speed: %f\n", vars->player.rotation_speed);
 	printf("angle: %f\n", vars->player.angle);
+	printf("angle: %f\n", vars->player.angle * 180 / M_PI);
 }
 
 void	up(t_vars *vars)

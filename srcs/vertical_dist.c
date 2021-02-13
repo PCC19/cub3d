@@ -6,15 +6,15 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 18:49:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:14:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_vertical_dist(t_vars *v, int i, float a)
+void	init_vertical_dist(t_vars *v, int i, double a)
 {
-	float aa;
+	double aa;
 	printf("==================== VERTICAL  ====================\n");
 
 			printf("av: %f\n", a*180/M_PI);
@@ -42,19 +42,21 @@ void	vertical_dist(t_vars *v, int i)
 {
 	//t_pto p0;
 	//t_pto p1;
+	int aj;
 
+	aj = -1;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
 	if (v->rays[i].is_le)
-		v->av.next_xi--;
-	else
-		v->av.next_xi++;
+		//v->av.next_xi--;
+		aj = 1;
 	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
-	while (u_is_inside(v, v->av.next_xi, v->av.next_yi))
+	while (u_is_inside(v, v->av.next_xi - aj, v->av.next_yi))
 	{
-	g_pixel_put_img(v->t, v->av.next_xi+2, v->av.next_yi+2, RED);
+//	g_pixel_put_img(v->t, v->av.next_xi, v->av.next_yi, RED);
+	pp(v, v->av.next_xi, v->av.next_yi, RED);
 	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-		if (u_wall_hit(v, v->av.next_xi, v->av.next_yi))
+		if (u_wall_hit(v, v->av.next_xi - aj, v->av.next_yi))
 		{
 			v->av.found_hit = 1;
 			v->av.wallhit_x = v->av.next_xi;

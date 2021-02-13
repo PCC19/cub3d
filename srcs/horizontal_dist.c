@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 18:48:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:14:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_ray_booleans(t_vars *v, int i, float angle)
+void	set_ray_booleans(t_vars *v, int i, double angle)
 {
 	if (angle > 0 && angle < M_PI)
 	{
@@ -37,9 +37,9 @@ void	set_ray_booleans(t_vars *v, int i, float angle)
 	printf("set_ray_boolean: d%d u%d r%d l%d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 }
 
-void	init_horizontal_dist(t_vars *v, int i, float a)
+void	init_horizontal_dist(t_vars *v, int i, double a)
 {
-	float aa;
+	double aa;
 
 	printf("==================== HORIZONTAL ====================\n");
 			printf("ah: %f\n", a*180/M_PI);
@@ -62,21 +62,38 @@ void	init_horizontal_dist(t_vars *v, int i, float a)
 	if (v->rays[i].is_ri && v->ah.xstep < 0)
 		v->ah.xstep *= -1;
 }
+void	pp(t_vars *v, int x, int y, int color)
+{
+	t_input_rect	r;
+
+	r.pto_sup_esq.x = x;
+	r.pto_sup_esq.y = y; 
+	r.altura = 3;
+	r.largura = 3;
+	r.cor = color;
+	r.borda = 0;
+	r.cor_borda = GREY;
+	g_plot_rect_img(v, r);
+}
 
 void	horizontal_dist(t_vars *v, int i)
 {
 	//t_pto p0;
 	//t_pto p1;
+	int aj;
 
+	aj = -1;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
 	if (v->rays[i].is_up)
-		v->ah.next_yi--;
-	else
-		v->ah.next_yi++;
-	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi))
+		//v->ah.next_yi--;
+		aj = 1;
+	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi - aj))
 	{
-		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi))
+	//g_pixel_put_img(v->t, v->ah.next_xi, v->ah.next_yi, GREEN);
+	pp(v, v->ah.next_xi, v->ah.next_yi, GREEN);
+	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
+		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi - aj))
 		{
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;

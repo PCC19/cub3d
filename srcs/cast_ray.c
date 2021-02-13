@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	assign_dist(t_vars *v, float h_dist, float v_dist, int i)
+void	assign_dist(t_vars *v, double h_dist, double v_dist, int i)
 {
 	printf("=================================================\n");
 	if (h_dist < v_dist)
@@ -35,12 +35,12 @@ void	assign_dist(t_vars *v, float h_dist, float v_dist, int i)
 	printf("angle: %f\n",v->rays[i].angle * 180 / M_PI);
 }
 
-void	cast_ray(t_vars *v, int i, float angle)
+void	cast_ray(t_vars *v, int i, double angle)
 {
 	int		x1;
 	int		y1;
-	float	h_dist;
-	float	v_dist;
+	double	h_dist;
+	double	v_dist;
 
 	init_horizontal_dist(v, i, angle);
 	horizontal_dist(v, i);

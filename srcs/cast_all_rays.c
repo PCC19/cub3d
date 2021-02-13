@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:28:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 17:01:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 22:15:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	u_init_rays(t_vars *vars)
 void	cast_all_rays(t_vars *vars)
 {
 	int		column_id;
-	float	ray_angle;
+	double	ray_angle;
 	int		i;
 
 	// zera rays
@@ -43,8 +43,9 @@ void	cast_all_rays(t_vars *vars)
 	column_id = 0;
 //	printf("player angle: %f  fov: %f\n",vars->player.angle, vars->fov);
 	ray_angle = 0;
-	ray_angle = vars->player.angle - (vars->fov / 2);
+	ray_angle = u_norm_angle(vars->player.angle - (vars->fov / 2));
 //	printf("ray_angle: %f\n",ray_angle);
+	printf("num_rays: %d\n",vars->num_rays);
 	i = 0;
 	//while (i < vars->num_rays)
 	while (i < 1)
@@ -53,7 +54,8 @@ void	cast_all_rays(t_vars *vars)
 		cast_ray(vars, i, ray_angle);
 		// ray cast
 		render_ray(vars, vars->rays[i].wallhit_x, vars->rays[i].wallhit_y, BLUE);
-		ray_angle += vars->fov / vars->num_rays;
+		ray_angle += vars->fov / (double) vars->num_rays;
+		ray_angle = u_norm_angle(ray_angle);
 		column_id++;
 		i++;
 	}
