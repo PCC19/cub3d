@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:22:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:23:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	vertical_dist(t_vars *v, int i)
 	v->av.next_yi = v->av.yi;
 	if (v->rays[i].is_le)
 		//v->av.next_xi--;
-		aj = 0;
+		aj = 1;
 	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
 	while (u_is_inside(v, v->av.next_xi - aj, v->av.next_yi))
 	{
