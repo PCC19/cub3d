@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 22:14:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:14:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	vertical_dist(t_vars *v, int i)
 	//t_pto p1;
 	int aj;
 
-	aj = -1;
+	aj = 0;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
 	if (v->rays[i].is_le)

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 22:14:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:14:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	horizontal_dist(t_vars *v, int i)
 	//t_pto p1;
 	int aj;
 
-	aj = -1;
+	aj = 0;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
 	if (v->rays[i].is_up)
