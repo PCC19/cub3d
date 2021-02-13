@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:35:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 01:09:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -154,6 +154,19 @@ typedef struct s_ray
 	int		is_le;
 }			t_ray;
 
+typedef struct s_aux_dist
+{
+	int xstep;
+	int	ystep;
+	int xi;
+	int	yi;
+	int next_xi;
+	int	next_yi;
+	int	found_hit;
+	int	wallhit_x;
+	int	wallhit_y;
+}		t_aux_dist;
+
 typedef struct s_vars {
 	void			*mlx;
 	void			*win;
@@ -176,6 +189,8 @@ typedef struct s_vars {
 	float			fov;
 	int				strip_width;
 	int				num_rays;
+	t_aux_dist		ah;
+	t_aux_dist		av;
 
 }	t_vars;
 
@@ -236,6 +251,12 @@ void	update(t_vars *vars);
 void	cast_ray(t_vars *vars, int i, float angle);
 void	cast_all_rays(t_vars *vars);
 int		u_is_inside(t_vars *vars, int x, int y);
+void	set_ray_booleans(t_vars *v, int i, float angle);
+void	horizontal_dist(t_vars *v, int i);
+void	init_horizontal_dist(t_vars *v, int i, float angle);
+void	vertical_dist(t_vars *v, int i);
+void	init_vertical_dist(t_vars *v, int i, float angle);
+
 
 
 // ========================================
