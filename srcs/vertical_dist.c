@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:16:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 01:19:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_vertical_dist(t_vars *v, int i, float a)
 {
 	float aa;
 
+			printf("av: %f\n", a*180/M_PI);
 	aa = 2 * M_PI - a;
 	v->av.wallhit_x = 0;
 	v->av.wallhit_y = 0;
