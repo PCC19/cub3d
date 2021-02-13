@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:28:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 22:15:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:36:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	cast_all_rays(t_vars *vars)
 //	printf("ray_angle: %f\n",ray_angle);
 	printf("num_rays: %d\n",vars->num_rays);
 	i = 0;
-	//while (i < vars->num_rays)
-	while (i < 1)
+	while (i < vars->num_rays)
+	//while (i < 1)
 	{
 		// cast_ray
 		cast_ray(vars, i, ray_angle);

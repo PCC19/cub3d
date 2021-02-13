@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:23:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 20:46:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:44:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	up(t_vars *vars)
 	printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
 	printf("nx: %d   ny: %d\n", nx, ny);
 	printf("nx/tile_size: %d  ny/tile_size: %d\n", nx / ts, ny / ts);
-	nx = vars->player.x + vars->player.move_speed * cos(vars->player.angle);
-	ny = vars->player.y + vars->player.move_speed * sin(vars->player.angle);
+	nx = vars->player.x + vars->player.move_speed * cos(u_norm_angle(vars->player.angle));
+	ny = vars->player.y + vars->player.move_speed * sin(u_norm_angle(vars->player.angle));
 	if(!u_wall_hit(vars, nx, ny))
 	{
 		vars->player.x = nx;
@@ -62,8 +62,8 @@ void	down(t_vars *vars)
 
 	ts = vars->tile_size;
 	vars->player.walk_dir = -1;
-	nx = vars->player.x - vars->player.move_speed * cos(vars->player.angle);
-	ny = vars->player.y - vars->player.move_speed * sin(vars->player.angle);
+	nx = vars->player.x - vars->player.move_speed * cos(u_norm_angle(vars->player.angle));
+	ny = vars->player.y - vars->player.move_speed * sin(u_norm_angle(vars->player.angle));
 	printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
 	printf("nx: %d   ny: %d\n", nx, ny);
 	printf("nx/tile_size: %d  ny/tile_size: %d\n", nx / ts, ny / ts);
