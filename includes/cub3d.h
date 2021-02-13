@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:09:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 16:28:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -146,8 +146,8 @@ typedef struct s_ray
 {
 	float	angle;
 	float	dist;
-	int		wall_hit_x;
-	int		wall_hit_y;
+	int		wallhit_x;
+	int		wallhit_y;
 	int		is_dn;
 	int		is_up;
 	int		is_ri;
@@ -256,7 +256,6 @@ void	horizontal_dist(t_vars *v, int i);
 void	init_horizontal_dist(t_vars *v, int i, float angle);
 void	vertical_dist(t_vars *v, int i);
 void	init_vertical_dist(t_vars *v, int i, float angle);
-
-
+float	dist(float x1, float y1, float x2, float y2);
 
 // ========================================

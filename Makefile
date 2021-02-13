@@ -48,6 +48,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)u_is_inside.c\
 		$(SDIR)horizontal_dist.c\
 		$(SDIR)vertical_dist.c\
+		$(SDIR)dist.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
