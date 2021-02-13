@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:22:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:35:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,34 @@ void	horizontal_dist(t_vars *v, int i)
 {
 	//t_pto p0;
 	//t_pto p1;
-	int aj;
+	int ajx;
+	int ajy;
 
-	aj = 0;
+	// se dn --> y++
+	// se up --> y--;
+	// se le --> x--;
+	// se ri --> x++;
+	ajx = 0;
+	ajy = 0;
+	if (v->rays[i].is_dn)
+		ajy = 1;
+	else
+		ajy = -1;
+	if (v->rays[i].is_ri)
+		ajx = 1;
+	else
+		ajx = -1;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
-	if (v->rays[i].is_up)
-		//v->ah.next_yi--;
-		aj = 1;
-	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi - aj))
+	//if (v->rays[i].is_up)
+	//	//v->ah.next_yi--;
+	//	aj = 0;
+	while (u_is_inside(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 	{
 	//g_pixel_put_img(v->t, v->ah.next_xi, v->ah.next_yi, GREEN);
 	pp(v, v->ah.next_xi, v->ah.next_yi, GREEN);
 	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi - aj))
+		if (u_wall_hit(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 		{
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;

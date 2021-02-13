@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:23:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:32:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,35 @@ void	vertical_dist(t_vars *v, int i)
 {
 	//t_pto p0;
 	//t_pto p1;
-	int aj;
+	int ajx;
+	int ajy;
 
-	aj = 0;
+	// se dn --> y++
+	// se up --> y--;
+	// se le --> x--;
+	// se ri --> x++;
+	ajx = 0;
+	ajy = 0;
+	if (v->rays[i].is_dn)
+		ajy = 1;
+	else
+		ajy = -1;
+	if (v->rays[i].is_ri)
+		ajx = 1;
+	else
+		ajx = -1;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
-	if (v->rays[i].is_le)
-		//v->av.next_xi--;
-		aj = 1;
+	//if (v->rays[i].is_le)
+	//	//v->av.next_xi--;
+	//	aj = 0;
 	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
-	while (u_is_inside(v, v->av.next_xi - aj, v->av.next_yi))
+	while (u_is_inside(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
 	{
 //	g_pixel_put_img(v->t, v->av.next_xi, v->av.next_yi, RED);
 	pp(v, v->av.next_xi, v->av.next_yi, RED);
 	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-		if (u_wall_hit(v, v->av.next_xi - aj, v->av.next_yi))
+		if (u_wall_hit(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
 		{
 			v->av.found_hit = 1;
 			v->av.wallhit_x = v->av.next_xi;
