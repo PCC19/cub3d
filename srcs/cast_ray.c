@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:52:54 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 16:38:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 18:40:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 void	assign_dist(t_vars *v, float h_dist, float v_dist, int i)
 {
+	printf("=================================================\n");
 	if (h_dist < v_dist)
 	{
+		printf("horizontal hit at x: %d y: %d \n",v->ah.wallhit_x, v->ah.wallhit_y);
 		v->rays[i].wallhit_x = v->ah.wallhit_x;
 		v->rays[i].wallhit_y = v->ah.wallhit_y;
 		v->rays[i].dist = h_dist;
+		v->rays[i].hit_v = 0;
 	}
 	else
 	{
+		printf("vertical hit at x: %d y: %d \n",v->av.wallhit_x, v->av.wallhit_y);
 		v->rays[i].wallhit_x = v->av.wallhit_x;
 		v->rays[i].wallhit_y = v->av.wallhit_y;
 		v->rays[i].dist = v_dist;
+		v->rays[i].hit_v = 1;
 	}
 	printf("h_dist: %f  v_dist: %f  dist: %f\n",h_dist, v_dist, v->rays[i].dist);
+	printf("angle: %f\n",v->rays[i].angle * 180 / M_PI);
 }
 
 void	cast_ray(t_vars *v, int i, float angle)

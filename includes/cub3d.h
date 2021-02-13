@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 16:28:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 16:49:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -152,6 +152,7 @@ typedef struct s_ray
 	int		is_up;
 	int		is_ri;
 	int		is_le;
+	int		hit_v;
 }			t_ray;
 
 typedef struct s_aux_dist
@@ -246,7 +247,7 @@ float	u_norm_angle(float a);
 int		key_hook (int keycode, t_vars *vars);
 int		u_wall_hit(t_vars *vars, int x, int y);
 void	p_init_vars(t_vars *vars);
-void	render_ray(t_vars *vars, float angle, int color);
+void	render_ray(t_vars *vars, int x, int y, int color);
 void	update(t_vars *vars);
 void	cast_ray(t_vars *vars, int i, float angle);
 void	cast_all_rays(t_vars *vars);

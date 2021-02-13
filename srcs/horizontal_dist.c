@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:23:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 18:48:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ void	set_ray_booleans(t_vars *v, int i, float angle)
 		v->rays[i].is_ri = 0;
 		v->rays[i].is_le = 1;
 	}
-	printf("set_ray_boolean: %d %d %d %d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
+	printf("set_ray_boolean: d%d u%d r%d l%d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 }
 
 void	init_horizontal_dist(t_vars *v, int i, float a)
 {
 	float aa;
 
+	printf("==================== HORIZONTAL ====================\n");
 			printf("ah: %f\n", a*180/M_PI);
 	aa = 2 * M_PI - a;
 	v->ah.wallhit_x = 0;
@@ -64,13 +65,15 @@ void	init_horizontal_dist(t_vars *v, int i, float a)
 
 void	horizontal_dist(t_vars *v, int i)
 {
-	t_pto p0;
-	t_pto p1;
+	//t_pto p0;
+	//t_pto p1;
 
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
 	if (v->rays[i].is_up)
 		v->ah.next_yi--;
+	else
+		v->ah.next_yi++;
 	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi))
 	{
 		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi))
@@ -78,11 +81,13 @@ void	horizontal_dist(t_vars *v, int i)
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;
 			v->ah.wallhit_y = v->ah.next_yi;
-			p0.x = v->player.x;
-			p0.y = v->player.y;
-			p1.x = v->ah.wallhit_x;
-			p1.y = v->ah.wallhit_y;
-			g_plot_line_img(v, p0, p1, GREEN);
+			//p0.x = v->player.x;
+			//p0.y = v->player.y;
+			//p1.x = v->ah.wallhit_x;
+			//p1.y = v->ah.wallhit_y;
+			//g_plot_line_img(v, p0, p1, GREEN);
+			printf("hhit\n");
+			printf("hxi: %d  hyi: %d\n",v->ah.next_xi, v->ah.next_yi);
 			break ;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:53:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 18:49:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_vertical_dist(t_vars *v, int i, float a)
 {
 	float aa;
+	printf("==================== VERTICAL  ====================\n");
 
 			printf("av: %f\n", a*180/M_PI);
 	aa = 2 * M_PI - a;
@@ -39,27 +40,32 @@ void	init_vertical_dist(t_vars *v, int i, float a)
 
 void	vertical_dist(t_vars *v, int i)
 {
-	t_pto p0;
-	t_pto p1;
+	//t_pto p0;
+	//t_pto p1;
 
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
 	if (v->rays[i].is_le)
 		v->av.next_xi--;
-	printf("x: %d  y: %d\n",v->player.x, v->player.y);
+	else
+		v->av.next_xi++;
+	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
 	while (u_is_inside(v, v->av.next_xi, v->av.next_yi))
 	{
-		printf("xi: %d  yi: %d\n",v->av.next_xi, v->av.next_yi);
+	g_pixel_put_img(v->t, v->av.next_xi+2, v->av.next_yi+2, RED);
+	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
 		if (u_wall_hit(v, v->av.next_xi, v->av.next_yi))
 		{
 			v->av.found_hit = 1;
 			v->av.wallhit_x = v->av.next_xi;
 			v->av.wallhit_y = v->av.next_yi;
-			p0.x = v->player.x;
-			p0.y = v->player.y;
-			p1.x = v->av.wallhit_x;
-			p1.y = v->av.wallhit_y;
-			g_plot_line_img(v, p0, p1, BLACK);
+			//p0.x = v->player.x;
+			//p0.y = v->player.y;
+			//p1.x = v->av.wallhit_x;
+			//p1.y = v->av.wallhit_y;
+			//g_plot_line_img(v, p0, p1, BLACK);
+			printf("vhit\n");
+			printf("vxi: %d  vyi: %d\n",v->av.next_xi, v->av.next_yi);
 			break ;
 		}
 		else
