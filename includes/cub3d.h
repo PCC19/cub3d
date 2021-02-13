@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 21:55:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 00:10:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -259,6 +259,7 @@ void	vertical_dist(t_vars *v, int i);
 void	init_vertical_dist(t_vars *v, int i, double angle);
 double	dist(double x1, double y1, double x2, double y2);
 void	pp(t_vars *v, int x, int y, int color);
+void	set_aj(t_vars *v, int *ajx, int *ajy, int i);
 
 
 // ========================================

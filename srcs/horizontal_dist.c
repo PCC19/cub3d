@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:35:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 00:17:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	init_horizontal_dist(t_vars *v, int i, double a)
 	if (v->rays[i].is_ri && v->ah.xstep < 0)
 		v->ah.xstep *= -1;
 }
+
 void	pp(t_vars *v, int x, int y, int color)
 {
 	t_input_rect	r;
@@ -78,45 +79,21 @@ void	pp(t_vars *v, int x, int y, int color)
 
 void	horizontal_dist(t_vars *v, int i)
 {
-	//t_pto p0;
-	//t_pto p1;
 	int ajx;
 	int ajy;
-
-	// se dn --> y++
-	// se up --> y--;
-	// se le --> x--;
-	// se ri --> x++;
-	ajx = 0;
-	ajy = 0;
-	if (v->rays[i].is_dn)
-		ajy = 1;
-	else
-		ajy = -1;
-	if (v->rays[i].is_ri)
-		ajx = 1;
-	else
-		ajx = -1;
+	
+	set_aj(v, &ajx, &ajy, i);
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
-	//if (v->rays[i].is_up)
-	//	//v->ah.next_yi--;
-	//	aj = 0;
 	while (u_is_inside(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 	{
-	//g_pixel_put_img(v->t, v->ah.next_xi, v->ah.next_yi, GREEN);
-	pp(v, v->ah.next_xi, v->ah.next_yi, GREEN);
-	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
+	//pp(v, v->ah.next_xi, v->ah.next_yi, GREEN);
+	//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
 		if (u_wall_hit(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 		{
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;
 			v->ah.wallhit_y = v->ah.next_yi;
-			//p0.x = v->player.x;
-			//p0.y = v->player.y;
-			//p1.x = v->ah.wallhit_x;
-			//p1.y = v->ah.wallhit_y;
-			//g_plot_line_img(v, p0, p1, GREEN);
 			printf("hhit\n");
 			printf("hxi: %d  hyi: %d\n",v->ah.next_xi, v->ah.next_yi);
 			break ;
