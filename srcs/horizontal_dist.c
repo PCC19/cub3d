@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:14:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 23:22:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	horizontal_dist(t_vars *v, int i)
 	v->ah.next_yi = v->ah.yi;
 	if (v->rays[i].is_up)
 		//v->ah.next_yi--;
-		aj = 1;
+		aj = 0;
 	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi - aj))
 	{
 	//g_pixel_put_img(v->t, v->ah.next_xi, v->ah.next_yi, GREEN);
