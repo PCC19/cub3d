@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:19:56 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 01:53:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_vertical_dist(t_vars *v, int i, float a)
 	v->av.xstep = v->tile_size;
 	if (v->rays[i].is_le)
 		v->av.xstep *= -1;
-	v->av.ystep = v->av.ystep * tan(a);
+	v->av.ystep = v->av.xstep * tan(a);
 	if (v->rays[i].is_up && v->av.ystep > 0)
 		v->av.ystep *= -1;
 	if (v->rays[i].is_dn && v->av.ystep < 0)
@@ -46,8 +46,10 @@ void	vertical_dist(t_vars *v, int i)
 	v->av.next_yi = v->av.yi;
 	if (v->rays[i].is_le)
 		v->av.next_xi--;
+	printf("x: %d  y: %d\n",v->player.x, v->player.y);
 	while (u_is_inside(v, v->av.next_xi, v->av.next_yi))
 	{
+		printf("xi: %d  yi: %d\n",v->av.next_xi, v->av.next_yi);
 		if (u_wall_hit(v, v->av.next_xi, v->av.next_yi))
 		{
 			v->av.found_hit = 1;

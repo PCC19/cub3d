@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 01:19:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 01:23:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	set_ray_booleans(t_vars *v, int i, float angle)
 		v->rays[i].is_ri = 0;
 		v->rays[i].is_le = 1;
 	}
+	printf("set_ray_boolean: %d %d %d %d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 }
-//	printf("set_ray_boolean: %d %d %d %d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 
 void	init_horizontal_dist(t_vars *v, int i, float a)
 {

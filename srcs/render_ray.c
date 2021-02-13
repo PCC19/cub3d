@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:39:09 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:35:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/13 02:12:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	render_ray(t_vars *vars, float angle, int color)
 	p0.y = vars->player.y;
 	p1.x = p0.x + len_ray * cos(angle);
 	p1.y = p0.y + len_ray * sin(angle);
-	g_plot_line_img(vars, p0, p1, color);
+	if (u_is_inside(vars, p1.x, p1.y))
+		g_plot_line_img(vars, p0, p1, color);
 }
