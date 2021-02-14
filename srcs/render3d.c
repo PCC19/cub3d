@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 19:02:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 19:11:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ void	render3d(t_vars *v)
 		r.cor = WHITE;
 		r.borda = 0;
 		r.cor_borda = WHITE;
+		int flag = 0;
+		if (r.pto_sup_esq.x >= v->window_width || r.pto_sup_esq.x <= 0)
+			flag = 1;
+		if (r.pto_sup_esq.y >= v->window_height || r.pto_sup_esq.y <= 0 )
+			flag = 1;
+		if ((r.pto_sup_esq.x + v->strip_width) >= v->window_width || r.pto_sup_esq.x <= 0)
+			flag = 1;
+		if ((r.pto_sup_esq.y + strip_height) >= v->window_height r.pto_sup_esq.y <= 0 )
+			flag = 1;
+		if (flag)
+		{
+			printf("x1: %d y1: %d x2: %d y2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
+			sai(1);
+		}
 		g_plot_rect_img(v, r);
 		i++;
 	}
