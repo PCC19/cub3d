@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:28:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 23:36:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 18:22:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	cast_all_rays(t_vars *vars)
 		// cast_ray
 		cast_ray(vars, i, ray_angle);
 		// ray cast
-		render_ray(vars, vars->rays[i].wallhit_x, vars->rays[i].wallhit_y, BLUE);
+		//render_ray(vars, vars->rays[i].wallhit_x, vars->rays[i].wallhit_y, BLUE);
 		ray_angle += vars->fov / (double) vars->num_rays;
 		ray_angle = u_norm_angle(ray_angle);
 		column_id++;

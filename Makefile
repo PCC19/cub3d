@@ -54,6 +54,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)render_floor_ceiling.c\
 		$(SDIR)cor.c\
 		$(SDIR)render3d.c\
+		$(SDIR)render_all_rays.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 18:16:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 19:02:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	render3d(t_vars *v)
 {
-	int i;
+	int				i;
 	double			ray_dist;
 	double			dist_proj_plane;
 	double			strip_height;
@@ -24,7 +24,7 @@ void	render3d(t_vars *v)
 	dist_proj_plane = (v->window_height / 2) / tan(v->fov / 2);
 	while (i < v->num_rays)
 	{
-		ray_dist = v->rays[i].dist;
+		ray_dist = v->rays[i].dist * cos(v->rays[i].angle - v->player.angle);
 		strip_height = (v->tile_size / ray_dist) * dist_proj_plane;
 		r.pto_sup_esq.x = i * v->strip_width;
 		r.pto_sup_esq.y = (v->window_height / 2) - (strip_height / 2);
