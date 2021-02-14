@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 16:58:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 17:37:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -242,7 +242,7 @@ void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color);
 void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
 void	p_init_player(t_vars *vars);
-void	draw(t_vars *vars);
+void	draw(t_vars *v);
 void	render_player(t_vars *vars);
 double	u_norm_angle(double a);
 int		key_hook (int keycode, t_vars *vars);
@@ -262,6 +262,8 @@ double	dist(double x1, double y1, double x2, double y2);
 void	pp(t_vars *v, int x, int y, int color);
 void	set_aj(t_vars *v, int *ajx, int *ajy, int i);
 void	u_clear_screen(t_vars *v, int x, int y, int altura, int largura);
+void	render_floor_ceiling(t_vars *v);
+unsigned int	cor(int r, int g, int b);
 
 
 // ========================================

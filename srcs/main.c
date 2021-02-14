@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:53:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 17:35:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -93,6 +93,9 @@ int main(int argc, char **argv)
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
 */
 
+	int z = cor(255,255,255);
+	printf("z: %#8x\n", z);
+	printf("ceiling\tr: %d\tg: %d\tb: %d\n",vars.cfg.ceiling.r, vars.cfg.ceiling.g, vars.cfg.ceiling.b);
 	// DRAW()	
 	draw(&vars);
 

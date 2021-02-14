@@ -51,6 +51,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)dist.c\
 		$(SDIR)set_aj.c\
 		$(SDIR)u_clear_screen.c\
+		$(SDIR)render_floor_ceiling.c\
+		$(SDIR)cor.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   cor.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:38:12 by user42           ###   ########.fr       */
+/*   Created: 2021/02/14 17:05:47 by user42            #+#    #+#             */
+/*   Updated: 2021/02/14 17:35:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw(t_vars *v)
+unsigned int	cor(int r, int g, int b)
 {
-	update(v);
-	// RENDER MAP
-	u_clear_screen(v, 0, 0, v->window_height, v->window_width);
-	render_floor_ceiling(v);
-	u_clear_screen(v, 0, 0, v->window_height * v->sf, v->window_width * v->sf);
-	render_map(v);
-	render_player(v);
-	cast_all_rays(v);
-	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-
+	return (r << 16 | g << 8 | b);
 }
-
