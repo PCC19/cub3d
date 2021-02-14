@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:37:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 18:14:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -264,6 +264,7 @@ void	set_aj(t_vars *v, int *ajx, int *ajy, int i);
 void	u_clear_screen(t_vars *v, int x, int y, int altura, int largura);
 void	render_floor_ceiling(t_vars *v);
 unsigned int	cor(int r, int g, int b);
+void	render3d(t_vars *v);
 
 
 // ========================================
