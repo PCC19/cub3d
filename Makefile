@@ -50,6 +50,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)vertical_dist.c\
 		$(SDIR)dist.c\
 		$(SDIR)set_aj.c\
+		$(SDIR)u_clear_screen.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

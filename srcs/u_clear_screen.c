@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   u_clear_screen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:01:12 by user42           ###   ########.fr       */
+/*   Created: 2021/02/14 16:54:18 by user42            #+#    #+#             */
+/*   Updated: 2021/02/14 17:00:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw(t_vars *vars)
+void	u_clear_screen(t_vars *v, int x, int y, int altura, int largura)
 {
-	update(vars);
-	// RENDER MAP
-	u_clear_screen(vars, 0, 0, vars->window_height, vars->window_width);
-	render_map(vars);
-	render_player(vars);
-	cast_all_rays(vars);
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->t.id, 0, 0);
+	t_input_rect	r;
 
+	r.pto_sup_esq.x = x;
+	r.pto_sup_esq.y = y;
+	r.altura = altura - 1;
+	r.largura = largura - 1;
+	r.cor = BLACK;
+	r.borda = 0;
+	r.cor_borda = GREY;
+	g_plot_rect_img(v, r);
 }
-
