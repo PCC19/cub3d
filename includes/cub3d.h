@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 00:10:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/14 16:43:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -192,6 +192,7 @@ typedef struct s_vars {
 	int				num_rays;
 	t_aux_dist		ah;
 	t_aux_dist		av;
+	float			sf;
 
 }	t_vars;
 
