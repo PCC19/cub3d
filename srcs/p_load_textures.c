@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:28:45 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 15:42:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 17:04:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@ void	p_load_textures(t_vars *v)
 	int i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
+	//while (i < 1)
 	{
-		if((fd = open(arquivo, O_RDONLY)) < 0)
+		printf("file; %s\n", v->cfg.tex_file[i]);
+		v->tex[i].id = mlx_xpm_file_to_image(v->mlx,
+												v->cfg.tex_file[i],
+												&v->tex[i].w,
+												&v->tex[i].h);
+		if (!v->tex[i].id)
 			sai(INVALID_TEXTURE_FILE);
 		else
 		{
-		//carrega textura
+			v->tex[i].p = mlx_get_data_addr(v->tex[i].id,
+											&v->tex[i].b,
+											&v->tex[i].s_line,
+											&v->tex[i].end);
+		}
+		//mlx_put_image_to_window(v->mlx, v->win, v->tex[i].id, i * 100, 0);
+		i++;
 	}
-	close(fd);
 }
-
-typedef struct s_tex {
-	void	*id;
-	void	*p;
-	int		b;
-	int		s_line;
-	int		end;
-	int		w;
-	int		h;
-}			t_tex;

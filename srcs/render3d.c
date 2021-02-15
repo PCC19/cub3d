@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 01:17:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:53:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	render3d(t_vars *v)
 	double			ray_dist;
 	double			dist_proj_plane;
 	double			strip_height;
-	t_input_rect	r;
+	t_input_re		r;
 
 	i = 0;
 	dist_proj_plane = (v->window_height / 2) / tan(v->fov / 2);

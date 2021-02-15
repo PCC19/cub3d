@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 17:12:31 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:39:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:53:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	render_floor_ceiling(t_vars *v)
 {
 	
-	t_input_rect	r;
+	t_input_re	r;
 
 	r.pto_sup_esq.x = 0;
 	r.pto_sup_esq.y = 0;

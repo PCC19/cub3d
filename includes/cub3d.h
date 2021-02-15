@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:03:57 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:50:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -77,133 +77,133 @@ static char error[][50] =
 // ========================================
 
 // ========= STRUCTS ======================
-typedef struct s_ponto {
-	int x;
-	int y;
-} t_pto;
+typedef struct	s_ponto {
+	int			x;
+	int			y;
+}				t_pto;
 
-typedef struct s_var_line {
-	int dx;
-	int sx;
-	int dy;
-	int sy;
-	int err;
-	int e2;
-} t_var_line;
+typedef struct	s_var_line {
+	int			dx;
+	int			sx;
+	int			dy;
+	int			sy;
+	int			err;
+	int			e2;
+}				t_var_line;
 
-typedef struct s_input_rect {
-	t_pto pto_sup_esq;
-	int largura;
-	int altura;
-	unsigned int cor;
-	int borda;
-	unsigned int cor_borda;
+typedef struct	s_input_re {
+	t_pto		pto_sup_esq;
+	int			largura;
+	int			altura;
+	int			cor;
+	int			borda;
+	int			cor_borda;
 
-} t_input_rect;
+}				t_input_re;
 
-typedef struct s_sprite{
-	void *img;
-	int width;
-	int height;
-} t_sprite;
+typedef struct	s_sprite{
+	void		*img;
+	int			width;
+	int			height;
+}				t_sprite;
 
-typedef struct s_cor{
-	int r;
-	int g;
-	int b;
-} t_cor;
+typedef struct	s_cor{
+	int			r;
+	int			g;
+	int			b;
+}				t_cor;
 
-typedef struct s_cfg{
-	t_pto res;
-	t_cor ceiling;
-	t_cor floor;
-	char *tex_file[5];
-	int all_set;
-} t_cfg;
+typedef struct	s_cfg{
+	t_pto		res;
+	t_cor		ceiling;
+	t_cor		floor;
+	char		*tex_file[5];
+	int			all_set;
+}				t_cfg;
 
-typedef struct s_tela {
-	void	*id;
-	void	*p;
-	int		b;
-	int		s_line;
-	int		end;
-}	t_tela;
+typedef struct	s_tela {
+	void		*id;
+	void		*p;
+	int			b;
+	int			s_line;
+	int			end;
+}				t_tela;
 	
-typedef struct s_tex {
-	void	*id;
-	void	*p;
-	int		b;
-	int		s_line;
-	int		end;
-	int		w;
-	int		h;
-}			t_tex;
+typedef struct	s_tex {
+	void		*id;
+	void		*p;
+	int			b;
+	int			s_line;
+	int			end;
+	int			w;
+	int			h;
+}				t_tex;
 
-typedef struct s_player {
-	int		x;
-	int		y;
-	int		radius;
-	int		turn_dir;
-	int		walk_dir;
-	double	angle;
-	int		move_speed;
-	double	rotation_speed;
-}			t_player;
+typedef struct	s_player {
+	int			x;
+	int			y;
+	int			radius;
+	int			turn_dir;
+	int			walk_dir;
+	double		angle;
+	int			move_speed;
+	double		rotation_speed;
+}				t_player;
 
-typedef struct s_ray
+typedef struct	s_ray
 {
-	double	angle;
-	double	dist;
-	double	wallhit_x;
-	double	wallhit_y;
-	int		is_dn;
-	int		is_up;
-	int		is_ri;
-	int		is_le;
-	int		hit_v;
-}			t_ray;
+	double		angle;
+	double		dist;
+	double		wallhit_x;
+	double		wallhit_y;
+	int			is_dn;
+	int			is_up;
+	int			is_ri;
+	int			is_le;
+	int			hit_v;
+}				t_ray;
 
-typedef struct s_aux_dist
+typedef struct	s_aux_dist
 {
-	double	xstep;
-	double	ystep;
-	double	xi;
-	double	yi;
-	double	next_xi;
-	double	next_yi;
-	int		found_hit;
-	int		wallhit_x;
-	int		wallhit_y;
-}			t_aux_dist;
+	double		xstep;
+	double		ystep;
+	double		xi;
+	double		yi;
+	double		next_xi;
+	double		next_yi;
+	int			found_hit;
+	int			wallhit_x;
+	int			wallhit_y;
+}				t_aux_dist;
 
-typedef struct s_vars {
-	void			*mlx;
-	void			*win;
-	t_input_rect	r1;
-	t_input_rect	r2;
-	t_sprite		sprite;
-	t_cfg			cfg;
-	int				line_count;
-	int				line_cfg;
-	char			**map;
-	char			**map_temp;
-	int				map_num_rows;
-	int				map_num_cols;
-	int				tile_size;
-	int				window_width;
-	int				window_height;
-	t_tela			t; 
-	t_player		player;
-	t_ray			rays[MAX_RAYS];
-	double			fov;
-	int				strip_width;
-	int				num_rays;
-	t_aux_dist		ah;
-	t_aux_dist		av;
-	float			sf;
-	t_tex			tex[5];	
+typedef struct	s_vars {
+	void		*mlx;
+	void		*win;
+	t_input_re	r1;
+	t_input_re	r2;
+	t_sprite	sprite;
+	t_cfg		cfg;
+	int			line_count;
+	int			line_cfg;
+	char		**map;
+	char		**map_temp;
+	int			map_num_rows;
+	int			map_num_cols;
+	int			tile_size;
+	int			window_width;
+	int			window_height;
+	t_tela		t; 
+	t_player	player;
+	t_ray		rays[MAX_RAYS];
+	double		fov;
+	int			strip_width;
+	int			num_rays;
+	t_aux_dist	ah;
+	t_aux_dist	av;
+	float		sf;
+	t_tex		tex[5];	
 
-}					t_vars;
+}				t_vars;
 
 // ========================================
 
@@ -213,7 +213,7 @@ int funcao_a(int a);
 int funcao_b(int b);
 
 void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-void	g_plot_rect(t_vars *vars, t_input_rect ip);
+void	g_plot_re(t_vars *vars, t_input_re ip);
 int		p_parse_arquivo(t_vars *vars, char *arquivo);
 void	p_parse_argumentos(int argc, char *argv[]);
 void	p_init_cfg(t_vars *vars);
@@ -248,8 +248,8 @@ void	check_resolution(t_vars *vars);
 void	g_image_init(t_vars *v);
 void	g_pixel_put_img(t_tela t, int x, int y, int color);
 void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color);
-void	g_plot_rect_img(t_vars *vars, t_input_rect ip);
+void	g_plot_re_aux_img(t_vars *vars, t_input_re ip, unsigned int color);
+void	g_plot_rect_img(t_vars *vars, t_input_re ip);
 void	p_init_player(t_vars *vars);
 void	draw(t_vars *v);
 void	render_player(t_vars *vars);
@@ -275,7 +275,6 @@ void	render_floor_ceiling(t_vars *v);
 unsigned int	cor(int r, int g, int b);
 void	render3d(t_vars *v);
 void	render_all_rays(t_vars *v);
-
-
+void	p_load_textures(t_vars *v);
 
 // ========================================

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:38:06 by user42            #+#    #+#             */
-/*   Updated: 2021/02/09 17:52:34 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:51:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor)
 	}
 }
 
-void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color)
+void	g_plot_rect_aux_img(t_vars *vars, t_input_re ip, unsigned int color)
 {
 	int		i;
 	t_pto	ini;
@@ -71,9 +71,9 @@ void	g_plot_rect_aux_img(t_vars *vars, t_input_rect ip, unsigned int color)
 	}
 }
 
-void	g_plot_rect_img(t_vars *vars, t_input_rect ip)
+void	g_plot_rect_img(t_vars *vars, t_input_re ip)
 {
-	t_input_rect a;
+	t_input_re a;
 
 	a = ip;
 	if (ip.borda > 0)

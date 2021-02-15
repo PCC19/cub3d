@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 00:48:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:52:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	init_horizontal_dist(t_vars *v, int i, double a)
 
 void	pp(t_vars *v, int x, int y, int color)
 {
-	t_input_rect	r;
+	t_input_re	r;
 
 	r.pto_sup_esq.x = x;
 	r.pto_sup_esq.y = y; 

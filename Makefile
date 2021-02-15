@@ -55,6 +55,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)cor.c\
 		$(SDIR)render3d.c\
 		$(SDIR)render_all_rays.c\
+		$(SDIR)p_load_textures.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 00:27:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:50:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	plot_bloco(t_vars *vars, int i, int j, int color)
 {
-	t_input_rect	r;
+	t_input_re	r;
 
 	r.pto_sup_esq.x = j * vars->tile_size * vars->sf;
 	r.pto_sup_esq.y = i * vars->tile_size * vars->sf;

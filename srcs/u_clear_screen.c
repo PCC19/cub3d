@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 16:54:18 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:00:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:53:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	u_clear_screen(t_vars *v, int x, int y, int altura, int largura)
 {
-	t_input_rect	r;
+	t_input_re	r;
 
 	r.pto_sup_esq.x = x;
 	r.pto_sup_esq.y = y;

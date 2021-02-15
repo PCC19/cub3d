@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:04:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:33:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -65,6 +65,8 @@ int main(int argc, char **argv)
 		printf("x: %d   y: %d\n",vars.player.x, vars.player.y);
 	// init
 	p_init_vars(&vars);
+	// Carrega texturas
+	
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
@@ -102,6 +104,8 @@ int main(int argc, char **argv)
 	// DRAW()	
 	draw(&vars);
 
+	// Carrega texturas
+	p_load_textures(&vars);
 
 	mlx_key_hook(vars.win, key_hook, &vars);
 	//mlx_loop_hook(vars.mlx, loop, &vars);

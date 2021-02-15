@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 01:27:29 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:05:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:06:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,21 +91,3 @@ void p_parse_WE(t_vars *vars, char *str)
 	else
 		sai(DUP_TEX);
 }
-
-/*
-
-	p = ft_strtim(str[2], " ");
-	if (str[0] == 'N' && str[1] == 'O' && vars->cfg.no_tex != NULL)
-		vars->cfg.no_tex = p;
-	if (str[0] == 'S' && str[1] == 'O' && vars->cfg.so_tex != NULL)
-		vars->cfg.so_tex = p;
-	if (str[0] == 'E' && str[1] == 'A' && vars->cfg.ea_tex != NULL)
-		vars->cfg.ea_tex = p;
-	if (str[0] == 'W' && str[1] == 'E' && vars->cfg.we_tex != NULL)
-		vars->cfg.we_tex = p;
-
-
-
-}
-*/
-

@@ -1,11 +1,11 @@
 R 1000 800
 
-NO ../textures/bluestone.xpm
-SO ../textures/colorstone.xpm
-EA ../textures/greystone.xpm
-WE ../textures/redbrick.xpm
+NO /media/sf_cub3d/textures/bluestone.xpm
+SO /media/sf_cub3d/textures/colorstone.xpm
+EA /media/sf_cub3d/textures/greystone.xpm
+WE /media/sf_cub3d/textures/redbrick.xpm
 
-S ../textures/marvin.xpm
+S /media/sf_cub3d/textures/marvin.xpm
 
 C 57, 50, 230
 F 57, 50, 76

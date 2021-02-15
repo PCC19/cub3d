@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:37:26 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 16:49:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:52:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	render_player(t_vars *vars)
 {
-	t_input_rect	r;
-	t_pto p0;
-	t_pto p1;
+	t_input_re	r;
+	t_pto		p0;
+	t_pto		p1;
 
 	r.pto_sup_esq.x = vars->sf * (vars->player.x - vars->player.radius);
 	r.pto_sup_esq.y = vars->sf * (vars->player.y - vars->player.radius);
