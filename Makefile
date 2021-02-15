@@ -56,6 +56,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)render3d.c\
 		$(SDIR)render_all_rays.c\
 		$(SDIR)p_load_textures.c\
+		$(SDIR)check_if_sprite.c\
+		$(SDIR)get_tex_idx.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:50:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 17:33:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -161,6 +161,8 @@ typedef struct	s_ray
 	int			is_ri;
 	int			is_le;
 	int			hit_v;
+	int			is_sprite;
+	int			tex_idx;
 }				t_ray;
 
 typedef struct	s_aux_dist
@@ -276,5 +278,9 @@ unsigned int	cor(int r, int g, int b);
 void	render3d(t_vars *v);
 void	render_all_rays(t_vars *v);
 void	p_load_textures(t_vars *v);
+void	check_if_sprite(t_vars *v, int i);
+void	get_tex_idx(t_vars *v, int idx);
+
+
 
 // ========================================

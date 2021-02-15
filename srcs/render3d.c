@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:53:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 17:11:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ void	render3d(t_vars *v)
 		}
 		g_plot_rect_img(v, r);
 		// rotina para plotar textura
-			// carregar texturas
-			// descobrir qual textura precisa pegar
+			// descobrir qual textura precisa pegar (retornar idx)
+				// se bateu em sprite (id = 4)
+				// se bat
 			// calcular offset x e y
 			// loop para o y de cada coluna
 				// plotar offset x e y da coluna

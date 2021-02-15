@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 23:28:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 00:47:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 17:15:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	u_init_rays(t_vars *vars)
 		vars->rays[i].is_ri = 0;
 		vars->rays[i].is_le = 0;
 		vars->rays[i].hit_v = 0;
+		vars->rays[i].is_sprite = 0;
 		i++;
 	}
 }
