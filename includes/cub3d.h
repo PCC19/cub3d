@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 17:33:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:13:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -280,6 +280,7 @@ void	render_all_rays(t_vars *v);
 void	p_load_textures(t_vars *v);
 void	check_if_sprite(t_vars *v, int i);
 void	get_tex_idx(t_vars *v, int idx);
+void	render_tex(t_vars *v, int i, int strip_w, double strip_h);
 
 
 

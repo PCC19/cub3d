@@ -58,6 +58,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_load_textures.c\
 		$(SDIR)check_if_sprite.c\
 		$(SDIR)get_tex_idx.c\
+		$(SDIR)render_tex.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

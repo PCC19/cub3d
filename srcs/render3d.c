@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 17:11:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:14:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,8 @@ void	render3d(t_vars *v)
 			printf("x1: %d y1: %d x2: %d y2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
 			//sai(1);
 		}
-		g_plot_rect_img(v, r);
-		// rotina para plotar textura
-			// descobrir qual textura precisa pegar (retornar idx)
-				// se bateu em sprite (id = 4)
-				// se bat
-			// calcular offset x e y
-			// loop para o y de cada coluna
-				// plotar offset x e y da coluna
+		//g_plot_rect_img(v, r);
+		render_tex(v, i, v->strip_width, strip_height);
 		//i += v->strip_width;
 		i++;
 	}
