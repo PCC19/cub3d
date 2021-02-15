@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 19:38:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 23:54:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 15:54:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void p_escolhe_parse(t_vars *vars, char *str)
 		printf("EA\n");
 		p_parse_EA(vars,str);
 	}
-	//p_print_cfg(vars);
 
 }
 

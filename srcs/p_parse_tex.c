@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 01:27:29 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 01:50:53 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:05:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void p_parse_S(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (vars->cfg.sprite_tex == NULL)
+	if (vars->cfg.tex_file[4] == NULL)
 	{
 		p = ft_strtrim(&str[1], " ");
 		printf("p: %s\n",p);
-		vars->cfg.sprite_tex = ft_strdup(p);
+		vars->cfg.tex_file[4] = ft_strdup(p);
 		vars->cfg.all_set++;
 		free (p);
 	}
@@ -32,11 +32,11 @@ void p_parse_SO(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (vars->cfg.so_tex == NULL)
+	if (vars->cfg.tex_file[4]== NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
-		vars->cfg.so_tex = ft_strdup(p);
+		vars->cfg.tex_file[0] = ft_strdup(p);
 		vars->cfg.all_set++;
 		free (p);
 	}
@@ -48,27 +48,11 @@ void p_parse_NO(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (vars->cfg.no_tex == NULL)
+	if (vars->cfg.tex_file[1] == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
-		vars->cfg.no_tex = ft_strdup(p);
-		vars->cfg.all_set++;
-		free (p);
-	}
-	else
-		sai(DUP_TEX);
-}
-
-void p_parse_WE(t_vars *vars, char *str)
-{
-	char *p;
-		
-	if (vars->cfg.we_tex == NULL)
-	{
-		p = ft_strtrim(&str[2], " ");
-		printf("p: %s\n",p);
-		vars->cfg.we_tex = ft_strdup(p);
+		vars->cfg.tex_file[1] = ft_strdup(p);
 		vars->cfg.all_set++;
 		free (p);
 	}
@@ -80,17 +64,34 @@ void p_parse_EA(t_vars *vars, char *str)
 {
 	char *p;
 		
-	if (vars->cfg.ea_tex == NULL)
+	if (vars->cfg.tex_file[2] == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		printf("p: %s\n",p);
-		vars->cfg.ea_tex = ft_strdup(p);
+		vars->cfg.tex_file[2] = ft_strdup(p);
 		vars->cfg.all_set++;
 		free (p);
 	}
 	else
 		sai(DUP_TEX);
 }
+
+void p_parse_WE(t_vars *vars, char *str)
+{
+	char *p;
+		
+	if (vars->cfg.tex_file[3] == NULL)
+	{
+		p = ft_strtrim(&str[2], " ");
+		printf("p: %s\n",p);
+		vars->cfg.tex_file[3] = ft_strdup(p);
+		vars->cfg.all_set++;
+		free (p);
+	}
+	else
+		sai(DUP_TEX);
+}
+
 /*
 
 	p = ft_strtim(str[2], " ");

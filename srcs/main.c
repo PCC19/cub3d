@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 01:46:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:04:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -52,6 +52,7 @@ int main(int argc, char **argv)
 	printf("argc: %d argv: %s\n",argc,argv[1]);
 	printf("file: %s\n",argv[1]);
 	p_parse_arquivo(&vars, argv[1]);
+		p_print_cfg(&vars); // APAGAR !!
 	check_resolution(&vars);
 		
 	vars.tile_size = vars.window_width / (vars.map_num_cols);
@@ -106,10 +107,6 @@ int main(int argc, char **argv)
 	//mlx_loop_hook(vars.mlx, loop, &vars);
 	mlx_loop(vars.mlx);
 	u_free_map(&vars);
-	free(vars.cfg.so_tex);
-	free(vars.cfg.no_tex);
-	free(vars.cfg.we_tex);
-	free(vars.cfg.ea_tex);
 
 
 /*

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 01:51:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 01:53:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	draw(t_vars *v)
 	//cast_all_rays(v);
 	render_all_rays(v);
 	mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
+	// render hud;
 	mlx_put_image_to_window(v->mlx, v->win, v->sprite.img, 0, 0);
 
 }

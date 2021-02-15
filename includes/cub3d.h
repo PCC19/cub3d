@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 00:45:59 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 16:03:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -51,7 +51,8 @@ enum e_error_num
 	INVALID_MAP_CHAR,
 	INVALID_PLAYER,
 	INVALID_MAP_SIZE,
-	SPACE_ERROR
+	SPACE_ERROR,
+	INVALID_TEXTURE_FILE
 };
 static char error[][50] = 
 {
@@ -67,7 +68,8 @@ static char error[][50] =
 	"Invalid char in map[' ',0,1,2,N,S,E,W]\n",
 	"Invalid number of players\n",
 	"Invalid map size (at least 3x3)\n",
-	"Map has breaches\n"
+	"Map has breaches\n",
+	"Invalid texture file.\n"
 
 };
 
@@ -115,11 +117,7 @@ typedef struct s_cfg{
 	t_pto res;
 	t_cor ceiling;
 	t_cor floor;
-	char *no_tex;
-	char *so_tex;
-	char *ea_tex;
-	char *we_tex;
-	char *sprite_tex;
+	char *tex_file[5];
 	int all_set;
 } t_cfg;
 
@@ -131,6 +129,16 @@ typedef struct s_tela {
 	int		end;
 }	t_tela;
 	
+typedef struct s_tex {
+	void	*id;
+	void	*p;
+	int		b;
+	int		s_line;
+	int		end;
+	int		w;
+	int		h;
+}			t_tex;
+
 typedef struct s_player {
 	int		x;
 	int		y;
@@ -146,8 +154,8 @@ typedef struct s_ray
 {
 	double	angle;
 	double	dist;
-	double		wallhit_x;
-	double		wallhit_y;
+	double	wallhit_x;
+	double	wallhit_y;
 	int		is_dn;
 	int		is_up;
 	int		is_ri;
@@ -157,16 +165,16 @@ typedef struct s_ray
 
 typedef struct s_aux_dist
 {
-	double xstep;
+	double	xstep;
 	double	ystep;
-	double xi;
+	double	xi;
 	double	yi;
-	double next_xi;
+	double	next_xi;
 	double	next_yi;
-	int	found_hit;
-	int	wallhit_x;
-	int	wallhit_y;
-}		t_aux_dist;
+	int		found_hit;
+	int		wallhit_x;
+	int		wallhit_y;
+}			t_aux_dist;
 
 typedef struct s_vars {
 	void			*mlx;
@@ -193,8 +201,9 @@ typedef struct s_vars {
 	t_aux_dist		ah;
 	t_aux_dist		av;
 	float			sf;
+	t_tex			tex[5];	
 
-}	t_vars;
+}					t_vars;
 
 // ========================================
 

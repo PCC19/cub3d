@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 21:44:25 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 23:55:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 15:44:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void p_parse_config(t_vars *vars, int fd)
 {
-	char *linha;
-	char *str;
-	int flag;
-	int len;
+	char	*linha;
+	char	*str;
+	int		flag;
+	int		len;
 
 	printf("p_parse_config %d\n", vars->cfg.res.x);
 		//printf("fd: %d\n",fd);
