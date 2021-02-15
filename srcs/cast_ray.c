@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:52:54 by user42            #+#    #+#             */
-/*   Updated: 2021/02/13 18:40:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:46:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	assign_dist(t_vars *v, double h_dist, double v_dist, int i)
 	}
 	printf("h_dist: %f  v_dist: %f  dist: %f\n",h_dist, v_dist, v->rays[i].dist);
 	printf("angle: %f\n",v->rays[i].angle * 180 / M_PI);
+	printf("hit coord x: %f y: %f\n",v->rays[i].wallhit_x, v->rays[i].wallhit_y);
 }
 
 void	cast_ray(t_vars *v, int i, double angle)

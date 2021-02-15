@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 19:42:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 01:17:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ void	render3d(t_vars *v)
 			//sai(1);
 		}
 		g_plot_rect_img(v, r);
+		// rotina para plotar textura
+			// carregar texturas
+			// descobrir qual textura precisa pegar
+			// calcular offset x e y
+			// loop para o y de cada coluna
+				// plotar offset x e y da coluna
 		//i += v->strip_width;
 		i++;
 	}

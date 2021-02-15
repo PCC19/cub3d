@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 17:35:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 01:46:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 	p_parse_arquivo(&vars, argv[1]);
 	check_resolution(&vars);
 		
-	vars.tile_size = vars.window_width / (vars.map_num_cols - 1);
+	vars.tile_size = vars.window_width / (vars.map_num_cols);
 		printf("tile size: %d\n",vars.tile_size);
 	vars.window_height = vars.map_num_rows * vars.tile_size;
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
@@ -96,6 +96,8 @@ int main(int argc, char **argv)
 	int z = cor(255,255,255);
 	printf("z: %#8x\n", z);
 	printf("ceiling\tr: %d\tg: %d\tb: %d\n",vars.cfg.ceiling.r, vars.cfg.ceiling.g, vars.cfg.ceiling.b);
+	
+	vars.sprite.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/doom.xpm",&vars.sprite.width, &vars.sprite.height);
 	// DRAW()	
 	draw(&vars);
 

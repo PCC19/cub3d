@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 18:24:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:45:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -146,8 +146,8 @@ typedef struct s_ray
 {
 	double	angle;
 	double	dist;
-	int		wallhit_x;
-	int		wallhit_y;
+	double		wallhit_x;
+	double		wallhit_y;
 	int		is_dn;
 	int		is_up;
 	int		is_ri;
@@ -157,12 +157,12 @@ typedef struct s_ray
 
 typedef struct s_aux_dist
 {
-	int xstep;
-	int	ystep;
-	int xi;
-	int	yi;
-	int next_xi;
-	int	next_yi;
+	double xstep;
+	double	ystep;
+	double xi;
+	double	yi;
+	double next_xi;
+	double	next_yi;
 	int	found_hit;
 	int	wallhit_x;
 	int	wallhit_y;
@@ -246,13 +246,13 @@ void	draw(t_vars *v);
 void	render_player(t_vars *vars);
 double	u_norm_angle(double a);
 int		key_hook (int keycode, t_vars *vars);
-int		u_wall_hit(t_vars *vars, int x, int y);
+int		u_wall_hit(t_vars *vars, double x, double y);
 void	p_init_vars(t_vars *vars);
 void	render_ray(t_vars *vars, int x, int y, int color);
 void	update(t_vars *vars);
 void	cast_ray(t_vars *vars, int i, double angle);
 void	cast_all_rays(t_vars *vars);
-int		u_is_inside(t_vars *vars, int x, int y);
+int		u_is_inside(t_vars *vars, double x, double y);
 void	set_ray_booleans(t_vars *v, int i, double angle);
 void	horizontal_dist(t_vars *v, int i);
 void	init_horizontal_dist(t_vars *v, int i, double angle);

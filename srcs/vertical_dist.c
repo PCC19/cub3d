@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 00:09:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:48:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_vertical_dist(t_vars *v, int i, double a)
 	v->av.xstep = v->tile_size;
 	if (v->rays[i].is_le)
 		v->av.xstep *= -1;
-	v->av.ystep = v->av.xstep * tan(a);
+	v->av.ystep = v->tile_size * tan(a);
 	if (v->rays[i].is_up && v->av.ystep > 0)
 		v->av.ystep *= -1;
 	if (v->rays[i].is_dn && v->av.ystep < 0)
@@ -40,17 +40,23 @@ void	init_vertical_dist(t_vars *v, int i, double a)
 
 void	vertical_dist(t_vars *v, int i)
 {
-	int ajx;
-	int ajy;
+	double ajx;
+	double ajy;
 
-	set_aj(v, &ajx, &ajy, i);
+	//set_aj(v, &ajx, &ajy, i);
+	ajx = 0;
+	ajy = 0;
+	if (v->rays[i].is_ri)
+		ajx++;
+	if (v->rays[i].is_le)
+		ajx--;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
 	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
 	while (u_is_inside(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
 	{
-	//pp(v, v->av.next_xi, v->av.next_yi, RED);
-	//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
+			//pp(v, (int)v->av.next_xi, (int)v->av.next_yi, RED);
+			//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
 		if (u_wall_hit(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
 		{
 			v->av.found_hit = 1;

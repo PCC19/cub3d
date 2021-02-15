@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 00:17:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:48:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,21 @@ void	init_horizontal_dist(t_vars *v, int i, double a)
 
 	printf("==================== HORIZONTAL ====================\n");
 			printf("ah: %f\n", a*180/M_PI);
-	aa = 2 * M_PI - a;
+	aa = u_norm_angle(2 * M_PI - a);
 	v->ah.wallhit_x = 0;
 	v->ah.wallhit_y = 0;
 	v->ah.found_hit = 0;
 	set_ray_booleans(v, i, a);
 	v->rays[i].angle = a; // editar
-	v->ah.yi = (v->player.y / v->tile_size) * v->tile_size;
+	v->ah.yi = floor(v->player.y / v->tile_size) * v->tile_size;
 	if (v->rays[i].is_dn)
 		v->ah.yi += v->tile_size;
-	v->ah.xi = v->player.x + (v->player.y - v->ah.yi) / tan(u_norm_angle(aa));
+	v->ah.xi = v->player.x + (v->player.y - v->ah.yi) / tan(aa);
+
 	v->ah.ystep = v->tile_size;
 	if (v->rays[i].is_up)
 		v->ah.ystep *= -1;
-	v->ah.xstep = v->ah.ystep / tan(a);
+	v->ah.xstep = v->tile_size / tan(aa);
 	if (v->rays[i].is_le && v->ah.xstep > 0)
 		v->ah.xstep *= -1;
 	if (v->rays[i].is_ri && v->ah.xstep < 0)
@@ -79,23 +80,29 @@ void	pp(t_vars *v, int x, int y, int color)
 
 void	horizontal_dist(t_vars *v, int i)
 {
-	int ajx;
-	int ajy;
+	double ajx;
+	double ajy;
 	
-	set_aj(v, &ajx, &ajy, i);
+	//set_aj(v, &ajx, &ajy, i);
+	ajx = 0;
+	ajy = 0;
+	if (v->rays[i].is_dn)
+		ajy++;
+	if (v->rays[i].is_up)
+		ajy--;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
 	while (u_is_inside(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 	{
-	//pp(v, v->ah.next_xi, v->ah.next_yi, GREEN);
-	//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
+			//pp(v, (int)v->ah.next_xi, (int)v->ah.next_yi, GREEN);
+			//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
 		if (u_wall_hit(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
 		{
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;
 			v->ah.wallhit_y = v->ah.next_yi;
 			printf("hhit\n");
-			printf("hxi: %d  hyi: %d\n",v->ah.next_xi, v->ah.next_yi);
+			printf("hxi: %f  hyi: %f\n",v->ah.next_xi, v->ah.next_yi);
 			break ;
 		}
 		else

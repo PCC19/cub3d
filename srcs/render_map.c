@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:24:44 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 16:46:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:27:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	render_map(t_vars *vars)
 	while (i < vars->map_num_rows)
 	{
 		j = 0;
-		while (j < vars->map_num_cols - 1)
+		while (j < vars->map_num_cols)
 		{
 			if (vars->map[i][j] == '1')
 				plot_bloco(vars, i, j, BLACK);

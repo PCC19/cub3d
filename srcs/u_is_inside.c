@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 00:17:24 by user42            #+#    #+#             */
-/*   Updated: 2021/02/12 00:19:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 00:36:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	u_is_inside(t_vars *vars, int x, int y)
+int	u_is_inside(t_vars *vars, double x, double y)
 {
 	int flag;
 
