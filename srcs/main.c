@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:33:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 22:18:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -101,11 +101,13 @@ int main(int argc, char **argv)
 	printf("ceiling\tr: %d\tg: %d\tb: %d\n",vars.cfg.ceiling.r, vars.cfg.ceiling.g, vars.cfg.ceiling.b);
 	
 	vars.sprite.img = mlx_xpm_file_to_image(vars.mlx, "/media/sf_cub3d/textures/doom.xpm",&vars.sprite.width, &vars.sprite.height);
+	// Carrega texturas
+	p_load_textures(&vars);
+	
+	
 	// DRAW()	
 	draw(&vars);
 
-	// Carrega texturas
-	p_load_textures(&vars);
 
 	mlx_key_hook(vars.win, key_hook, &vars);
 	//mlx_loop_hook(vars.mlx, loop, &vars);
@@ -149,7 +151,8 @@ int main(int argc, char **argv)
 	int a,b,c;
 	a = 0; b = 0; c = 0;
 	char *p;
-	p = mlx_get_data_addr(vars.sprite.img, &a, &b, &c);
+	p = mlx_get_data_addr(vars.sprite.img, &a, &bprintf("i: %d\ta: %d\tb: %d\t c:%d\n",i,a,b,c);
+
 	printf("ptr: %p  bits per pixel: %d, size_line: %d endian: %d\n",p,a,b,c);
 	for (int i  = 0;i<64*8; i++)
 		*(p + 4*i) = 0x0F;

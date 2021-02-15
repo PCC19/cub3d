@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:28:45 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 17:04:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 22:16:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	p_load_textures(t_vars *v)
 											&v->tex[i].b,
 											&v->tex[i].s_line,
 											&v->tex[i].end);
+		
+			printf("i: %d\ta: %d\tb: %d\t c:%d\n",i,v->tex[i].b, v->tex[i].s_line ,v->tex[i].end);
+
 		}
 		//mlx_put_image_to_window(v->mlx, v->win, v->tex[i].id, i * 100, 0);
 		i++;

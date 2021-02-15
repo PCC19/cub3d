@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:46:02 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 19:04:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 22:56:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	render_tex(t_vars *v, int i, int strip_w, double strip_h)
 {
 	double	offset_x;
 	double	offset_y;
-	double	dist_from_top;
 	int		y;
-	int		wall_top_pixel;
-	int		wall_bottom_pixel;
+	int		ymin;
+	int		ymax;
 	int		idx;
 	uint	color;
+	int		k;
 
 	strip_w++;
-	wall_top_pixel = (v->window_height / 2) - (strip_h) / 2;
-	if (wall_top_pixel < 0)
-		wall_top_pixel = 0;
-	wall_bottom_pixel = (v->window_height / 2) + (strip_h) / 2;
-	if (wall_bottom_pixel > v->window_height)
-		wall_bottom_pixel = v->window_height;
+	ymin = (v->window_height / 2) - (strip_h / 2);
+	ymax = (v->window_height / 2) + (strip_h / 2);
+	if (ymin < 0)
+		ymin = 0;
+	if (ymax > v->window_height)
+		ymax = v->window_height;
 	
 	idx = v->rays[i].tex_idx;
 
@@ -39,19 +39,34 @@ void	render_tex(t_vars *v, int i, int strip_w, double strip_h)
 	else
 		offset_x = (int)v->rays[i].wallhit_x % v->tile_size;
 	// loop para cada coluna do strip
+	k = 0;
+	while (k < strip_w)
+	{
 		// loop para cada y
-		y = wall_top_pixel;
-	printf("================= render tex =============\n");
-	printf("idx: %d\twall_top_pixel: %d\twall_bottom_pixel: %d\n",idx, y, wall_bottom_pixel);
-	sai(1);
-		while (y < wall_bottom_pixel)
+		y = ymin;
+			//	printf("================= render tex =============\n");
+			//	printf("idx: %d\tymin: %d\tymax: %d\n",idx, y, ymax);
+			//	printf("offset_x: %f\twhx: %f\twhy: %f\n",offset_x,
+						//v->rays[i].wallhit_x, v->rays[i].wallhit_y);
+			//	printf("tile size: %d\tvhit: %d\n",v->tile_size, v->rays[i].hit_v);
+		while (y < ymax)
 		{
 			// calcula offset y
-			dist_from_top = y + (strip_h / 2) -  (v->window_height / 2);
-			offset_y = dist_from_top * (v->tex[idx].h) / strip_h;
+			offset_y = (int)(floor((y - ymin) / (ymax - ymin)) * (v->tex[idx].h));
+//			dist_from_top = y + (strip_h / 2) -  (v->window_height / 2);
+//			offset_y = dist_from_top * (v->tex[idx].h) / strip_h;
+				//printf("strip_h: %f\twh: %d\n",strip_h, v->window_height);
+				//printf("tex[idx].h: %d\n",v->tex[idx].h);
+				//printf("offset y: %f\n", offset_y);
 			// plot pixel de acordo com offset
-			color = (uint)(v->tex[idx].p + (int)floor(offset_y * v->tex[idx].s_line + offset_x));
-			g_pixel_put_img(v->t, offset_x, offset_y, color);
+//		*((unsigned int*)p+i) = (unsigned int) GREEN;
+			color = *(uint*)(v->tex[idx].p + (int)((offset_y * v->tex[idx].s_line) + offset_x));
+			//color = RED;
+			//printf("color: %x\n",color);
+			g_pixel_put_img(v->t, i * strip_w + k, y, color);
+	//sai(1);
 			y++;
-		}
+		}	
+		k++;
+	}
 }
