@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:46:02 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 18:21:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/15 19:04:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	render_tex(t_vars *v, int i, int strip_w, double strip_h)
 	// loop para cada coluna do strip
 		// loop para cada y
 		y = wall_top_pixel;
+	printf("================= render tex =============\n");
+	printf("idx: %d\twall_top_pixel: %d\twall_bottom_pixel: %d\n",idx, y, wall_bottom_pixel);
+	sai(1);
 		while (y < wall_bottom_pixel)
 		{
 			// calcula offset y
