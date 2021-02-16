@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 22:57:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 16:31:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	render3d(t_vars *v)
 			flag = 1;
 		if (flag)
 		{
-			printf("x1: %d y1: %d x2: %d y2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
+			//printf("x1: %d y1: %d x2: %d y2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
 			//sai(1);
 		}
 		//g_plot_rect_img(v, r);

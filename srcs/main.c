@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 22:18:32 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 16:09:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -107,6 +107,22 @@ int main(int argc, char **argv)
 	
 	// DRAW()	
 	draw(&vars);
+
+
+	int xx = 0;
+	int yy = 0;
+	uint cc = 0;
+
+	for (xx = 0; xx < 64; xx++)
+	{
+		for (yy = 0; yy < 64; yy++)
+		{
+			cc = *(uint*)(vars.tex[0].p + (yy * 64 + xx)*4);
+			g_pixel_put_img(vars.t, xx,yy, cc);
+		}
+	}
+	mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
+
 
 
 	mlx_key_hook(vars.win, key_hook, &vars);
