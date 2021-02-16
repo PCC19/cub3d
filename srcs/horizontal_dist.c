@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 16:52:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 17:30:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	set_ray_booleans(t_vars *v, int i, double angle)
 		v->rays[i].is_ri = 0;
 		v->rays[i].is_le = 1;
 	}
-	printf("set_ray_boolean: d%d u%d r%d l%d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
+	//printf("set_ray_boolean: d%d u%d r%d l%d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 }
 
 void	init_horizontal_dist(t_vars *v, int i, double a)
 {
 	double aa;
 
-	printf("==================== HORIZONTAL ====================\n");
-			printf("ah: %f\n", a*180/M_PI);
+	//printf("==================== HORIZONTAL ====================\n");
+	//		printf("ah: %f\n", a*180/M_PI);
 	aa = u_norm_angle(2 * M_PI - a);
 	v->ah.wallhit_x = 0;
 	v->ah.wallhit_y = 0;
@@ -101,8 +101,8 @@ void	horizontal_dist(t_vars *v, int i)
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;
 			v->ah.wallhit_y = v->ah.next_yi;
-			printf("hhit\n");
-			printf("hxi: %f  hyi: %f\n",v->ah.next_xi, v->ah.next_yi);
+			//printf("hhit\n");
+			//printf("hxi: %f  hyi: %f\n",v->ah.next_xi, v->ah.next_yi);
 			break ;
 		}
 		else

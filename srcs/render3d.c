@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 16:31:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 17:28:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,48 @@ void	render3d(t_vars *v)
 	int				i;
 	double			ray_dist;
 	double			dist_proj_plane;
-	double			strip_height;
-	t_input_re		r;
+	double			proj_strip_height;
+	int				wall_strip_height;
+	float			ymin;
+	float			ymax;
+	float			offset_x;
+	float			offset_y;
+	float			y;
+	int				idx;
+	float			dist_from_top;
+	int				k;
+	uint			color;
 
 	i = 0;
+	k = 0;
 	dist_proj_plane = (v->window_height / 2) / tan(v->fov / 2);
 	while (i < v->num_rays)
 	{
+		idx = v->rays[i].tex_idx;
 		ray_dist = v->rays[i].dist * cos(v->rays[i].angle - v->player.angle);
-		strip_height = (v->tile_size / ray_dist) * dist_proj_plane;
-		if (strip_height >= v->window_height)
-			strip_height = v->window_height;
-			//printf("------------------------------------\n");
-			//printf("i: %d\n", i);
-			//printf("w: %d  h: %d\n",v->window_width, v->window_height);
-			//printf("dist_proj_plane: %f\n",dist_proj_plane);
-			//printf("ray_dist: %f\n", ray_dist);
-			//printf("strip_height %f\n", strip_height);
-			//printf("x1: %d\ty1: %d\tx2: %d\ty2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
-		r.pto_sup_esq.x = i * v->strip_width;
-		r.pto_sup_esq.y = (v->window_height / 2) - (strip_height / 2);
-		r.altura = (int) strip_height;
-		r.largura = v->strip_width;
-		r.cor = WHITE;
-		r.borda = 0;
-		r.cor_borda = WHITE;
-		int flag = 0;
-		if (r.pto_sup_esq.x >= v->window_width || r.pto_sup_esq.x <= 0)
-			flag = 1;
-		if (r.pto_sup_esq.y >= v->window_height || r.pto_sup_esq.y <= 0 )
-			flag = 1;
-		if ((r.pto_sup_esq.x + v->strip_width) >= v->window_width || r.pto_sup_esq.x <= 0)
-			flag = 1;
-		if ((r.pto_sup_esq.y + strip_height) >= v->window_height || r.pto_sup_esq.y <= 0 )
-			flag = 1;
-		if (flag)
+		proj_strip_height = (v->tile_size / ray_dist) * dist_proj_plane;
+		wall_strip_height = (int)proj_strip_height;
+
+		ymin = (v->window_height / 2) - (wall_strip_height / 2);
+		ymax = (v->window_height / 2) + (wall_strip_height / 2);
+		if (ymin < 0)
+			ymin = 0;
+		if (ymax > v->window_height)
+			ymax = v->window_height;
+		// calcula offset x
+		if (v->rays[i].hit_v)
+			offset_x = (int)v->rays[i].wallhit_y % v->tile_size;
+		else
+			offset_x = (int)v->rays[i].wallhit_x % v->tile_size;
+		y = ymin;
+		while (y < ymax)
 		{
-			//printf("x1: %d y1: %d x2: %d y2: %d\n",r.pto_sup_esq.x, r.pto_sup_esq.y,r.pto_sup_esq.x + v->strip_width, (int) (r.pto_sup_esq.y + strip_height));
-			//sai(1);
+			dist_from_top = y + (wall_strip_height / 2) - (v->window_height /2 );
+			offset_y = floor(dist_from_top *((float)v->tex[idx].h / wall_strip_height));
+			color = *(uint*)(v->tex[idx].p + (int)((offset_y * v->tex[idx].s_line/4) + offset_x)*4);
+			g_pixel_put_img(v->t, i * v->strip_width + k, y, color);
+			y++;
 		}
-		//g_plot_rect_img(v, r);
-		render_tex(v, i, v->strip_width, strip_height);
-		//i += v->strip_width;
 		i++;
 	}
 }

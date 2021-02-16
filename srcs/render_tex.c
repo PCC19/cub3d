@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:46:02 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 16:56:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 17:03:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	render_tex(t_vars *v, int i, int strip_w, double strip_h)
 			//color = RED;
 			//printf("h: %d\ty:%f\toffy: %f\t offx: %f\tsline: %d\n",v->tex[idx].h,y, offset_y, offset_x, v->tex[idx].s_line);
 			//printf("color: %0x\n",color);
+			
 			g_pixel_put_img(v->t, i * strip_w + k, y, color);
 	//sai(1);
 			y++;

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 00:48:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 17:30:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	init_vertical_dist(t_vars *v, int i, double a)
 {
 	double aa;
-	printf("==================== VERTICAL  ====================\n");
+//	printf("==================== VERTICAL  ====================\n");
 
-			printf("av: %f\n", a*180/M_PI);
+//			printf("av: %f\n", a*180/M_PI);
 	aa = 2 * M_PI - a;
 	v->av.wallhit_x = 0;
 	v->av.wallhit_y = 0;
@@ -52,7 +52,7 @@ void	vertical_dist(t_vars *v, int i)
 		ajx--;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
-	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
+//	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
 	while (u_is_inside(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
 	{
 			//pp(v, (int)v->av.next_xi, (int)v->av.next_yi, RED);
