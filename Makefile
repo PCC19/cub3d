@@ -62,6 +62,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)moves1.c\
 		$(SDIR)moves2.c\
 		$(SDIR)save_bmp.c\
+		$(SDIR)calculate_tile_size.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 23:09:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 23:37:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -57,18 +57,19 @@ int main(int argc, char **argv)
 	p_parse_arquivo(&vars, argv[1]);
 		p_print_cfg(&vars); // APAGAR !!
 	check_resolution(&vars);
-		
-	vars.tile_size = vars.window_width / (vars.map_num_cols);
-	vars.window_height = vars.map_num_rows * vars.tile_size;
+	
+	calculate_tile_size(&vars);
+	//vars.tile_size = vars.window_width / (vars.map_num_cols);
+	//vars.window_height = vars.map_num_rows * vars.tile_size;
 		printf("tile size: %d\n",vars.tile_size);
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
+
 	// codigo para inicializar player
 	p_init_player(&vars);
 		printf("Angulo: %f\n",vars.player.angle);
 		printf("x: %d   y: %d\n",vars.player.x, vars.player.y);
 	// init
 	p_init_vars(&vars);
-	// Carrega texturas
 	
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
