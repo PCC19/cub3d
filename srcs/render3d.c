@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 17:45:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 18:51:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,22 @@ void	render3d(t_vars *v)
 				offset_x = (int)v->rays[i].wallhit_y % v->tile_size;
 			else
 				offset_x = (int)v->rays[i].wallhit_x % v->tile_size;
+			offset_x = floor(offset_x / v->tile_size * v->tex[idx].w);
+			if (k == 0) printf("offset_x %f\n",offset_x);
 			y = ymin;
 			while (y < ymax)
 			{
 				dist_from_top = y + (wall_strip_height / 2) - (v->window_height /2 );
 				offset_y = floor(dist_from_top *((float)v->tex[idx].h / wall_strip_height));
-				color = *(uint*)(v->tex[idx].p + (int)((offset_y * v->tex[idx].s_line/4) + offset_x)*4);
+				//color = *(uint*)(v->tex[idx].p + (int)((offset_y * v->tex[idx].s_line/4) + offset_x)*4);
+				color = *(uint*)(v->tex[idx].p + (int)((offset_y * v->tex[idx].w) + offset_x)*4);
 				g_pixel_put_img(v->t, i * v->strip_width + k, y, color);
+				if (idx == 1)
+				{
+//					printf("idx: %d\t tex[idx].h: %d\t w: %d\n",idx, v->tex[idx].h, v->tex[idx].w);
+//					printf("offset_y %f\ts_line: %d\toffset_x: %f\n",offset_y, v->tex[idx].s_line, offset_x);
+				}
+
 				y++;
 			}
 			k++;
