@@ -59,6 +59,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)check_if_sprite.c\
 		$(SDIR)get_tex_idx.c\
 		$(SDIR)render_tex.c\
+		$(SDIR)moves1.c\
+		$(SDIR)moves2.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

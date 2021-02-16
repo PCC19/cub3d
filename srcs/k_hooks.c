@@ -6,87 +6,27 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:23:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/14 00:16:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 21:43:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	right(t_vars *vars)
-{
-	vars->player.turn_dir = 1;
-	vars->player.angle += vars->player.rotation_speed;
-	vars->player.angle = u_norm_angle(vars->player.angle);
-	printf("rot_speed: %f\n", vars->player.rotation_speed);
-	printf("angle: %f\n", vars->player.angle);
-	printf("angle: %f\n", vars->player.angle * 180 / M_PI);
-}
-
-void	left(t_vars *vars)
-{
-	vars->player.turn_dir = -1;
-	vars->player.angle -= vars->player.rotation_speed;
-	vars->player.angle = u_norm_angle(vars->player.angle);
-	printf("rot_speed: %f\n", vars->player.rotation_speed);
-	printf("angle: %f\n", vars->player.angle);
-	printf("angle: %f\n", vars->player.angle * 180 / M_PI);
-}
-
-void	up(t_vars *vars)
-{
-	int nx;
-	int ny;
-	int ts;
-	int s;
-
-	s = vars->player.move_speed;
-	ts = vars->tile_size;
-	vars->player.walk_dir = 1;
-	nx = vars->player.x + floor(s * cos(u_norm_angle(vars->player.angle)));
-	ny = vars->player.y + floor(s * sin(u_norm_angle(vars->player.angle)));
-	printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
-	printf("nx: %d   ny: %d\n", nx, ny);
-	printf("nx/tile_size: %d  ny/tile_size: %d\n", nx / ts, ny / ts);
-	if(!u_wall_hit(vars, nx, ny))
-	{
-		vars->player.x = nx;
-		vars->player.y = ny;
-	}
-}
-
-void	down(t_vars *vars)
-{
-	int		nx;
-	int		ny;
-	int		ts;
-	int		s;
-
-	s = vars->player.move_speed;
-	ts = vars->tile_size;
-	vars->player.walk_dir = -1;
-	nx = vars->player.x - floor(s * cos(u_norm_angle(vars->player.angle)));
-	ny = vars->player.y - floor(s * sin(u_norm_angle(vars->player.angle)));
-	printf("X: %d   Y: %d\n", vars->player.x, vars->player.y);
-	printf("nx: %d   ny: %d\n", nx, ny);
-	printf("nx/tile_size: %d  ny/tile_size: %d\n", nx / ts, ny / ts);
-	if(!u_wall_hit(vars, nx, ny))
-	{
-		vars->player.x = nx;
-		vars->player.y = ny;
-	}
-}
-
 int		key_hook(int keycode, t_vars *vars)
 {
 	printf("keycode: %d\n", keycode);
 	if (keycode == RIGHT)
-		right(vars);
+		turn_right(vars);
 	if (keycode == LEFT)
-		left(vars);
-	if (keycode == UP)
+		turn_left(vars);
+	if (keycode == WKEY)
 		up(vars);
-	if (keycode == DN)
+	if (keycode == SKEY)
 		down(vars);
+	if (keycode == AKEY)
+		move_left(vars);
+	if (keycode == DKEY)
+		move_right(vars);
 	//update(vars);
 	draw(vars);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 20:28:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 21:43:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -33,6 +33,12 @@
 # define DN 65364
 # define LEFT 65361
 # define RIGHT 65363
+# define AKEY 97
+# define DKEY 100
+# define WKEY 119
+# define SKEY 115
+# define ESCKEY 65307
+
 // ========================================
 
 
@@ -296,6 +302,12 @@ void	p_load_textures(t_vars *v);
 void	check_if_sprite(t_vars *v, int i);
 void	get_tex_idx(t_vars *v, int idx);
 void	render_tex(t_vars *v, int i, int strip_w, double strip_h);
+void	turn_right(t_vars *vars);
+void	turn_left(t_vars *vars);
+void	up(t_vars *vars);
+void	down(t_vars *vars);
+void	move_left(t_vars *vars);
+void	move_right(t_vars *vars);
 
 
 

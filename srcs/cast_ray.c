@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 17:52:54 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 17:34:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 21:07:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	cast_ray(t_vars *v, int i, double angle)
 	else
 		v_dist = 10000;
 	assign_dist(v, h_dist, v_dist, i);
-	check_if_sprite(v, i);
+	//check_if_sprite(v, i);
 	get_tex_idx(v, i);
 }
