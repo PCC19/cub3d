@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:20:25 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 17:26:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 19:14:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,22 @@ void	check_if_sprite(t_vars *v, int i)
 {
 	int x;
 	int y;
+	int ajx;
+	int ajy;
 	
-	x = floor(v->rays[i].wallhit_x / v->tile_size);
-	y = floor(v->rays[i].wallhit_y / v->tile_size);
+	ajx = 0;
+	ajy = 0;
+	if (v->rays[i].is_dn)
+		ajy++;
+	if (v->rays[i].is_up)
+		ajy--;
+	if (v->rays[i].is_ri)
+		ajx++;
+	if (v->rays[i].is_le)
+		ajx--;
+	x = (int)floor(v->rays[i].wallhit_x / v->tile_size);
+	y = (int)floor(v->rays[i].wallhit_y / v->tile_size);
 
-	if (ft_is_in(v->map[x][y], "2"))
+	if (ft_is_in(v->map[x + ajx][y + ajy], "22"))
 		v->rays[i].is_sprite = 1;
 }

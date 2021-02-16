@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 18:12:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 19:00:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	draw(t_vars *v)
 	render_floor_ceiling(v);
 	cast_all_rays(v);
 	render3d(v);
+		// cast ray nas paredes
+		// render paredes
+		// cast ray nas sprites
+		// render sprites
 	u_clear_screen(v, 0, 0, v->window_height * v->sf, v->window_width * v->sf);
 	render_map(v);
 	render_player(v);

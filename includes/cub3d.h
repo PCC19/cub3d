@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/15 18:13:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 20:28:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -177,6 +177,21 @@ typedef struct	s_aux_dist
 	int			wallhit_x;
 	int			wallhit_y;
 }				t_aux_dist;
+
+typedef struct	s_aux_render_wall
+{
+	double		ray_dist;
+	double		dist_proj_plane;
+	double		proj_strip_height;
+	int			wall_strip_height;
+	float		ymin;
+	float		ymax;
+	float		offset_x;
+	float		offset_y;
+	float		dist_from_top;
+	int			idx;
+	uint		color;
+}				t_aux_render_wall;
 
 typedef struct	s_vars {
 	void		*mlx;
