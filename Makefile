@@ -61,6 +61,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)render_tex.c\
 		$(SDIR)moves1.c\
 		$(SDIR)moves2.c\
+		$(SDIR)save_bmp.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
@@ -73,7 +74,7 @@ L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft
 
 $(NAME):	$(OBJS) ./maps/arq1.cub
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq3.cub
+	./$(NAME) ./maps/arq3.cub --save
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)

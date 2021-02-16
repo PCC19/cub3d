@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 21:43:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 22:44:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -308,6 +308,7 @@ void	up(t_vars *vars);
 void	down(t_vars *vars);
 void	move_left(t_vars *vars);
 void	move_right(t_vars *vars);
+int		save_bmp_file(t_vars *vars);
 
 
 

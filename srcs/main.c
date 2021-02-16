@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 17:41:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/16 23:09:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -43,6 +43,9 @@ int main(int argc, char **argv)
 	// INICIALIZACAO DE TUDO
 	p_init_cfg(&vars);
 		p_print_cfg(&vars); // APAGAR !!
+	// PARSE ARGUMENTOS
+	p_parse_argumentos(argc, argv);
+
 	// Inicializa lib e window
 	vars.mlx = mlx_init();
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
@@ -56,8 +59,8 @@ int main(int argc, char **argv)
 	check_resolution(&vars);
 		
 	vars.tile_size = vars.window_width / (vars.map_num_cols);
-		printf("tile size: %d\n",vars.tile_size);
 	vars.window_height = vars.map_num_rows * vars.tile_size;
+		printf("tile size: %d\n",vars.tile_size);
 		printf("w: %d  h: %d\n",vars.window_width, vars.window_height);
 	// codigo para inicializar player
 	p_init_player(&vars);
@@ -126,6 +129,11 @@ int main(int argc, char **argv)
 		mlx_put_image_to_window(vars.mlx, vars.win, vars.t.id, 0, 0);
 	}
  // END SHOWCASE DAS TEXTURAS ==========================
+
+
+	// SAVE BMP
+	if (argc == 3)
+		save_bmp_file(&vars);
 
 	mlx_key_hook(vars.win, key_hook, &vars);
 	//mlx_loop_hook(vars.mlx, loop, &vars);
