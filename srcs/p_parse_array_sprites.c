@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:47:38 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 14:57:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:07:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	p_parse_array_sprites(t_vars *v)
 			{
 				v->sprites[v->n_sprites].x = xmap * v->tile_size + 0.5;
 				v->sprites[v->n_sprites].y = ymap * v->tile_size + 0.5;
-				printf("xs: %f\tb ys: %f\n",v->sprites[v->n_sprites].x, v->sprites[v->n_sprites].y);
 				v->n_sprites++;
 			}
 			ymap++;

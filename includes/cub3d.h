@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 15:42:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:00:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -204,6 +204,9 @@ typedef struct	s_spr {
 	float		y;
 	float		dist;
 	float		angle;
+	float		angle_dif;
+	float		height;
+	float		width;
 	int			visible;
 	int			texture;
 }				t_spr;
