@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 22:25:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:18:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -249,12 +249,14 @@ typedef struct	s_vars {
 int funcao_a(int a);
 int funcao_b(int b);
 
+void	init_game(t_vars *v, int argc, char **argv);
 void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_re(t_vars *vars, t_input_re ip);
-int		p_parse_arquivo(t_vars *vars, char *arquivo);
+int		p_parse_arquivo(t_vars *v, char *arquivo);
 void	p_parse_argumentos(int argc, char *argv[]);
-void	p_init_cfg(t_vars *vars);
-void	p_print_cfg(t_vars *vars);
+void	check_resolution(t_vars *v);
+void	p_init_cfg(t_vars *v);
+void	p_print_cfg(t_vars *v);
 void	p_parse_config(t_vars *vars, int fd);
 void	sai(int codigo);
 void	p_escolhe_parse(t_vars *vars, char *str);
@@ -281,13 +283,12 @@ void	check_around_spaces_orto(t_vars *vars);
 void	check_around_spaces_diag(t_vars *vars);
 void	render_map(t_vars *vars);
 void	u_free_map(t_vars *vars);
-void	check_resolution(t_vars *vars);
 void	g_image_init(t_vars *v);
 void	g_pixel_put_img(t_tela t, int x, int y, int color);
 void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
 void	g_plot_re_aux_img(t_vars *vars, t_input_re ip, unsigned int color);
 void	g_plot_rect_img(t_vars *vars, t_input_re ip);
-void	p_init_player(t_vars *vars);
+void	p_init_player(t_vars *v);
 void	draw(t_vars *v);
 void	render_player(t_vars *vars);
 double	u_norm_angle(double a);

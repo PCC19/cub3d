@@ -6,35 +6,30 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/02/10 15:29:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:13:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <fcntl.h>
 
-int p_parse_arquivo(t_vars *vars, char *arquivo)
+int	p_parse_arquivo(t_vars *v, char *arquivo)
 {
 	int fd;
-	
-	p_conta_linhas(vars, arquivo);
-		printf("Numero de linhas no arquivo: %d\n",vars->line_count);
-	if((fd = open(arquivo, O_RDONLY)) < 0)
+
+	p_conta_linhas(v, arquivo);
+	if ((fd = open(arquivo, O_RDONLY)) < 0)
 	{
 		perror("Erro: ");
 		exit(errno);
 	}
 	else
 	{
-		p_parse_config(vars, fd);
-		p_parse_map(vars, fd);
-		p_normaliza_map(vars);
-		p_valida_map(vars);
-		// codigo para carregar texturas
-		// codigo para inicializar sprites
-
+		p_parse_config(v, fd);
+		p_parse_map(v, fd);
+		p_normaliza_map(v);
+		p_valida_map(v);
 	}
 	close(fd);
-
-	return(0);
+	return (0);
 }

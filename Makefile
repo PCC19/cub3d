@@ -6,6 +6,7 @@ SDIR =	./srcs/
 ODIR =	./objs/
 
 SRCS =	$(SDIR)main.c\
+		$(SDIR)init_game.c\
 		$(SDIR)funcao_a.c\
 		$(SDIR)funcao_b.c\
 		$(SDIR)g_plot_line.c\
