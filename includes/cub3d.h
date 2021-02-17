@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:18:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 00:30:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -211,6 +211,25 @@ typedef struct	s_spr {
 	int			texture;
 }				t_spr;
 
+typedef struct	s_aux_draw_sprite {
+	t_pto		t;
+	t_pto		in;
+	t_pto		c;
+	uint		cor;
+	int			ray_sprite;
+}				t_aux_ds;
+
+typedef struct	s_aux_tex {
+	double		offset_x;
+	double		offset_y;
+	double		y;
+	double		ymin;
+	double		ymax;
+	int			idx;
+	uint		color;
+	int			k;
+}				t_aux_tex;
+
 typedef struct	s_vars {
 	void		*mlx;
 	void		*win;
@@ -239,6 +258,8 @@ typedef struct	s_vars {
 	t_tex		tex[5];	
 	t_spr		sprites[100];
 	int			n_sprites;
+	t_aux_ds	s;
+	t_aux_tex	e;
 
 }				t_vars;
 
@@ -246,12 +267,7 @@ typedef struct	s_vars {
 
 
 // ========= FUNCTIONS ====================
-int funcao_a(int a);
-int funcao_b(int b);
-
 void	init_game(t_vars *v, int argc, char **argv);
-void	g_plot_line(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-void	g_plot_re(t_vars *vars, t_input_re ip);
 int		p_parse_arquivo(t_vars *v, char *arquivo);
 void	p_parse_argumentos(int argc, char *argv[]);
 void	check_resolution(t_vars *v);
@@ -296,7 +312,6 @@ int		key_hook (int keycode, t_vars *vars);
 int		u_wall_hit(t_vars *vars, double x, double y);
 void	p_init_vars(t_vars *vars);
 void	render_ray(t_vars *vars, int x, int y, int color);
-void	update(t_vars *vars);
 void	cast_ray(t_vars *vars, int i, double angle);
 void	cast_all_rays(t_vars *vars);
 int		u_is_inside(t_vars *vars, double x, double y);
@@ -308,7 +323,7 @@ void	init_vertical_dist(t_vars *v, int i, double angle);
 double	dist(double x1, double y1, double x2, double y2);
 void	pp(t_vars *v, int x, int y, int color);
 void	set_aj(t_vars *v, int *ajx, int *ajy, int i);
-void	u_clear_screen(t_vars *v, int x, int y, int altura, int largura);
+void	u_clear_screen(t_vars *v, int altura, int largura);
 void	render_floor_ceiling(t_vars *v);
 unsigned int	cor(int r, int g, int b);
 void	render3d(t_vars *v);

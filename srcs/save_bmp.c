@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 22:33:53 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 22:57:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:35:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int			save_bmp_file(t_vars *v)
 	int		y;
 	uint	color;
 
-	if ((fd = open("img.bmp", O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 777)) < 0)
+	if ((fd = open("img.bmp",
+					O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 777)) < 0)
 		return (0);
 	write_header(v, fd);
 	y = 0;

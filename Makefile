@@ -7,10 +7,6 @@ ODIR =	./objs/
 
 SRCS =	$(SDIR)main.c\
 		$(SDIR)init_game.c\
-		$(SDIR)funcao_a.c\
-		$(SDIR)funcao_b.c\
-		$(SDIR)g_plot_line.c\
-		$(SDIR)g_plot_rect.c\
 		$(SDIR)get_next_line.c\
 		$(SDIR)get_next_line_utils.c\
 		$(SDIR)p_parse_arquivo.c\
@@ -43,7 +39,6 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)u_wall_hit.c\
 		$(SDIR)p_init_vars.c\
 		$(SDIR)render_ray.c\
-		$(SDIR)update.c\
 		$(SDIR)cast_ray.c\
 		$(SDIR)cast_all_rays.c\
 		$(SDIR)u_is_inside.c\

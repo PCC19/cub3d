@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:28:45 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 18:14:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:28:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	p_load_textures(t_vars *v)
 
 	i = 0;
 	while (i < 5)
-	//while (i < 1)
 	{
-		printf("file; %s\n", v->cfg.tex_file[i]);
 		v->tex[i].id = mlx_xpm_file_to_image(v->mlx,
 												v->cfg.tex_file[i],
 												&v->tex[i].w,
@@ -33,11 +31,7 @@ void	p_load_textures(t_vars *v)
 											&v->tex[i].b,
 											&v->tex[i].s_line,
 											&v->tex[i].end);
-		
-			printf("i: %d\tbits: %d\ts_line: %d\t end:%d\n",i,v->tex[i].b, v->tex[i].s_line ,v->tex[i].end);
-
 		}
-		//mlx_put_image_to_window(v->mlx, v->win, v->tex[i].id, i * 100, 0);
 		i++;
 	}
 }

@@ -6,11 +6,11 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:47:38 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 16:53:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:25:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
 void	p_parse_array_sprites(t_vars *v)
 {
@@ -23,7 +23,7 @@ void	p_parse_array_sprites(t_vars *v)
 		ymap = 0;
 		while (ymap < v->map_num_rows)
 		{
-			if (ft_is_in(v->map[ymap][xmap],"2"))
+			if (ft_is_in(v->map[ymap][xmap], "2"))
 			{
 				v->sprites[v->n_sprites].x = (xmap + 0.5) * v->tile_size;
 				v->sprites[v->n_sprites].y = (ymap + 0.5) * v->tile_size;

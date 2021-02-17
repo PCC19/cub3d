@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 21:00:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 23:47:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	calc_vars_draw_coluna(t_vars *v, t_aux_render_wall *a, int i)
+void	calc_v_draw_coluna(t_vars *v, t_aux_render_wall *a, int i)
 {
 	a->dist_proj_plane = (v->window_height / 2) / tan(v->fov / 2);
 	a->idx = v->rays[i].tex_idx;
@@ -68,7 +68,7 @@ void	render3d(t_vars *v)
 	i = 0;
 	while (i < v->num_rays)
 	{
-		calc_vars_draw_coluna(v, &a, i);
+		calc_v_draw_coluna(v, &a, i);
 		calc_y_min_max(v, &a);
 		calc_offset_x(v, &a, i);
 		k = 0;
