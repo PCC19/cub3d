@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 16:00:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 17:10:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -330,6 +330,11 @@ void	put_sprites(t_vars *v);
 void	calc_dist_sprites(t_vars *v);
 void	sort_sprites(t_vars *v);
 void	calculate_sprites(t_vars *v, int i);
+void	draw_sprites(t_vars *v, int i, int x0);
+double	deg(double rad);
+double	rad(double deg);
+
+
 
 
 

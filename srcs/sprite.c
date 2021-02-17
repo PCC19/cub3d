@@ -6,11 +6,46 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:07:36 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 16:11:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 17:32:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+
+void	draw_sprites(t_vars *v, int i, int x0)
+{
+	t_pto			tex;
+	t_pto			in;
+	t_pto			c;
+	uint			color;
+	int				ray_sprite;
+
+	in.x = x0 - v->sprites[i].width / 2;
+	in.y = (v->window_height / 2) - (v->sprites[i].height / 2);
+	c.x = 0;
+	while (c.x < v->sprites[i].width)
+	{
+		c.y = 0;
+		tex.x = c.x * v->tex[4].w / v->sprites[i].width;
+		ray_sprite = (in.x + c.x) / 1;
+		while (c.y < v->sprites[i].height)
+		{
+			tex.y = c.y * v->tex[4].h / v->sprites[i].height;
+			if (u_is_inside(v, (in.x + c.x), (in.y + c.y)) &&
+			v->sprites[i].dist < v->rays[(int)(ray_sprite)].dist)
+			{
+				color = RED;
+				//color = *(uint*)(v->tex[4].p + (int)((tex.y * v->tex[4].w) + tex.x) * 4);
+				g_pixel_put_img(v->t, in.x + c.x, in.y + c.y, color);
+				//(color = get_texture_color(v->tex[sprites], tex.x, tex.y)) ?
+				//my_mlx_pixel_put(v->data, in.x + c.x, in.y + c.y, color) : 0;
+			}
+			c.y++;
+		}
+		c.x++;
+	}
+}
 
 void	calculate_sprites(t_vars *v, int i)
 {
@@ -33,8 +68,6 @@ void	calculate_sprites(t_vars *v, int i)
 	
 	v->sprites[i].angle_dif = fabs(v->sprites[i].angle_dif);
 	v->sprites[i].dist *= (cos(v->sprites[i].angle_dif));
-		printf("sprite[%d] x: %f\t y: %f\t dist: %f angle: %f\t dif: %f\n",i,v->sprites[i].x, v->sprites[i].y, v->sprites[i].dist, v->sprites[i].angle, v->sprites[i].angle_dif);
-	printf("fov/2 :%f\n",v->fov / 2);	
 	if (v->sprites[i].angle_dif < v->fov / 2)
 	{
 		v->sprites[i].height = (v->tile_size * dist_proj_plane / 
@@ -45,8 +78,10 @@ void	calculate_sprites(t_vars *v, int i)
 		xi = tan(v->sprites[i].angle - v->player.angle) * dist_proj_plane +
 				(v->window_width / 2);
 	
-		//printf("sprite[%d] x: %f\t y: %f\t dist: %f angle: %f\t dif: %f\n",i,v->sprites[i].x, v->sprites[i].y, v->sprites[i].dist, v->sprites[i].angle, v_>sprites[i].angle_dif);
-		//draw_sprite(v, i, xi);
+		printf("sprite[%d] x: %f\t y: %f\t dist: %f angle: %f\t dif: %f\n",i,v->sprites[i].x, v->sprites[i].y, v->sprites[i].dist, deg(v->sprites[i].angle), deg(v->sprites[i].angle_dif));
+		printf("x: %d\t\t y: %d\n",v->player.x, v->player.y);
+		printf("fov/2 :%f\t player: %f\n",deg(v->fov / 2), deg(v->player.angle));			printf("----------\n");
+		draw_sprites(v, i, xi);
 	}
 }
 
@@ -102,6 +137,3 @@ void	put_sprites(t_vars *v)
 		i++;
 	}
 }
-
-			// draw sprite
-

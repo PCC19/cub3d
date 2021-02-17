@@ -66,6 +66,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)init_array_sprites.c\
 		$(SDIR)p_parse_array_sprites.c\
 		$(SDIR)sprite.c\
+		$(SDIR)utils1.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
@@ -76,7 +77,7 @@ C_FLAGS = -Wall -Werror -Wextra -g
 C_SANIT = -fsanitize=address
 L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft 
 
-$(NAME):	$(OBJS) ./maps/arq1.cub
+$(NAME):	$(OBJS) ./maps/arq3.cub
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
 	./$(NAME) ./maps/arq3.cub --save
 
