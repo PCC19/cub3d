@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:07:36 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 17:32:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 17:34:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	draw_sprites(t_vars *v, int i, int x0)
 			if (u_is_inside(v, (in.x + c.x), (in.y + c.y)) &&
 			v->sprites[i].dist < v->rays[(int)(ray_sprite)].dist)
 			{
-				color = RED;
-				//color = *(uint*)(v->tex[4].p + (int)((tex.y * v->tex[4].w) + tex.x) * 4);
-				g_pixel_put_img(v->t, in.x + c.x, in.y + c.y, color);
+				//color = RED;
+				color = *(uint*)(v->tex[4].p + (int)((tex.y * v->tex[4].w) + tex.x) * 4);
+				if (color != 0)
+					g_pixel_put_img(v->t, in.x + c.x, in.y + c.y, color);
 				//(color = get_texture_color(v->tex[sprites], tex.x, tex.y)) ?
 				//my_mlx_pixel_put(v->data, in.x + c.x, in.y + c.y, color) : 0;
 			}
