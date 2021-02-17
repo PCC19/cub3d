@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_tex_idx.c                                      :+:      :+:    :+:   */
+/*   init_array_sprites.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 17:27:36 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 15:02:52 by user42           ###   ########.fr       */
+/*   Created: 2021/02/17 14:45:22 by user42            #+#    #+#             */
+/*   Updated: 2021/02/17 14:50:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	get_tex_idx(t_vars *v, int i)
+void	init_array_sprites(t_vars *v)
 {
-	if (v->rays[i].is_up && !v->rays[i].hit_v)
-		v->rays[i].tex_idx = 0;			
-	if (v->rays[i].is_dn && !v->rays[i].hit_v)
-		v->rays[i].tex_idx = 1;			
-	if (v->rays[i].is_le && v->rays[i].hit_v)
-		v->rays[i].tex_idx = 2;			
-	if (v->rays[i].is_ri && v->rays[i].hit_v)
-		v->rays[i].tex_idx = 3;			
+	int i;
+
+	v->n_sprites = 0;
+	i = 0;
+	while (i < 100)
+	{
+		v->sprites[i].x = 0;
+		v->sprites[i].y = 0;
+		v->sprites[i].dist = 0;
+		v->sprites[i].angle = 0;
+		v->sprites[i].visible = 0;
+		v->sprites[i].texture = 0;
+		i++;
+	}
 }

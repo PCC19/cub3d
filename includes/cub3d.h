@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 23:17:53 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 15:42:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -199,6 +199,15 @@ typedef struct	s_aux_render_wall
 	uint		color;
 }				t_aux_render_wall;
 
+typedef struct	s_spr {
+	float		x;
+	float		y;
+	float		dist;
+	float		angle;
+	int			visible;
+	int			texture;
+}				t_spr;
+
 typedef struct	s_vars {
 	void		*mlx;
 	void		*win;
@@ -225,6 +234,8 @@ typedef struct	s_vars {
 	t_aux_dist	av;
 	float		sf;
 	t_tex		tex[5];	
+	t_spr		sprites[100];
+	int			n_sprites;
 
 }				t_vars;
 
@@ -310,6 +321,14 @@ void	move_left(t_vars *vars);
 void	move_right(t_vars *vars);
 int		save_bmp_file(t_vars *vars);
 void	calculate_tile_size(t_vars *v);
+void	init_array_sprites(t_vars *v);
+void	p_parse_array_sprites(t_vars *v);
+void	put_sprites(t_vars *v);
+void	calc_dist_sprites(t_vars *v);
+void	sort_sprites(t_vars *v);
+void	calculate_sprites(t_vars *v, int i);
+
+
 
 
 // ========================================

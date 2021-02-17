@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 23:37:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 15:19:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -70,6 +70,12 @@ int main(int argc, char **argv)
 		printf("x: %d   y: %d\n",vars.player.x, vars.player.y);
 	// init
 	p_init_vars(&vars);
+	
+	//init sprites
+	init_array_sprites(&vars);
+	p_parse_array_sprites(&vars);
+	put_sprites(&vars);
+	sai(1);
 	
 	// SETUP (vai virar funcao)
 	vars.win = mlx_new_window(vars.mlx,vars.window_width,vars.window_height,"Hello World !");
