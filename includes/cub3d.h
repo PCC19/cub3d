@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 17:10:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/17 22:25:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "mlx.h"
@@ -333,10 +333,7 @@ void	calculate_sprites(t_vars *v, int i);
 void	draw_sprites(t_vars *v, int i, int x0);
 double	deg(double rad);
 double	rad(double deg);
-
-
-
-
+int		free_and_exit(t_vars *vars);
 
 
 // ========================================

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculate_tile_size.c                              :+:      :+:    :+:   */
+/*   free_and_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 23:12:59 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 17:43:16 by user42           ###   ########.fr       */
+/*   Created: 2021/02/17 22:08:45 by user42            #+#    #+#             */
+/*   Updated: 2021/02/17 22:28:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	calculate_tile_size(t_vars *v)
+int		close_program()
 {
-	int a;
-	int b;
-
-	a = v->window_width / v->map_num_cols;
-	b = v->window_height / v->map_num_rows;
-	
-	if (a < b)
-	{
-		v->tile_size = a;
-		v->window_height = v->map_num_rows * v->tile_size;
-	}
-	else
-	{
-		v->tile_size = b;
-		v->window_width = v->map_num_cols * v->tile_size;
-	}
+	exit(0);
+	return (0);
 }
+
+int		free_and_exit(t_vars *vars)
+{
+	printf("%d\n",vars->player.x);
+	printf(" TA DA !!!!!\n");
+	return (close_program());
+}
+

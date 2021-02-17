@@ -67,6 +67,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_parse_array_sprites.c\
 		$(SDIR)sprite.c\
 		$(SDIR)utils1.c\
+		$(SDIR)free_and_exit.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
