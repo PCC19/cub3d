@@ -94,4 +94,4 @@ fclean: clean
 re: fclean all
 
 roda:
-	./cub3d ./maps/arq1.cub
+	./cub3d ./maps/arq3.cub
