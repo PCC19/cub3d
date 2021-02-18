@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 22:56:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:00:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 23:04:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	init_game(t_vars *v, int argc, char **argv)
 	p_init_vars(v);
 	init_array_sprites(v);
 	p_parse_array_sprites(v);
-	v->win = mlx_new_window(v->mlx, v->window_width,
-								v->window_height, "=== CUB3D by pcunha ===");
 	g_image_init(v);
 	p_load_textures(v);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 15:52:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 22:07:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ int		main(int argc, char **argv)
 	t_vars vars;
 
 	init_game(&vars, argc, argv);
+	vars.argc = argc;
 	draw(&vars);
-	if (argc == 3)
-		save_bmp_file(&vars);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_expose_hook(vars.win, update_screen, &vars);
 	mlx_hook(vars.win, 17, (1l << 17), free_and_exit, &vars);
