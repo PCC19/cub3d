@@ -16,13 +16,13 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)p_escolhe_parse.c\
 		$(SDIR)u_free_array_bi.c\
 		$(SDIR)p_parse_r.c\
+		$(SDIR)cor.c\
 		$(SDIR)p_parse_c.c\
 		$(SDIR)u_check_palavras.c\
 		$(SDIR)p_parse_f.c\
 		$(SDIR)p_parse_tex.c\
 		$(SDIR)p_conta_linhas.c\
 		$(SDIR)p_parse_map.c\
-		$(SDIR)u_print_map.c\
 		$(SDIR)p_normaliza_map.c\
 		$(SDIR)p_valida_map.c\
 		$(SDIR)check_map_1.c\
@@ -45,10 +45,8 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)horizontal_dist.c\
 		$(SDIR)vertical_dist.c\
 		$(SDIR)dist.c\
-		$(SDIR)set_aj.c\
 		$(SDIR)u_clear_screen.c\
 		$(SDIR)render_floor_ceiling.c\
-		$(SDIR)cor.c\
 		$(SDIR)render3d.c\
 		$(SDIR)render_all_rays.c\
 		$(SDIR)p_load_textures.c\
@@ -62,7 +60,6 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)init_array_sprites.c\
 		$(SDIR)p_parse_array_sprites.c\
 		$(SDIR)sprite.c\
-		$(SDIR)utils1.c\
 		$(SDIR)free_and_exit.c\
 
 		

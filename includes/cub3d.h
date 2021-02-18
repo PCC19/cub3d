@@ -6,22 +6,22 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 00:30:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:45:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "mlx.h"
-#include "get_next_line.h"
-#include "libft.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/errno.h>
-#include <math.h>
 
+#ifndef CUB3D_H
+# define CUB3D_H
 
-// FF transparente    00 Opaco
-// ========= DEFINES ======================
-# define ABS(a) (((a) < 0) ? -(a) : (a))
+# include "mlx.h"
+# include "get_next_line.h"
+# include "libft.h"
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <sys/errno.h>
+# include <math.h>
+
 # define MAX_RAYS 2000
 # define WHITE 0x00FFFFFF
 # define RED 0x80F00000
@@ -79,10 +79,6 @@ static char error[][50] =
 
 };
 
-
-// ========================================
-
-// ========= STRUCTS ======================
 typedef struct	s_ponto {
 	int			x;
 	int			y;
@@ -263,93 +259,83 @@ typedef struct	s_vars {
 
 }				t_vars;
 
-// ========================================
-
-
-// ========= FUNCTIONS ====================
-void	init_game(t_vars *v, int argc, char **argv);
-int		p_parse_arquivo(t_vars *v, char *arquivo);
-void	p_parse_argumentos(int argc, char *argv[]);
-void	check_resolution(t_vars *v);
-void	p_init_cfg(t_vars *v);
-void	p_print_cfg(t_vars *v);
-void	p_parse_config(t_vars *vars, int fd);
-void	sai(int codigo);
-void	p_escolhe_parse(t_vars *vars, char *str);
-void	p_parse_r(t_vars *vars, char *str);
-void	u_free_array_bi(char **s);
-void	p_parse_c(t_vars *vars, char *str);
-int		u_check_palavras(char **palavras, int *ii);
-void	p_parse_f(t_vars *vars, char *str);
-void	p_parse_S(t_vars *vars, char *str);
-void	p_parse_SO(t_vars *vars, char *str);
-void	p_parse_NO(t_vars *vars, char *str);
-void	p_parse_WE(t_vars *vars, char *str);
-void	p_parse_EA(t_vars *vars, char *str);
-void	p_conta_linhas(t_vars *vars, char *arquivo);
-void	p_parse_map(t_vars *vars, int fd);
-void	p_normaliza_map(t_vars *var);
-void	u_print_map(char **map_temp);
-void	p_valida_map(t_vars *vars);
-void	check_first_last_col(t_vars *vars);
-void	check_first_last_line(t_vars *vars);
-void	check_valid_chars_players(t_vars *vars);
-int		c(t_vars *vars, int i, int j);
-void	check_around_spaces_orto(t_vars *vars);
-void	check_around_spaces_diag(t_vars *vars);
-void	render_map(t_vars *vars);
-void	u_free_map(t_vars *vars);
-void	g_image_init(t_vars *v);
-void	g_pixel_put_img(t_tela t, int x, int y, int color);
-void	g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-void	g_plot_re_aux_img(t_vars *vars, t_input_re ip, unsigned int color);
-void	g_plot_rect_img(t_vars *vars, t_input_re ip);
-void	p_init_player(t_vars *v);
-void	draw(t_vars *v);
-void	render_player(t_vars *vars);
-double	u_norm_angle(double a);
-int		key_hook (int keycode, t_vars *vars);
-int		u_wall_hit(t_vars *vars, double x, double y);
-void	p_init_vars(t_vars *vars);
-void	render_ray(t_vars *vars, int x, int y, int color);
-void	cast_ray(t_vars *vars, int i, double angle);
-void	cast_all_rays(t_vars *vars);
-int		u_is_inside(t_vars *vars, double x, double y);
-void	set_ray_booleans(t_vars *v, int i, double angle);
-void	horizontal_dist(t_vars *v, int i);
-void	init_horizontal_dist(t_vars *v, int i, double angle);
-void	vertical_dist(t_vars *v, int i);
-void	init_vertical_dist(t_vars *v, int i, double angle);
-double	dist(double x1, double y1, double x2, double y2);
-void	pp(t_vars *v, int x, int y, int color);
-void	set_aj(t_vars *v, int *ajx, int *ajy, int i);
-void	u_clear_screen(t_vars *v, int altura, int largura);
-void	render_floor_ceiling(t_vars *v);
+void			init_game(t_vars *v, int argc, char **argv);
+void			p_parse_argumentos(int argc, char *argv[]);
+void			check_resolution(t_vars *v);
+void			p_init_cfg(t_vars *v);
+void			p_print_cfg(t_vars *v);
+void			p_parse_config(t_vars *vars, int fd);
+int				p_parse_arquivo(t_vars *v, char *arquivo);
+void			sai(int codigo);
+void			p_escolhe_parse(t_vars *vars, char *str);
+void			p_parse_r(t_vars *vars, char *str);
+void			u_free_array_bi(char **s);
+void			p_parse_c(t_vars *vars, char *str);
+int				u_check_palavras(char **palavras, int *ii);
+void			p_parse_f(t_vars *vars, char *str);
+void			p_parse_ss(t_vars *vars, char *str);
+void			p_parse_so(t_vars *vars, char *str);
+void			p_parse_no(t_vars *vars, char *str);
+void			p_parse_we(t_vars *vars, char *str);
+void			p_parse_ea(t_vars *vars, char *str);
+void			p_conta_linhas(t_vars *vars, char *arquivo);
+void			p_parse_map(t_vars *vars, int fd);
+void			p_normaliza_map(t_vars *var);
+void			p_valida_map(t_vars *vars);
+void			check_first_last_col(t_vars *vars);
+void			check_first_last_line(t_vars *vars);
+void			check_valid_chars_players(t_vars *vars);
+int				c(t_vars *vars, int i, int j);
+void			check_around_spaces_orto(t_vars *vars);
+void			check_around_spaces_diag(t_vars *vars);
+void			render_map(t_vars *vars);
+void			u_free_map(t_vars *vars);
+void			g_image_init(t_vars *v);
+void			g_pixel_put_img(t_tela t, int x, int y, int color);
+void			g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
+void			g_plot_re_aux_img(t_vars *vars, t_input_re ip, unsigned int color);
+void			g_plot_rect_img(t_vars *vars, t_input_re ip);
+void			p_init_player(t_vars *v);
+void			draw(t_vars *v);
+void			render_player(t_vars *vars);
+double			u_norm_angle(double a);
+int				key_hook (int keycode, t_vars *vars);
+int				u_wall_hit(t_vars *vars, double x, double y);
+void			p_init_vars(t_vars *vars);
+void			render_ray(t_vars *vars, int x, int y, int color);
+void			cast_ray(t_vars *vars, int i, double angle);
+void			cast_all_rays(t_vars *vars);
+int				u_is_inside(t_vars *vars, double x, double y);
+void			set_ray_booleans(t_vars *v, int i, double angle);
+void			horizontal_dist(t_vars *v, int i);
+void			init_horizontal_dist(t_vars *v, int i, double angle);
+void			vertical_dist(t_vars *v, int i);
+void			init_vertical_dist(t_vars *v, int i, double angle);
+double			dist(double x1, double y1, double x2, double y2);
+void			pp(t_vars *v, int x, int y, int color);
+void			u_clear_screen(t_vars *v, int altura, int largura);
+void			render_floor_ceiling(t_vars *v);
+void			render3d(t_vars *v);
+void			render_all_rays(t_vars *v);
+void			p_load_textures(t_vars *v);
+void			check_if_sprite(t_vars *v, int i);
+void			get_tex_idx(t_vars *v, int idx);
+void			render_tex(t_vars *v, int i, int strip_w, double strip_h);
+void			turn_right(t_vars *vars);
+void			turn_left(t_vars *vars);
+void			up(t_vars *vars);
+void			down(t_vars *vars);
+void			move_left(t_vars *vars);
+void			move_right(t_vars *vars);
+int				save_bmp_file(t_vars *vars);
+void			calculate_tile_size(t_vars *v);
+void			init_array_sprites(t_vars *v);
+void			p_parse_array_sprites(t_vars *v);
+void			put_sprites(t_vars *v);
+void			calc_dist_sprites(t_vars *v);
+void			sort_sprites(t_vars *v);
+void			calculate_sprites(t_vars *v, int i);
+void			draw_sprites(t_vars *v, int i, int x0);
+int				free_and_exit(t_vars *vars);
 unsigned int	cor(int r, int g, int b);
-void	render3d(t_vars *v);
-void	render_all_rays(t_vars *v);
-void	p_load_textures(t_vars *v);
-void	check_if_sprite(t_vars *v, int i);
-void	get_tex_idx(t_vars *v, int idx);
-void	render_tex(t_vars *v, int i, int strip_w, double strip_h);
-void	turn_right(t_vars *vars);
-void	turn_left(t_vars *vars);
-void	up(t_vars *vars);
-void	down(t_vars *vars);
-void	move_left(t_vars *vars);
-void	move_right(t_vars *vars);
-int		save_bmp_file(t_vars *vars);
-void	calculate_tile_size(t_vars *v);
-void	init_array_sprites(t_vars *v);
-void	p_parse_array_sprites(t_vars *v);
-void	put_sprites(t_vars *v);
-void	calc_dist_sprites(t_vars *v);
-void	sort_sprites(t_vars *v);
-void	calculate_sprites(t_vars *v, int i);
-void	draw_sprites(t_vars *v, int i, int x0);
-double	deg(double rad);
-double	rad(double deg);
-int		free_and_exit(t_vars *vars);
-
-
-// ========================================
+#endif

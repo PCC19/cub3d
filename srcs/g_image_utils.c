@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:38:06 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:32:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:45:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	g_plot_line_img(t_vars *v, t_pto p0, t_pto p1, unsigned int cor)
 {
 	t_var_line ll;
 
-	ll.dx = ABS(p1.x - p0.x);
+	ll.dx = abs(p1.x - p0.x);
 	ll.sx = p0.x < p1.x ? 1 : -1;
-	ll.dy = -ABS(p1.y - p0.y);
+	ll.dy = -abs(p1.y - p0.y);
 	ll.sy = p0.y < p1.y ? 1 : -1;
 	ll.err = ll.dx + ll.dy;
 	while (1)

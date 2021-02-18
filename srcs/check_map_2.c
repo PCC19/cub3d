@@ -6,18 +6,18 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:32:14 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 19:38:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 00:37:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		c(t_vars *vars, int i, int j)
+int		c(t_vars *v, int i, int j)
 {
 	int flag;
 
 	flag = 0;
-	if (i >= 0 && i < vars->map_num_rows && j >= 0 && j < vars->map_num_cols)
+	if (i >= 0 && i < v->map_num_rows && j >= 0 && j < v->map_num_cols)
 		flag = 1;
 	return (flag);
 }
@@ -48,7 +48,6 @@ void	check_around_spaces_orto(t_vars *v)
 		}
 		i++;
 	}
-	printf("Spaces orto ok\n");
 }
 
 void	check_around_spaces_diag(t_vars *v)
@@ -77,5 +76,4 @@ void	check_around_spaces_diag(t_vars *v)
 		}
 		i++;
 	}
-	printf("Spaces diag ok\n");
 }

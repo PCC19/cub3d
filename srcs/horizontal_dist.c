@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 21:24:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 00:59:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,22 @@ void	set_ray_booleans(t_vars *v, int i, double angle)
 		v->rays[i].is_ri = 0;
 		v->rays[i].is_le = 1;
 	}
-	//printf("set_ray_boolean: d%d u%d r%d l%d\n",v->rays[0].is_dn, v->rays[0].is_up, v->rays[0].is_ri, v->rays[0].is_le);
 }
 
 void	init_horizontal_dist(t_vars *v, int i, double a)
 {
 	double aa;
 
-	//printf("==================== HORIZONTAL ====================\n");
-	//		printf("ah: %f\n", a*180/M_PI);
 	aa = u_norm_angle(2 * M_PI - a);
 	v->ah.wallhit_x = 0;
 	v->ah.wallhit_y = 0;
 	v->ah.found_hit = 0;
 	set_ray_booleans(v, i, a);
-	v->rays[i].angle = a; // editar
+	v->rays[i].angle = a;
 	v->ah.yi = floor(v->player.y / v->tile_size) * v->tile_size;
 	if (v->rays[i].is_dn)
 		v->ah.yi += v->tile_size;
 	v->ah.xi = v->player.x + (v->player.y - v->ah.yi) / tan(aa);
-
 	v->ah.ystep = v->tile_size;
 	if (v->rays[i].is_up)
 		v->ah.ystep *= -1;
@@ -69,7 +65,7 @@ void	pp(t_vars *v, int x, int y, int color)
 	t_input_re	r;
 
 	r.pto_sup_esq.x = x;
-	r.pto_sup_esq.y = y; 
+	r.pto_sup_esq.y = y;
 	r.altura = 3;
 	r.largura = 3;
 	r.cor = color;
@@ -80,11 +76,8 @@ void	pp(t_vars *v, int x, int y, int color)
 
 void	horizontal_dist(t_vars *v, int i)
 {
-	double ajx;
 	double ajy;
-	
-	//set_aj(v, &ajx, &ajy, i);
-	ajx = 0;
+
 	ajy = 0;
 	if (v->rays[i].is_dn)
 		ajy++;
@@ -92,17 +85,13 @@ void	horizontal_dist(t_vars *v, int i)
 		ajy--;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
-	while (u_is_inside(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
+	while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi + ajy))
 	{
-			//pp(v, (int)v->ah.next_xi, (int)v->ah.next_yi, GREEN);
-			//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-		if (u_wall_hit(v, v->ah.next_xi + ajx, v->ah.next_yi + ajy))
+		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi + ajy))
 		{
 			v->ah.found_hit = 1;
 			v->ah.wallhit_x = v->ah.next_xi;
 			v->ah.wallhit_y = v->ah.next_yi;
-			//printf("hhit\n");
-			//printf("hxi: %f  hyi: %f\n",v->ah.next_xi, v->ah.next_yi);
 			break ;
 		}
 		else

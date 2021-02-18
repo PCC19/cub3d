@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 23:21:14 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 22:54:52 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:22:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	u_free_map(t_vars *vars)
 	int i;
 
 	i = 0;
-	while(i < vars->map_num_rows)
+	while (i < vars->map_num_rows)
 	{
 		free(vars->map[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:47:15 by user42            #+#    #+#             */
-/*   Updated: 2021/02/16 21:24:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:29:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 void	init_vertical_dist(t_vars *v, int i, double a)
 {
 	double aa;
-//	printf("==================== VERTICAL  ====================\n");
 
-//			printf("av: %f\n", a*180/M_PI);
 	aa = 2 * M_PI - a;
 	v->av.wallhit_x = 0;
 	v->av.wallhit_y = 0;
 	v->av.found_hit = 0;
 	set_ray_booleans(v, i, a);
-	v->rays[i].angle = a; // editar
+	v->rays[i].angle = a;
 	v->av.xi = (v->player.x / v->tile_size) * v->tile_size;
 	if (v->rays[i].is_ri)
 		v->av.xi += v->tile_size;
@@ -41,23 +39,17 @@ void	init_vertical_dist(t_vars *v, int i, double a)
 void	vertical_dist(t_vars *v, int i)
 {
 	double ajx;
-	double ajy;
 
-	//set_aj(v, &ajx, &ajy, i);
 	ajx = 0;
-	ajy = 0;
 	if (v->rays[i].is_ri)
 		ajx++;
 	if (v->rays[i].is_le)
 		ajx--;
 	v->av.next_xi = v->av.xi;
 	v->av.next_yi = v->av.yi;
-//	printf("player x: %d  player y: %d\n",v->player.x, v->player.y);
-	while (u_is_inside(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
+	while (u_is_inside(v, v->av.next_xi + ajx, v->av.next_yi))
 	{
-			//pp(v, (int)v->av.next_xi, (int)v->av.next_yi, RED);
-			//mlx_put_image_to_window(v->mlx, v->win, v->t.id, 0, 0);
-		if (u_wall_hit(v, v->av.next_xi + ajx, v->av.next_yi + ajy))
+		if (u_wall_hit(v, v->av.next_xi + ajx, v->av.next_yi))
 		{
 			v->av.found_hit = 1;
 			v->av.wallhit_x = v->av.next_xi;

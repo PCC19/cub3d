@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 17:25:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/07 19:42:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:18:30 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	p_valida_map(t_vars *vars)
 	check_around_spaces_orto(vars);
 	check_around_spaces_diag(vars);
 }
-
