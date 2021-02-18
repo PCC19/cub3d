@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:48:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 15:40:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,7 +294,7 @@ void			g_plot_re_aux_img(t_vars *vars, t_input_re ip,
 															unsigned int color);
 void			g_plot_rect_img(t_vars *vars, t_input_re ip);
 void			p_init_player(t_vars *v);
-void			draw(t_vars *v);
+int				draw(t_vars *v);
 void			render_player(t_vars *vars);
 double			u_norm_angle(double a);
 int				key_hook (int keycode, t_vars *vars);
@@ -336,4 +336,5 @@ void			calculate_sprites(t_vars *v, int i);
 void			draw_sprites(t_vars *v, int i, int x0);
 int				free_and_exit(t_vars *vars);
 unsigned int	cor(int r, int g, int b);
+int				update_screen(t_vars *v);
 #endif
