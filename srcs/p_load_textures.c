@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:28:45 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 21:48:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 22:00:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	p_load_textures(t_vars *v)
 	i = 0;
 	while (i < 5)
 	{
-		printf("%d |%s|\n",i, v->cfg.tex_file[i]);
 		v->tex[i].id = mlx_xpm_file_to_image(v->mlx,
 												v->cfg.tex_file[i],
 												&v->tex[i].w,
