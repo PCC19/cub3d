@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:45:43 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:48:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,7 @@
 # define SKEY 115
 # define ESCKEY 65307
 
-// ========================================
-
-
-// ========= ERRORS ======================
-enum e_error_num
+enum	e_error_num
 {
 	ZERO,
 	INVALID_FILENAME,
@@ -60,7 +56,7 @@ enum e_error_num
 	SPACE_ERROR,
 	INVALID_TEXTURE_FILE
 };
-static char error[][50] = 
+static char g_error[][50] =
 {
 	"Zero\n",
 	"Nome de arquivo invalido\n",
@@ -130,7 +126,7 @@ typedef struct	s_tela {
 	int			s_line;
 	int			end;
 }				t_tela;
-	
+
 typedef struct	s_tex {
 	void		*id;
 	void		*p;
@@ -242,7 +238,7 @@ typedef struct	s_vars {
 	int			tile_size;
 	int			window_width;
 	int			window_height;
-	t_tela		t; 
+	t_tela		t;
 	t_player	player;
 	t_ray		rays[MAX_RAYS];
 	double		fov;
@@ -251,7 +247,7 @@ typedef struct	s_vars {
 	t_aux_dist	ah;
 	t_aux_dist	av;
 	float		sf;
-	t_tex		tex[5];	
+	t_tex		tex[5];
 	t_spr		sprites[100];
 	int			n_sprites;
 	t_aux_ds	s;
@@ -292,8 +288,10 @@ void			render_map(t_vars *vars);
 void			u_free_map(t_vars *vars);
 void			g_image_init(t_vars *v);
 void			g_pixel_put_img(t_tela t, int x, int y, int color);
-void			g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1, unsigned int cor);
-void			g_plot_re_aux_img(t_vars *vars, t_input_re ip, unsigned int color);
+void			g_plot_line_img(t_vars *vars, t_pto p0, t_pto p1,
+															unsigned int cor);
+void			g_plot_re_aux_img(t_vars *vars, t_input_re ip,
+															unsigned int color);
 void			g_plot_rect_img(t_vars *vars, t_input_re ip);
 void			p_init_player(t_vars *v);
 void			draw(t_vars *v);

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:06:47 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:02:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 01:50:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 void	sai(int codigo)
 {
 	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(error[codigo], 1);
+	ft_putstr_fd(g_error[codigo], 1);
 	exit(codigo);
 }
 
