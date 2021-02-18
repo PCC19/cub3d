@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 01:27:29 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:16:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/18 21:56:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	p_parse_so(t_vars *vars, char *str)
 {
 	char *p;
 
-	if (vars->cfg.tex_file[4] == NULL)
+	if (vars->cfg.tex_file[0] == NULL)
 	{
 		p = ft_strtrim(&str[2], " ");
 		vars->cfg.tex_file[0] = ft_strdup(p);

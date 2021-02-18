@@ -1,16 +1,16 @@
 
 
-S  ./text/wolf/pillar.xpm
-F 		200  ,	200  , 80
+S    /media/sf_cub3d/textures/pillar.xpm
+F  200,200,80
 
-SO 	./text/wolf/eagle.xpm
 
-R    1000 600
-NO     ./text/wolf/redbrick.xpm
-WE   ./text/wolf/bluestone.xpm
-EA  ./text/wolf/wood.xpm
+R   1000 600
+NO    /media/sf_cub3d/textures/redbrick.xpm
+WE      /media/sf_cub3d/textures/bluestone.xpm
+EA    /media/sf_cub3d/textures/wood.xpm
+SO /media/sf_cub3d/textures/eagle.xpm
 
-C 0,255,255
+C   0,255,255
 
 
             1111111111111111
