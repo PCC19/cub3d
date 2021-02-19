@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:40:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 13:50:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 14:01:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	check_minimap_size(t_vars *v)
 {
 	v->draw_minimap = 1;
-	if (v->tile_size * v->map_num_cols >= v->window_width)
+	if (v->tile_size * v->map_num_cols * v->sf >= v->window_width)
 		v->draw_minimap = 0;
-	if (v->tile_size * v->map_num_rows >= v->window_height)
+	if (v->tile_size * v->map_num_rows * v->sf >= v->window_height)
 		v->draw_minimap = 0;
 }

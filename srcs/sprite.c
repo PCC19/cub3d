@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:07:36 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 01:07:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 14:00:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	calculate_sprites(t_vars *v, int i)
 		v->sprites[i].angle_dif -= 2 * M_PI;
 	v->sprites[i].angle_dif = fabs(v->sprites[i].angle_dif);
 	v->sprites[i].dist *= (cos(v->sprites[i].angle_dif));
-	if (v->sprites[i].angle_dif < v->fov / 2)
+	if (v->sprites[i].angle_dif < v->fov / 2 + 0.5)
 	{
 		v->sprites[i].height = (v->tile_size * dist_proj_plane /
 								v->sprites[i].dist);
