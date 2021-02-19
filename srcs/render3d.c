@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:47:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 15:20:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ void	calc_y_min_max(t_vars *v, t_aux_render_wall *a)
 
 void	calc_offset_x(t_vars *v, t_aux_render_wall *a, int i)
 {
+	//printf("i: %d hv: %d\t",i,v->rays[i].hit_v);
 	if (v->rays[i].hit_v)
-		a->offset_x = (int)v->rays[i].wallhit_y % v->tile_size;
+		a->offset_x = fmod(v->rays[i].wallhit_y, v->tile_size);
 	else
-		a->offset_x = (int)v->rays[i].wallhit_x % v->tile_size;
-	a->offset_x = floor(a->offset_x / v->tile_size * v->tex[a->idx].w);
+		a->offset_x = fmod(v->rays[i].wallhit_x, v->tile_size);
+	a->offset_x = (a->offset_x / v->tile_size * (v->tex[a->idx].w));
 }
 
 void	g_draw_coluna(t_vars *v, t_aux_render_wall *a, int i, int k)
@@ -53,7 +54,7 @@ void	g_draw_coluna(t_vars *v, t_aux_render_wall *a, int i, int k)
 		a->offset_y = floor(a->dist_from_top * ((float)v->tex[a->idx].h /
 												a->wall_strip_height));
 		color = *(uint*)(v->tex[a->idx].p +
-			(int)((a->offset_y * v->tex[a->idx].w) + a->offset_x) * 4);
+			(int)(floor((a->offset_y * v->tex[a->idx].w)) + a->offset_x) * 4);
 		g_pixel_put_img(v->t, i * v->strip_width + k, y, color);
 		y++;
 	}
