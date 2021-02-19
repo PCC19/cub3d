@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 22:56:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 00:30:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 01:21:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	init_game(t_vars *v, int argc, char **argv)
 	p_parse_arquivo(v, argv[1]);
 	check_resolution(v);
 	calculate_tile_size(v);
-	printf("w: %d h: %d\n",v->window_width, v->window_height);
 	p_init_player(v);
 	p_init_vars(v);
 	init_array_sprites(v);

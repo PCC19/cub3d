@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:38:06 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 01:00:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 01:18:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	g_image_init(t_vars *v)
 {
-	printf("ww: %d hh: %d\n",v->window_width, v->window_height);
 	v->t.id = mlx_new_image(v->mlx, v->window_width, v->window_height);
 	v->t.p = mlx_get_data_addr(v->t.id, &v->t.b, &v->t.s_line, &v->t.end);
 }

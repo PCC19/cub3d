@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 00:46:01 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 01:04:17 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 01:19:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	horizontal_dist(t_vars *v, int i)
 		ajy--;
 	v->ah.next_xi = v->ah.xi;
 	v->ah.next_yi = v->ah.yi;
-	//while (u_is_inside(v, v->ah.next_xi, v->ah.next_yi + ajy))
 	while (1)
 	{
 		if (u_wall_hit(v, v->ah.next_xi, v->ah.next_yi + ajy))
