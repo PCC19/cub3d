@@ -1,11 +1,11 @@
 R 1000    500
 
-NO    /media/sf_cub3d/textures/eagle.xpm
-SO /media/sf_cub3d/textures/redbrick.xpm
-EA    /media/sf_cub3d/textures/greystone.xpm
-WE /media/sf_cub3d/textures/bluestone.xpm
+NO    ./textures/42sp.xpm
+SO ./textures/redbrick.xpm
+EA    ./textures/greystone.xpm
+WE ./textures/eagle.xpm
 
-S         /media/sf_cub3d/textures/guard.xpm
+S         ./textures/guard.xpm
 
 C 57, 50, 230
 F 57, 50, 76
