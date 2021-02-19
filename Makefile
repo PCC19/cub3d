@@ -73,24 +73,25 @@ C_FLAGS = -Wall -Werror -Wextra -g
 C_SANIT = -fsanitize=address
 L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft 
 
-$(NAME):	$(OBJS) ./maps/arq3.cub
+$(NAME):	$(OBJS) $(LIBFT)
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
-	./$(NAME) ./maps/arq3.cub
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)
 		$(CC) $(C_FLAGS) $(HEADERS) -c $< -o $@
 
-libft:
+$(LIBFT):
 	make re -C ./libft
 
 all: cub3d
 
 clean:
+	make clean -C ./libft
 	rm -f $(OBJS)
 	rmdir $(ODIR)
 
 fclean: clean
+	make fclean -C ./libft
 	rm -f $(NAME)
 
 re: fclean all
