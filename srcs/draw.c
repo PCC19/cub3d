@@ -6,11 +6,23 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 13:51:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 22:27:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	draw_minimap(t_vars *v)
+{
+	if (v->draw_minimap)
+	{
+		u_clear_screen(v, v->map_num_rows * v->tile_size * v->sf,
+				v->map_num_cols * v->tile_size * v->sf);
+		render_map(v);
+		render_player(v);
+		render_all_rays(v);
+	}
+}
 
 int		draw(t_vars *v)
 {
@@ -19,13 +31,7 @@ int		draw(t_vars *v)
 	cast_all_rays(v);
 	render3d(v);
 	put_sprites(v);
-	if (v->draw_minimap)
-	{
-		u_clear_screen(v, v->window_height * v->sf, v->window_width * v->sf);
-		render_map(v);
-		render_player(v);
-		render_all_rays(v);
-	}
+	draw_minimap(v);
 	if (v->argc == 3)
 	{
 		save_bmp_file(v);
