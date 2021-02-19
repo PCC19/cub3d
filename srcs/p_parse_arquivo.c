@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 21:45:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 22:03:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	p_parse_arquivo(t_vars *v, char *arquivo)
 	else
 	{
 		p_parse_config(v, fd);
+		check_ceiling_floor_colors(v);
 		p_parse_map(v, fd);
 		if (v->codigo == INVALID_MAP)
 			sai(INVALID_MAP);

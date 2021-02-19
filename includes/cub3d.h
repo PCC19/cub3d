@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 21:44:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 22:01:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ enum	e_error_num
 	INVALID_MAP_SIZE,
 	SPACE_ERROR,
 	INVALID_TEXTURE_FILE,
-	INVALID_MAP
+	INVALID_MAP,
+	INVALID_COLOR
 };
 static char g_error[][50] =
 {
@@ -73,8 +74,8 @@ static char g_error[][50] =
 	"Invalid map size (at least 3x3)\n",
 	"Map has breaches\n",
 	"Invalid texture file.\n",
-	"Invalid map.\n"
-
+	"Invalid map.\n",
+	"Invalid color.\n"
 };
 
 typedef struct	s_ponto {
@@ -343,4 +344,5 @@ int				free_and_exit(t_vars *vars);
 unsigned int	cor(int r, int g, int b);
 int				update_screen(t_vars *v);
 void			check_minimap_size(t_vars *v);
+void			check_ceiling_floor_colors(t_vars *v);
 #endif
