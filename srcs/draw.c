@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:16:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 04:07:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 13:51:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ int		draw(t_vars *v)
 	cast_all_rays(v);
 	render3d(v);
 	put_sprites(v);
-	u_clear_screen(v, v->window_height * v->sf, v->window_width * v->sf);
-	render_map(v);
-	render_player(v);
-	render_all_rays(v);
+	if (v->draw_minimap)
+	{
+		u_clear_screen(v, v->window_height * v->sf, v->window_width * v->sf);
+		render_map(v);
+		render_player(v);
+		render_all_rays(v);
+	}
 	if (v->argc == 3)
 	{
 		save_bmp_file(v);

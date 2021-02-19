@@ -62,6 +62,7 @@ SRCS =	$(SDIR)main.c\
 		$(SDIR)sprite.c\
 		$(SDIR)free_and_exit.c\
 		$(SDIR)update_screen.c\
+		$(SDIR)check_minimap_size.c\
 
 		
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		

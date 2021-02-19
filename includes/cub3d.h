@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 01:20:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 13:50:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,7 @@ typedef struct	s_vars {
 	t_aux_ds	s;
 	t_aux_tex	e;
 	int			argc;
+	int			draw_minimap;
 
 }				t_vars;
 
@@ -338,4 +339,5 @@ void			draw_sprites(t_vars *v, int i, int x0);
 int				free_and_exit(t_vars *vars);
 unsigned int	cor(int r, int g, int b);
 int				update_screen(t_vars *v);
+void			check_minimap_size(t_vars *v);
 #endif

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game.c                                        :+:      :+:    :+:   */
+/*   check_minimap_size.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 22:56:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 13:39:59 by user42           ###   ########.fr       */
+/*   Created: 2021/02/19 13:40:08 by user42            #+#    #+#             */
+/*   Updated: 2021/02/19 13:50:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_game(t_vars *v, int argc, char **argv)
+void	check_minimap_size(t_vars *v)
 {
-	p_init_cfg(v);
-	p_parse_argumentos(argc, argv);
-	v->mlx = mlx_init();
-	p_parse_arquivo(v, argv[1]);
-	check_resolution(v);
-	calculate_tile_size(v);
-	check_minimap_size(v);
-	p_init_player(v);
-	p_init_vars(v);
-	init_array_sprites(v);
-	p_parse_array_sprites(v);
-	g_image_init(v);
-	p_load_textures(v);
+	v->draw_minimap = 1;
+	if (v->tile_size * v->map_num_cols >= v->window_width)
+		v->draw_minimap = 0;
+	if (v->tile_size * v->map_num_rows >= v->window_height)
+		v->draw_minimap = 0;
 }
