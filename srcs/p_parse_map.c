@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 00:55:27 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:24:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 21:46:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	p_parse_map(t_vars *vars, int fd)
 			vars->map_temp[i] = salva_linha(linha);
 			i++;
 		}
+		else
+			vars->codigo = INVALID_MAP;
 		free(linha);
 	}
 	vars->map_temp[i] = 0;

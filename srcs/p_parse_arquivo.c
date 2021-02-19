@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 00:49:19 by user42            #+#    #+#             */
-/*   Updated: 2021/02/17 23:13:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 21:45:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	p_parse_arquivo(t_vars *v, char *arquivo)
 	{
 		p_parse_config(v, fd);
 		p_parse_map(v, fd);
+		if (v->codigo == INVALID_MAP)
+			sai(INVALID_MAP);
 		p_normaliza_map(v);
 		p_valida_map(v);
 	}

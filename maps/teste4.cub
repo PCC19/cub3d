@@ -1,4 +1,4 @@
-R 1000 500
+R 1000, 500
 
 NO    ./textures/42sp.xpm
 SO ./textures/redbrick.xpm
@@ -7,7 +7,7 @@ WE ./textures/eagle.xpm
 
 S         ./textures/guard.xpm
 
-C 50, 50, 230
+C 57, 50, 230
 F 57, 50, 76
 
 

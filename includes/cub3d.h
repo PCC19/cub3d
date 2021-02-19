@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 21:04:35 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 15:54:32 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 21:44:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ enum	e_error_num
 	INVALID_PLAYER,
 	INVALID_MAP_SIZE,
 	SPACE_ERROR,
-	INVALID_TEXTURE_FILE
+	INVALID_TEXTURE_FILE,
+	INVALID_MAP
 };
 static char g_error[][50] =
 {
@@ -71,7 +72,8 @@ static char g_error[][50] =
 	"Invalid number of players\n",
 	"Invalid map size (at least 3x3)\n",
 	"Map has breaches\n",
-	"Invalid texture file.\n"
+	"Invalid texture file.\n",
+	"Invalid map.\n"
 
 };
 
@@ -254,6 +256,7 @@ typedef struct	s_vars {
 	t_aux_tex	e;
 	int			argc;
 	int			draw_minimap;
+	int			codigo;
 
 }				t_vars;
 
