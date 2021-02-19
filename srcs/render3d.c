@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/14 18:00:16 by user42            #+#    #+#             */
-/*   Updated: 2021/02/19 15:20:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 15:39:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	calc_y_min_max(t_vars *v, t_aux_render_wall *a)
 
 void	calc_offset_x(t_vars *v, t_aux_render_wall *a, int i)
 {
-	//printf("i: %d hv: %d\t",i,v->rays[i].hit_v);
 	if (v->rays[i].hit_v)
 		a->offset_x = fmod(v->rays[i].wallhit_y, v->tile_size);
 	else

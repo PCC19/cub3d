@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 21:36:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/18 01:01:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/19 15:59:24 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	up(t_vars *vars)
 	vars->player.walk_dir = 1;
 	nx = vars->player.x + floor(s * cos(u_norm_angle(vars->player.angle)));
 	ny = vars->player.y + floor(s * sin(u_norm_angle(vars->player.angle)));
-	if (!u_wall_hit(vars, nx, ny))
+	if (!u_wall_hit(vars, nx, ny) &&
+		nx != vars->tile_size && ny != vars->tile_size)
 	{
 		vars->player.x = nx;
 		vars->player.y = ny;
@@ -57,7 +58,8 @@ void	down(t_vars *vars)
 	vars->player.walk_dir = -1;
 	nx = vars->player.x - floor(s * cos(u_norm_angle(vars->player.angle)));
 	ny = vars->player.y - floor(s * sin(u_norm_angle(vars->player.angle)));
-	if (!u_wall_hit(vars, nx, ny))
+	if (!u_wall_hit(vars, nx, ny) &&
+		nx != vars->tile_size && ny != vars->tile_size)
 	{
 		vars->player.x = nx;
 		vars->player.y = ny;
