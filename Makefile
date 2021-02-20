@@ -1,4 +1,4 @@
-NAME = cub3d
+NAME = cub3D
 
 LIBFT = ./libft/libft.a
 MLX = ./minilibx-linux/libmlx.a
@@ -76,7 +76,7 @@ C_SANIT = -fsanitize=address
 L_FLAGS = -lbsd -lm -lXext -lX11 -L ./libft -lft -L ./minilibx-linux -lmlx
 
 $(NAME):	$(OBJS) $(LIBFT) $(MLX)
-	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
+	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3D
 
 $(ODIR)%.o: $(SDIR)%.c
 		mkdir -p $(ODIR)
@@ -87,7 +87,7 @@ $(LIBFT):
 $(MLX):
 	make re -C ./minilibx-linux
 
-all: cub3d
+all: cub3D
 
 clean:
 	make clean -C ./libft
@@ -102,4 +102,4 @@ fclean: clean
 re: fclean all
 
 roda:
-	./cub3d ./maps/arq3.cub
+	./cub3D ./maps/arq3.cub
