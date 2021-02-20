@@ -1,6 +1,7 @@
 NAME = cub3d
 
 LIBFT = ./libft/libft.a
+MLX = ./minilibx-linux/libmlx.a
 
 SDIR =	./srcs/
 ODIR =	./objs/
@@ -69,12 +70,12 @@ SRCS =	$(SDIR)main.c\
 OBJS =	$(patsubst $(SDIR)%.c, $(ODIR)%.o, $(SRCS))		
 
 CC = clang
-HEADERS = -I./includes -I./libft
+HEADERS = -I./includes -I./libft -I ./minilibx-linux
 C_FLAGS = -Wall -Werror -Wextra -g
 C_SANIT = -fsanitize=address
-L_FLAGS = -lbsd -lmlx -lXext -lX11 -L ./libft -lft 
+L_FLAGS = -lbsd -lm -lXext -lX11 -L ./libft -lft -L ./minilibx-linux -lmlx
 
-$(NAME):	$(OBJS) $(LIBFT)
+$(NAME):	$(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(OBJS) $(C_FLAGS) $(C_SANIT) $(HEADERS) $(L_FLAGS) -o cub3d
 
 $(ODIR)%.o: $(SDIR)%.c
@@ -83,11 +84,14 @@ $(ODIR)%.o: $(SDIR)%.c
 
 $(LIBFT):
 	make re -C ./libft
+$(MLX):
+	make re -C ./minilibx-linux
 
 all: cub3d
 
 clean:
 	make clean -C ./libft
+	make clean -C ./minilibx-linux
 	rm -f $(OBJS)
 	rmdir $(ODIR)
 
